@@ -1,0 +1,5 @@
+# Ignorar todos los archivos con extensión html
+*.html
+
+# Ignorar la carpeta output y todo su contenido
+output/
