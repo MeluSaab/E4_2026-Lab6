@@ -27,6 +27,7 @@ SPDX-License-Identifier: MIT
 /* === Headers files inclusions ==================================================================================== */
 
 #include <stdint.h>
+#include <stdbool.h>
 
 /* === Header for C++ compatibility ================================================================================ */
 
@@ -38,9 +39,9 @@ extern "C" {
 
 /* === Public data type declarations =============================================================================== */
 
-typedef inoutput_output_s * inoutput_output_t;
+typedef struct inoutput_output_s * inoutput_output_t;
 
-typedef inoutput_input_s * inoutput_input_t;
+typedef struct inoutput_input_s * inoutput_input_t;
 
 /* === Public variable declarations ================================================================================ */
 
@@ -54,7 +55,10 @@ void InoutputOutputToggle(inoutput_output_t output);
 
 /* === InPut ================================================================================ */
 inoutput_input_t InoutputInputCreate(uint32_t port, uint8_t pin, bool state);
-
+bool InoutputInputGetState(inoutput_input_t entrada);
+int InoutputInputHasChanged(inoutput_input_t entrada);
+bool InoutputInputHasActivated(inoutput_input_t entrada);
+bool DigitalInputHasDeactivated(inoutput_input_t entrada);
 
 /* === End of conditional blocks =================================================================================== */
 

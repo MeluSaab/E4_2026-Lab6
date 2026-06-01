@@ -26,6 +26,7 @@ SPDX-License-Identifier: MIT
 #include "inoutput.h"
 #include "chip.h"
 #include <stdlib.h>
+#include <stdbool.h>
 
 #define NO_EVENT         0
 #define ACTIVATE_EVENT   1
@@ -89,7 +90,7 @@ inoutput_output_t InoutputOutputCreate(uint32_t port, uint8_t pin, bool state){
         self->pin = pin;
         self->state = state;
 
-        DigitalOutputDeactivate(self);
+        InoutputOutputDeactivate(self);
         Chip_GPIO_SetPinDIR(LPC_GPIO_PORT, self -> port, self -> pin, true);
     }
     return self;
@@ -102,7 +103,7 @@ inoutput_output_t InoutputOutputCreate(uint32_t port, uint8_t pin, bool state){
  */
 void InoutputOutputActivate(inoutput_output_t self){
     if(self != NULL){
-        CChip_GPIO_SetPinState(LPC_GPIO_PORT, self -> port, self -> pin, true);
+        Chip_GPIO_SetPinState(LPC_GPIO_PORT, self -> port, self -> pin, true);
     }
 }
 
@@ -141,11 +142,11 @@ inoutput_input_t InoutputInputCreate(uint32_t port, uint8_t pin, bool state) {
     inoutput_input_t self = malloc(sizeof(struct inoutput_input_s));
     self->port = port;
     self->pin = pin;
-    self->sate = state;
+    self->state = state;
 
     Chip_GPIO_SetPinDIR(LPC_GPIO_PORT, self -> port, self -> pin, false);
 
-    self -> last_state = DigitalInputGetState(self);
+    self -> last_state = InoutputInputGetState(self);
 
     return self;
 }
@@ -178,7 +179,7 @@ bool InoutputInputGetState(inoutput_input_t self) {
 int InoutputInputHasChanged(inoutput_input_t self) {
     int resultado = NO_EVENT;
     if (self != NULL) {
-        bool actual = DigitalInputGetState(self);
+        bool actual = InoutputInputGetState(self);
         if (actual && !self->last_state) {
             resultado = ACTIVATE_EVENT;
         } else if (!actual && self->last_state) {
@@ -195,7 +196,7 @@ int InoutputInputHasChanged(inoutput_input_t self) {
  * @param self Puntero a la entrada digital
  */
 bool InoutputInputHasActivated(inoutput_input_t self) {
-    return DigitalInputHasChanged(self) == ACTIVATE_EVENT;
+    return InoutputInputHasChanged(self) == ACTIVATE_EVENT;
 }
 
 /**
@@ -203,8 +204,8 @@ bool InoutputInputHasActivated(inoutput_input_t self) {
  *
  * @param self Puntero a la entrada digital
  */
-bool DigitalInputHasDeactivated(inoutput_input_t self) {
-    return DigitalInputHasChanged(self) == DEACTIVATE_EVENT;
+bool InoutputInputHasDeactivated(inoutput_input_t self) {
+    return InoutputInputHasChanged(self) == DEACTIVATE_EVENT;
 }
 
 /* === End of documentation ======================================================================================== */

@@ -119,7 +119,7 @@ static void ConfigureLeds(struct placa_s * self){
     self -> led_rojo_rgb = InoutputOutputCreate(LED_R_GPIO, LED_R_BIT, false);
 
     Chip_SCU_PinMuxSet(LED_G_PORT, LED_G_PIN, SCU_MODE_INBUFF_EN | SCU_MODE_INACT | LED_G_FUNC);
-    self -> led_verde_rgb =  InoutputputCreate(LED_G_GPIO, LED_G_BIT, false);
+    self -> led_verde_rgb =  InoutputOutputCreate(LED_G_GPIO, LED_G_BIT, false);
 
     Chip_SCU_PinMuxSet(LED_B_PORT, LED_B_PIN, SCU_MODE_INBUFF_EN | SCU_MODE_INACT | LED_B_FUNC);
     self -> led_azul_rgb =  InoutputOutputCreate(LED_B_GPIO, LED_B_BIT, false);
@@ -131,7 +131,7 @@ static void ConfigureLeds(struct placa_s * self){
     Chip_SCU_PinMuxSet(LED_2_PORT, LED_2_PIN, SCU_MODE_INBUFF_EN | SCU_MODE_INACT | LED_2_FUNC);
     self -> led_amarillo =  InoutputOutputCreate(LED_2_GPIO, LED_2_BIT, false);
 
-    ChChip_SCU_PinMuxSet(LED_3_PORT, LED_3_PIN, SCU_MODE_INBUFF_EN | SCU_MODE_INACT | LED_3_FUNC);
+    Chip_SCU_PinMuxSet(LED_3_PORT, LED_3_PIN, SCU_MODE_INBUFF_EN | SCU_MODE_INACT | LED_3_FUNC);
     self -> led_verde =  InoutputOutputCreate(LED_3_GPIO, LED_3_BIT, false);
 }
 

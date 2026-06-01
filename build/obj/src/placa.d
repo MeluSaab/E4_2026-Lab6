@@ -1,5 +1,6 @@
-build/obj/src/main.o: \
- C:/Onedrive/Facultad/MelinaSaabAraoz/reloj/src/main.c \
+build/obj/src/placa.o: \
+ C:/Onedrive/Facultad/MelinaSaabAraoz/reloj/src/placa.c \
+ C:/Onedrive/Facultad/MelinaSaabAraoz/reloj/muju/board/edu-ciaa-nxp/inc/board.h \
  C:/Onedrive/Facultad/MelinaSaabAraoz/reloj/muju/external/base/soc/lpc43xx/lpc_open/inc/chip.h \
  C:/Onedrive/Facultad/MelinaSaabAraoz/reloj/muju/external/base/soc/lpc43xx/lpc_open/inc/config_43xx/sys_config.h \
  C:/Onedrive/Facultad/MelinaSaabAraoz/reloj/muju/external/base/soc/lpc43xx/lpc_open/inc/cmsis.h \

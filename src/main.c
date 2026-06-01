@@ -120,17 +120,15 @@ static void FlashLed(placa_t placa) {
 }
 
 static void SwitchLed(placa_t placa) {
-    if(InoutputGetState(placa -> tecla_1) == 0){
+    if(InoutputInputGetState(placa -> tecla_1) == 0){
         InoutputOutputActivate(placa -> led_rojo);
     }
-    if(InoutputGetState(placa -> tecla_2) == 0){
+    if(InoutputInputGetState(placa -> tecla_2) == 0){
         InoutputOutputDeactivate(placa -> led_rojo);
     }
 }
 
 static void ToggleLed(placa_t placa) {
-    bool current_state;
-
     if(InoutputInputHasActivated(placa -> tecla_3)){
         InoutputOutputToggle(placa -> led_amarillo);
     }

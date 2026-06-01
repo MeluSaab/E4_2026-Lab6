@@ -26,6 +26,8 @@ SPDX-License-Identifier: MIT
 
 /* === Headers files inclusions ==================================================================================== */
 
+#include "inoutput.h"
+
 /* === Header for C++ compatibility ================================================================================ */
 
 #ifdef __cplusplus
@@ -54,7 +56,7 @@ typedef struct placa_s {
 
 /* === Public function declarations ================================================================================ */
 
-board_t PlacaCreate();
+placa_t PlacaCreate();
 
 /* === End of conditional blocks =================================================================================== */
 

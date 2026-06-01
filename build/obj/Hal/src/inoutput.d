@@ -1,5 +1,6 @@
-build/obj/src/main.o: \
- C:/Onedrive/Facultad/MelinaSaabAraoz/reloj/src/main.c \
+build/obj/Hal/src/inoutput.o: \
+ C:/Onedrive/Facultad/MelinaSaabAraoz/reloj/Hal/src/inoutput.c \
+ C:/Onedrive/Facultad/MelinaSaabAraoz/reloj/Hal/inc/inoutput.h \
  C:/Onedrive/Facultad/MelinaSaabAraoz/reloj/muju/external/base/soc/lpc43xx/lpc_open/inc/chip.h \
  C:/Onedrive/Facultad/MelinaSaabAraoz/reloj/muju/external/base/soc/lpc43xx/lpc_open/inc/config_43xx/sys_config.h \
  C:/Onedrive/Facultad/MelinaSaabAraoz/reloj/muju/external/base/soc/lpc43xx/lpc_open/inc/cmsis.h \
@@ -62,6 +63,4 @@ build/obj/src/main.o: \
  C:/Onedrive/Facultad/MelinaSaabAraoz/reloj/muju/external/base/soc/lpc43xx/lpc_open/inc/iap_18xx_43xx.h \
  C:/Onedrive/Facultad/MelinaSaabAraoz/reloj/muju/external/base/soc/lpc43xx/lpc_open/inc/error.h \
  C:/Onedrive/Facultad/MelinaSaabAraoz/reloj/muju/external/base/soc/lpc43xx/lpc_open/inc/i2cm_18xx_43xx.h \
- C:/Onedrive/Facultad/MelinaSaabAraoz/reloj/muju/external/base/soc/lpc43xx/lpc_open/inc/fpu_init.h \
- C:/Onedrive/Facultad/MelinaSaabAraoz/reloj/inc/placa.h \
- C:/Onedrive/Facultad/MelinaSaabAraoz/reloj/Hal/inc/inoutput.h
+ C:/Onedrive/Facultad/MelinaSaabAraoz/reloj/muju/external/base/soc/lpc43xx/lpc_open/inc/fpu_init.h
