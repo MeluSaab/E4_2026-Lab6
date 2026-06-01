@@ -102,23 +102,17 @@ static void FlashLed(placa_t placa) {
 
         switch (state) {
         case LED_RED_ON:
-            //Chip_GPIO_SetPinState(LPC_GPIO_PORT, LED_R_GPIO, LED_R_BIT, true);
             InoutputOutputActivate(placa -> led_rojo_rgb);
             break;
         case LED_GREEN_ON:
-            //Chip_GPIO_SetPinState(LPC_GPIO_PORT, LED_G_GPIO, LED_G_BIT, true);
             InoutputOutputActivate(placa -> led_verde_rgb);
             break;
         case LED_BLUE_ON:
-            //Chip_GPIO_SetPinState(LPC_GPIO_PORT, LED_B_GPIO, LED_B_BIT, true);
             InoutputOutputActivate(placa -> led_azul_rgb);
             break;
         default:
-            //Chip_GPIO_SetPinState(LPC_GPIO_PORT, LED_R_GPIO, LED_R_BIT, false);
             InoutputOutputDeactivate(placa -> led_rojo_rgb);
-            //Chip_GPIO_SetPinState(LPC_GPIO_PORT, LED_G_GPIO, LED_G_BIT, false);
             InoutputOutputDeactivate(placa -> led_verde_rgb);
-            //Chip_GPIO_SetPinState(LPC_GPIO_PORT, LED_B_GPIO, LED_B_BIT, false);
             InoutputOutputDeactivate(placa -> led_azul_rgb);
             break;
         }
@@ -126,40 +120,23 @@ static void FlashLed(placa_t placa) {
 }
 
 static void SwitchLed(placa_t placa) {
-    // if (Chip_GPIO_ReadPortBit(LPC_GPIO_PORT, TEC_1_GPIO, TEC_1_BIT) == 0) {
-        //Chip_GPIO_SetPinState(LPC_GPIO_PORT, LED_1_GPIO, LED_1_BIT, true);
-    //}
     if(InoutputGetState(placa -> tecla_1) == 0){
         InoutputOutputActivate(placa -> led_rojo);
     }
-    //if (Chip_GPIO_ReadPortBit(LPC_GPIO_PORT, TEC_2_GPIO, TEC_2_BIT) == 0) {
-        //Chip_GPIO_SetPinState(LPC_GPIO_PORT, LED_1_GPIO, LED_1_BIT, false);
-    //}
     if(InoutputGetState(placa -> tecla_2) == 0){
         InoutputOutputDeactivate(placa -> led_rojo);
     }
 }
 
 static void ToggleLed(placa_t placa) {
-    //static bool last_state = false;
     bool current_state;
 
-    //current_state = (Chip_GPIO_ReadPortBit(LPC_GPIO_PORT, TEC_3_GPIO, TEC_3_BIT) == 0);
-    //if ((current_state) && (!last_state)) {
-       // Chip_GPIO_SetPinToggle(LPC_GPIO_PORT, LED_2_GPIO, LED_2_BIT);
-    //}
-    //last_state = current_state;
     if(InoutputInputHasActivated(placa -> tecla_3)){
         InoutputOutputToggle(placa -> led_amarillo);
     }
 }
 
 static void TestLed(placa_t placa) {
-    //if (Chip_GPIO_ReadPortBit(LPC_GPIO_PORT, TEC_4_GPIO, TEC_4_BIT) == 0) {
-        //Chip_GPIO_SetPinState(LPC_GPIO_PORT, LED_3_GPIO, LED_3_BIT, true);
-    //} else {
-        //Chip_GPIO_SetPinState(LPC_GPIO_PORT, LED_3_GPIO, LED_3_BIT, false);
-    //}
     if(InoutputInputGetState(placa -> tecla_4) == 0 ){
         InoutputOutputActivate(placa -> led_verde);
     }else{
@@ -178,10 +155,6 @@ static void Delay(void) {
 /* === Public function implementation ========================================================== */
 
 int main(void) {
-
-    //BoardSetup();
-    //ConfigureLeds();
-    //ConfigureKeys();
     placa_t placa = PlacaCreate();
 
     while (true) {
