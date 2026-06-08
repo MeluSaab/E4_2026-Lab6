@@ -38,24 +38,31 @@ extern "C" {
 
 /* === Public data type declarations =============================================================================== */
 
+/**
+ * @brief Estructura de la placa
+ * @param led_color salida para un led
+ * @param tecla_numero entrada para una tecla
+ */
 typedef struct placa_s {
-    inoutput_output_t led_verde;
-    inoutput_output_t led_rojo;
-    inoutput_output_t led_amarillo;
-    inoutput_output_t led_rojo_rgb;
-    inoutput_output_t led_verde_rgb;
-    inoutput_output_t led_azul_rgb;
+    inoutput_output_t buzzer;
+    inoutput_output_t display;
 
-    inoutput_input_t tecla_1;
-    inoutput_input_t tecla_2;
-    inoutput_input_t tecla_3;
-    inoutput_input_t tecla_4;
+    inoutput_input_t accept;
+    inoutput_input_t cancel;
+    inoutput_input_t f1;
+    inoutput_input_t f2;
+    inoutput_input_t f3;
+    inoutput_input_t f4;
 } const * const placa_t;
 
 /* === Public variable declarations ================================================================================ */
 
 /* === Public function declarations ================================================================================ */
 
+/**
+ * @brief Implementación del constructor de la placa para asignación estática de memoria
+ * @return board_t Puntero constante a la estructura estática de la placa ya inicializada
+ */
 placa_t PlacaCreate();
 
 /* === End of conditional blocks =================================================================================== */

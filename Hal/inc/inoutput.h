@@ -29,6 +29,10 @@ SPDX-License-Identifier: MIT
 #include <stdint.h>
 #include <stdbool.h>
 
+#define INOUTPUT_INPUT_NO_EVENT         0
+#define INOUTPUT_INPUT_ACTIVATE_EVENT   1
+#define INOUTPUT_INPUT_DEACTIVATE_EVENT 2
+
 /* === Header for C++ compatibility ================================================================================ */
 
 #ifdef __cplusplus
@@ -48,16 +52,68 @@ typedef struct inoutput_input_s * inoutput_input_t;
 /* === Public function declarations ================================================================================ */
 
 /* === OutPut ================================================================================ */
+/**
+ * @brief Funcion para crear una salida digital
+ * @param state true si la carga trabaja con lógica invertida (activa en bajo),
+ *                 false si trabaja con lógica directa (activa en alto).
+ * @return inoutput_output_t Puntero al objeto de la salida digital creada
+ */
 inoutput_output_t InoutputOutputCreate(uint32_t port, uint8_t pin, bool state);
+
+/**
+ * @brief Funcion para activar la salida digital
+ * @param self Puntero a la salida digital
+ */
 void InoutputOutputActivate(inoutput_output_t output);
+
+/**
+ * @brief Funcion para desactivar la salida digital
+ * @param self Puntero a la salida digital
+ */
 void InoutputOutputDeactivate(inoutput_output_t output);
+
+/**
+ * @brief Invierte el estado actual de la salida digital
+ * @param self Puntero a la salida digital
+ */
 void InoutputOutputToggle(inoutput_output_t output);
 
 /* === InPut ================================================================================ */
-inoutput_input_t InoutputInputCreate(uint32_t port, uint8_t pin, bool state);
+/**
+ * @brief Funcion para crear entradas digitales
+ * @param port Puerto
+ * @param pin Pin del puerto
+ * @param logic true si la tecla trabaja con lógica invertida (activo en bajo / PULL-UP),
+ *              false si trabaja con lógica directa (activo en alto / PULL-DOWN).
+ * @return inoutput_input_t Puntero al objeto de la entrada digital creada
+ */
+inoutput_input_t InoutputInputCreate(uint32_t port, uint8_t pin, bool logic);
+
+/**
+ * @brief Funcion para obtener el estado actual de la entrada digital
+ * @param self Puntero a la entrada
+ */
 bool InoutputInputGetState(inoutput_input_t entrada);
+
+/**
+ * @brief Funcion para conocer si la entrada digital cambio de estado
+ * @param self Puntero a la entrada digital
+ * @return 1 si se debe activar
+ *         2 si se debe desactivar
+ *         0 si no hubo cambios por lo que no debe ocurrir un evento
+ */
 int InoutputInputHasChanged(inoutput_input_t entrada);
+
+/**
+ * @brief Funcion para conocer si la entrada digital fue activada
+ * @param self Puntero a la entrada digital
+ */
 bool InoutputInputHasActivated(inoutput_input_t entrada);
+
+/**
+ * @brief Funcion para conocer si la entrada digital fue desactivada
+ * @param self Puntero a la entrada digital
+ */
 bool DigitalInputHasDeactivated(inoutput_input_t entrada);
 
 /* === End of conditional blocks =================================================================================== */

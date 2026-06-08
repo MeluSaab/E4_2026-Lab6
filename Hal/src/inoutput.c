@@ -28,10 +28,6 @@ SPDX-License-Identifier: MIT
 #include <stdlib.h>
 #include <stdbool.h>
 
-#define NO_EVENT         0
-#define ACTIVATE_EVENT   1
-#define DEACTIVATE_EVENT 2
-
 /* === Macros definitions ========================================================================================== */
 
 /* === Private data type declarations ============================================================================== */
@@ -51,9 +47,9 @@ struct inoutput_output_s {
 
 /**
  * @brief Estructura para representar una entrada digital
- * @param gpio Puerto
- * @param bit Pin del Puerto
- * @param state true si la tecla trabaja con lógica invertida (activo en bajo / PULL-UP),
+ * @param port Puerto
+ * @param pin Pin del Puerto
+ * @param logic true si la tecla trabaja con lógica invertida (activo en bajo / PULL-UP),
  *              false si trabaja con lógica directa (activo en alto / PULL-DOWN).
  * @param last_state variable para almacenar el ultimo estado de la entrada digital
  *
@@ -61,7 +57,7 @@ struct inoutput_output_s {
 struct inoutput_input_s {
     uint32_t port;
     uint8_t pin;
-    bool state;
+    bool logic;
     bool last_state;
 };
 
@@ -78,8 +74,7 @@ struct inoutput_input_s {
 /* === OutPut ================================================================================ */
 /**
  * @brief Funcion para crear una salida digital
- *
- * @param inverted true si la carga trabaja con lógica invertida (activa en bajo),
+ * @param state true si la carga trabaja con lógica invertida (activa en bajo),
  *                 false si trabaja con lógica directa (activa en alto).
  * @return inoutput_output_t Puntero al objeto de la salida digital creada
  */
@@ -98,7 +93,6 @@ inoutput_output_t InoutputOutputCreate(uint32_t port, uint8_t pin, bool state){
 
 /**
  * @brief Funcion para activar la salida digital
- *
  * @param self Puntero a la salida digital
  */
 void InoutputOutputActivate(inoutput_output_t self){
@@ -109,7 +103,6 @@ void InoutputOutputActivate(inoutput_output_t self){
 
 /**
  * @brief Funcion para desactivar la salida digital
- *
  * @param self Puntero a la salida digital
  */
 void InoutputOutputDeactivate(inoutput_output_t self){
@@ -120,7 +113,6 @@ void InoutputOutputDeactivate(inoutput_output_t self){
 
 /**
  * @brief Invierte el estado actual de la salida digital
- *
  * @param self Puntero a la salida digital
  */
 void InoutputOutputToggle(inoutput_output_t self){
@@ -131,29 +123,27 @@ void InoutputOutputToggle(inoutput_output_t self){
 
 /**
  * @brief Funcion para crear entradas digitales
- *
  * @param port Puerto
  * @param pin Pin del puerto
- * @param state true si la tecla trabaja con lógica invertida (activo en bajo / PULL-UP),
+ * @param logic true si la tecla trabaja con lógica invertida (activo en bajo / PULL-UP),
  *              false si trabaja con lógica directa (activo en alto / PULL-DOWN).
  * @return inoutput_input_t Puntero al objeto de la entrada digital creada
  */
-inoutput_input_t InoutputInputCreate(uint32_t port, uint8_t pin, bool state) {
+inoutput_input_t InoutputInputCreate(uint32_t port, uint8_t pin, bool logic) {
     inoutput_input_t self = malloc(sizeof(struct inoutput_input_s));
+   if(self != NULL){
     self->port = port;
     self->pin = pin;
-    self->state = state;
+    self->logic = logic;
+    self -> last_state = InoutputInputGetState(self);
+   }
 
     Chip_GPIO_SetPinDIR(LPC_GPIO_PORT, self -> port, self -> pin, false);
-
-    self -> last_state = InoutputInputGetState(self);
-
     return self;
 }
 
 /**
  * @brief Funcion para obtener el estado actual de la entrada digital
- *
  * @param self Puntero a la entrada
  */
 bool InoutputInputGetState(inoutput_input_t self) {
@@ -161,7 +151,7 @@ bool InoutputInputGetState(inoutput_input_t self) {
         return false;
     }
     bool state_pin = Chip_GPIO_ReadPortBit(LPC_GPIO_PORT, self -> port, self -> pin);
-    if (self -> state) {
+    if (self -> logic) {
         return !state_pin;
     } else {
         return state_pin;
@@ -170,20 +160,19 @@ bool InoutputInputGetState(inoutput_input_t self) {
 
 /**
  * @brief Funcion para conocer si la entrada digital cambio de estado
- *
  * @param self Puntero a la entrada digital
  * @return 1 si se debe activar
  *         2 si se debe desactivar
  *         0 si no hubo cambios por lo que no debe ocurrir un evento
  */
 int InoutputInputHasChanged(inoutput_input_t self) {
-    int resultado = NO_EVENT;
+    int resultado = INOUTPUT_INPUT_NO_EVENT;
     if (self != NULL) {
         bool actual = InoutputInputGetState(self);
         if (actual && !self->last_state) {
-            resultado = ACTIVATE_EVENT;
+            resultado = INOUTPUT_INPUT_ACTIVATE_EVENT;
         } else if (!actual && self->last_state) {
-            resultado = DEACTIVATE_EVENT;
+            resultado = INOUTPUT_INPUT_DEACTIVATE_EVENT;
         }
         self->last_state = actual;
     }
@@ -192,20 +181,18 @@ int InoutputInputHasChanged(inoutput_input_t self) {
 
 /**
  * @brief Funcion para conocer si la entrada digital fue activada
- *
  * @param self Puntero a la entrada digital
  */
 bool InoutputInputHasActivated(inoutput_input_t self) {
-    return InoutputInputHasChanged(self) == ACTIVATE_EVENT;
+    return InoutputInputHasChanged(self) == INOUTPUT_INPUT_ACTIVATE_EVENT;
 }
 
 /**
  * @brief Funcion para conocer si la entrada digital fue desactivada
- *
  * @param self Puntero a la entrada digital
  */
 bool InoutputInputHasDeactivated(inoutput_input_t self) {
-    return InoutputInputHasChanged(self) == DEACTIVATE_EVENT;
+    return InoutputInputHasChanged(self) == INOUTPUT_INPUT_DEACTIVATE_EVENT;
 }
 
 /* === End of documentation ======================================================================================== */
