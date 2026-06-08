@@ -44,127 +44,55 @@ SPDX-License-Identifier: MIT
 
 /* === Private data type declarations ========================================================== */
 
-/**
- * @brief Enumeration with color sequence of RGB led
- */
-typedef enum rgb_color_e {
-    LED_RED_ON = 0,
-    LED_RED_OFF,
-    LED_GREEN_ON,
-    LED_GREEN_OFF,
-    LED_BLUE_ON,
-    LED_BLUE_OFF,
-} rgb_color_t;
-
 /* === Private variable declarations =========================================================== */
 
 /* === Private function declarations =========================================================== */
-
-/**
- * @brief Function to flash RGB led in sequence
- */
-static void FlashLed(placa_t placa);
-
-/**
- * @brief Function to switch on and off a led with two keys
- */
-static void SwitchLed(placa_t placa);
-
-/**
- * @brief Function to switch on and off a led with a single key
- */
-static void ToggleLed(placa_t placa);
-
-/**
- * @brief Function to turn on a led while a key is pressed
- */
-static void TestLed(placa_t placa);
-
-/**
- * @brief Function to generate a delay of approximately 100 ms
- */
-static void Delay(void);
 
 /* === Public variable definitions ============================================================= */
 
 /* === Private variable definitions ============================================================ */
 
+static placa_t placa;
+
 /* === Private function implementation ========================================================= */
-
-static void FlashLed(placa_t placa) {
-    static int divisor = 0;
-    static rgb_color_t state = LED_BLUE_OFF;
-
-    divisor++;
-    if (divisor == 5) {
-        divisor = 0;
-        state = (state + 1) % (LED_BLUE_OFF + 1);
-
-        switch (state) {
-        case LED_RED_ON:
-            InoutputOutputActivate(placa -> led_rojo_rgb);
-            break;
-        case LED_GREEN_ON:
-            InoutputOutputActivate(placa -> led_verde_rgb);
-            break;
-        case LED_BLUE_ON:
-            InoutputOutputActivate(placa -> led_azul_rgb);
-            break;
-        default:
-            InoutputOutputDeactivate(placa -> led_rojo_rgb);
-            InoutputOutputDeactivate(placa -> led_verde_rgb);
-            InoutputOutputDeactivate(placa -> led_azul_rgb);
-            break;
-        }
-    }
-}
-
-static void SwitchLed(placa_t placa) {
-    if(InoutputInputGetState(placa -> tecla_1) == 0){
-        InoutputOutputActivate(placa -> led_rojo);
-    }
-    if(InoutputInputGetState(placa -> tecla_2) == 0){
-        InoutputOutputDeactivate(placa -> led_rojo);
-    }
-}
-
-static void ToggleLed(placa_t placa) {
-    if(InoutputInputHasActivated(placa -> tecla_3)){
-        InoutputOutputToggle(placa -> led_amarillo);
-    }
-}
-
-static void TestLed(placa_t placa) {
-    if(InoutputInputGetState(placa -> tecla_4) == 0 ){
-        InoutputOutputActivate(placa -> led_verde);
-    }else{
-        InoutputOutputDeactivate(placa -> led_verde);
-    }
-}
-
-static void Delay(void) {
-    for (int index = 0; index < 100; index++) {
-        for (int delay = 0; delay < 25000; delay++) {
-            __asm("NOP");
-        }
-    }
-}
 
 /* === Public function implementation ========================================================== */
 
 int main(void) {
+    uint8_t entrada[4] = {4, 2, 3, 1};
+    uint16_t frecuencia = 0;
+
     placa_t placa = PlacaCreate();
 
+    DisplayWriteBCD(placa -> display, entrada, sizeof(entrada));
     while (true) {
-        FlashLed(placa);
-        SwitchLed(placa);
-        ToggleLed(placa);
-        TestLed(placa);
+        if(DigitalInputHasActivated(placa -> f1)){
+            entrada[3] = (entrada[3] + 1) % 10;
+            DisplayWriteBCD(placa -> display, entrada, sizeof(entrada));
+        } 
+        
+        if(DigitalInputHasActivated(placa -> f2)){
+            entrada[2] = (entrada[32] + 1) % 10;
+            DisplayWriteBCD(placa -> display, entrada, sizeof(entrada));
+        } 
 
-        Delay();
+        if(DigitalInputHasActivated(placa -> f3)){
+            entrada[1] = (entrada[1] + 1) % 10;
+            DisplayWriteBCD(placa -> display, entrada, sizeof(entrada));
+        }
+
+        if(DigitalInputHasActivated(placa -> f4)){
+            entrada[0] = (entrada[0] + 1) % 10;
+            DisplayWriteBCD(placa -> display, entrada, sizeof(entrada));
+        } 
+
+        for(int i = 0; i < 50; i++){
+            for(int delay = 0; delay < 1000; delay++){
+                _asm("NOP");
+            }
+            DisplayRefresh(placa -> display);
+        }
     }
-
-    return 0;
 }
 
 /* === End of documentation ==================================================================== */

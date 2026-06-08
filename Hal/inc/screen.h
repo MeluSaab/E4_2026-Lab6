@@ -98,7 +98,6 @@ typedef struct display_driver_s {
 
 /**
  * @brief Crea una pantalla multiplexada de siete segmentos
- *
  * @param  digits  Cantidad de dígitos de la pantalla
  * @param  driver  Puntero a la estructura con los callbacks de hardware
  * @return         Descriptor de la pantalla, o @c NULL si no hay instancia disponible
@@ -107,7 +106,6 @@ display_t DisplayCreate(uint8_t digits, display_driver_t driver);
 
 /**
  * @brief Escribe un número BCD en la memoria de la pantalla
- *
  * @param  display  Descriptor creado con @ref DisplayCreate
  * @param  number   Puntero al primer dígito BCD (cada elemento en @c 0..9)
  * @param  size     Cantidad de dígitos en @p number
@@ -116,26 +114,14 @@ void DisplayWriteBCD(display_t display, uint8_t * number, uint8_t size);
 
 /**
  * @brief Refresca un paso del barrido multiplexado
- *
- * Debe invocarse periódicamente desde una tarea o interrupción de temporización.
+ *        Debe invocarse periódicamente desde una tarea o interrupción de temporización.
  *
  * @param  display  Descriptor creado con @ref DisplayCreate
  */
 void DisplayRefresh(display_t display);
 
 /**
- * @brief Configura el parpadeo de un rango de dígitos
- *
- * @param  display    Descriptor creado con @ref DisplayCreate
- * @param  from       Índice del primer dígito que parpadea
- * @param  to         Índice del último dígito que parpadea
- * @param  frecuency  Divisor respecto al ciclo de refresco; @c 0 desactiva el parpadeo
- */
-void DisplayFlashDigits(display_t display, uint8_t from, uint8_t to, uint16_t frecuency);
-
-/**
  * @brief Conmuta el punto decimal de un rango de dígitos
- *
  * @param  display  Descriptor creado con @ref DisplayCreate
  * @param  from     Índice del primer dígito
  * @param  to       Índice del último dígito
