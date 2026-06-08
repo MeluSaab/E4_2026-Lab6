@@ -1,6 +1,7 @@
 Archive member included to satisfy reference by file (symbol)
 
 build/lib/Hal.a(inoutput.o)   build/obj/src/placa.o (InoutputOutputCreate)
+build/lib/Hal.a(screen.o)     build/obj/src/placa.o (DisplayCreate)
 build/lib/board/edu-ciaa-nxp.a(board.o)
                               build/obj/src/placa.o (BoardSetup)
 build/lib/board/edu-ciaa-nxp.a(chip_18xx_43xx.o)
@@ -47,6 +48,8 @@ C:/msys64/ucrt64/bin/../lib/gcc/arm-none-eabi/13.3.0/../../../../arm-none-eabi/l
                               C:/msys64/ucrt64/bin/../lib/gcc/arm-none-eabi/13.3.0/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/softfp/crt0.o (__libc_fini_array)
 C:/msys64/ucrt64/bin/../lib/gcc/arm-none-eabi/13.3.0/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/softfp\libc_nano.a(libc_a-lock.o)
                               C:/msys64/ucrt64/bin/../lib/gcc/arm-none-eabi/13.3.0/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/softfp\libc_nano.a(libc_a-findfp.o) (__retarget_lock_init_recursive)
+C:/msys64/ucrt64/bin/../lib/gcc/arm-none-eabi/13.3.0/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/softfp\libc_nano.a(libc_a-memcpy.o)
+                              build/lib/Hal.a(screen.o) (memcpy)
 C:/msys64/ucrt64/bin/../lib/gcc/arm-none-eabi/13.3.0/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/softfp\libc_nano.a(libc_a-__atexit.o)
                               C:/msys64/ucrt64/bin/../lib/gcc/arm-none-eabi/13.3.0/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/softfp\libc_nano.a(libc_a-atexit.o) (__register_exitproc)
 C:/msys64/ucrt64/bin/../lib/gcc/arm-none-eabi/13.3.0/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/softfp\libc_nano.a(libc_a-__call_atexit.o)
@@ -175,9 +178,12 @@ Discarded input sections
  .group         0x00000000        0xc build/obj/src/main.o
  .group         0x00000000        0xc build/obj/src/main.o
  .group         0x00000000        0xc build/obj/src/main.o
+ .group         0x00000000        0xc build/obj/src/main.o
  .text          0x00000000        0x0 build/obj/src/main.o
  .data          0x00000000        0x0 build/obj/src/main.o
  .bss           0x00000000        0x0 build/obj/src/main.o
+ .rodata.placa  0x00000000        0x4 build/obj/src/main.o
+ .group         0x00000000        0xc build/obj/src/placa.o
  .group         0x00000000        0xc build/obj/src/placa.o
  .group         0x00000000        0xc build/obj/src/placa.o
  .group         0x00000000        0xc build/obj/src/placa.o
@@ -238,6 +244,43 @@ Discarded input sections
  .text          0x00000000        0x0 build/obj/src/placa.o
  .data          0x00000000        0x0 build/obj/src/placa.o
  .bss           0x00000000        0x0 build/obj/src/placa.o
+ .text.Chip_SCU_PinMuxSet
+                0x00000000       0x34 build/obj/src/placa.o
+ .text.Chip_GPIO_SetPinState
+                0x00000000       0x38 build/obj/src/placa.o
+ .text.Chip_GPIO_SetPinDIROutput
+                0x00000000       0x3e build/obj/src/placa.o
+ .text.Chip_GPIO_SetPinDIRInput
+                0x00000000       0x40 build/obj/src/placa.o
+ .text.Chip_GPIO_SetPinDIR
+                0x00000000       0x42 build/obj/src/placa.o
+ .text.Chip_GPIO_SetValue
+                0x00000000       0x28 build/obj/src/placa.o
+ .text.Chip_GPIO_ClearValue
+                0x00000000       0x28 build/obj/src/placa.o
+ .bss.placa     0x00000000       0x20 build/obj/src/placa.o
+ .text.DigitsInit
+                0x00000000       0x94 build/obj/src/placa.o
+ .text.SegmentsInit
+                0x00000000      0x11c build/obj/src/placa.o
+ .text.BuzzerInit
+                0x00000000       0x28 build/obj/src/placa.o
+ .text.KeysInit
+                0x00000000       0x98 build/obj/src/placa.o
+ .text.UpdateSegments
+                0x00000000       0x68 build/obj/src/placa.o
+ .text.UpdateDigits
+                0x00000000       0x30 build/obj/src/placa.o
+ .rodata        0x00000000        0x8 build/obj/src/placa.o
+ .text.PlacaCreate
+                0x00000000       0x48 build/obj/src/placa.o
+ .debug_info    0x00000000      0xbef build/obj/src/placa.o
+ .debug_abbrev  0x00000000      0x246 build/obj/src/placa.o
+ .debug_aranges
+                0x00000000       0x88 build/obj/src/placa.o
+ .debug_rnglists
+                0x00000000       0x64 build/obj/src/placa.o
+ .debug_macro   0x00000000      0x600 build/obj/src/placa.o
  .debug_macro   0x00000000      0xb1a build/obj/src/placa.o
  .debug_macro   0x00000000       0x10 build/obj/src/placa.o
  .debug_macro   0x00000000       0x22 build/obj/src/placa.o
@@ -293,7 +336,15 @@ Discarded input sections
  .debug_macro   0x00000000       0x18 build/obj/src/placa.o
  .debug_macro   0x00000000       0x22 build/obj/src/placa.o
  .debug_macro   0x00000000       0x40 build/obj/src/placa.o
+ .debug_macro   0x00000000      0x13f build/obj/src/placa.o
  .debug_macro   0x00000000       0x1c build/obj/src/placa.o
+ .debug_macro   0x00000000       0x3a build/obj/src/placa.o
+ .debug_line    0x00000000      0xa3c build/obj/src/placa.o
+ .debug_str     0x00000000    0x186c9 build/obj/src/placa.o
+ .comment       0x00000000       0x13 build/obj/src/placa.o
+ .debug_frame   0x00000000      0x200 build/obj/src/placa.o
+ .ARM.attributes
+                0x00000000       0x32 build/obj/src/placa.o
  .group         0x00000000        0xc build/obj/external/base/soc/lpc43xx/startup/cr_startup_lpc43xx.o
  .text          0x00000000        0x0 build/obj/external/base/soc/lpc43xx/startup/cr_startup_lpc43xx.o
  .data          0x00000000        0x0 build/obj/external/base/soc/lpc43xx/startup/cr_startup_lpc43xx.o
@@ -374,6 +425,26 @@ Discarded input sections
  .text          0x00000000        0x0 build/lib/Hal.a(inoutput.o)
  .data          0x00000000        0x0 build/lib/Hal.a(inoutput.o)
  .bss           0x00000000        0x0 build/lib/Hal.a(inoutput.o)
+ .text.Chip_GPIO_SetPinState
+                0x00000000       0x38 build/lib/Hal.a(inoutput.o)
+ .text.Chip_GPIO_SetPinDIROutput
+                0x00000000       0x3e build/lib/Hal.a(inoutput.o)
+ .text.Chip_GPIO_SetPinDIRInput
+                0x00000000       0x40 build/lib/Hal.a(inoutput.o)
+ .text.Chip_GPIO_SetPinDIR
+                0x00000000       0x42 build/lib/Hal.a(inoutput.o)
+ .text.Chip_GPIO_SetPinToggle
+                0x00000000       0x32 build/lib/Hal.a(inoutput.o)
+ .text.InoutputOutputCreate
+                0x00000000       0x58 build/lib/Hal.a(inoutput.o)
+ .text.InoutputOutputActivate
+                0x00000000       0x2c build/lib/Hal.a(inoutput.o)
+ .text.InoutputOutputDeactivate
+                0x00000000       0x2c build/lib/Hal.a(inoutput.o)
+ .text.InoutputOutputToggle
+                0x00000000       0x2c build/lib/Hal.a(inoutput.o)
+ .text.InoutputInputCreate
+                0x00000000       0x60 build/lib/Hal.a(inoutput.o)
  .text.InoutputInputHasDeactivated
                 0x00000000       0x22 build/lib/Hal.a(inoutput.o)
  .debug_macro   0x00000000      0xb1a build/lib/Hal.a(inoutput.o)
@@ -441,6 +512,57 @@ Discarded input sections
  .debug_macro   0x00000000       0x10 build/lib/Hal.a(inoutput.o)
  .debug_macro   0x00000000       0x58 build/lib/Hal.a(inoutput.o)
  .debug_macro   0x00000000      0x1e5 build/lib/Hal.a(inoutput.o)
+ .group         0x00000000        0xc build/lib/Hal.a(screen.o)
+ .group         0x00000000        0xc build/lib/Hal.a(screen.o)
+ .group         0x00000000        0xc build/lib/Hal.a(screen.o)
+ .group         0x00000000        0xc build/lib/Hal.a(screen.o)
+ .group         0x00000000        0xc build/lib/Hal.a(screen.o)
+ .group         0x00000000        0xc build/lib/Hal.a(screen.o)
+ .group         0x00000000        0xc build/lib/Hal.a(screen.o)
+ .group         0x00000000        0xc build/lib/Hal.a(screen.o)
+ .group         0x00000000        0xc build/lib/Hal.a(screen.o)
+ .group         0x00000000        0xc build/lib/Hal.a(screen.o)
+ .group         0x00000000        0xc build/lib/Hal.a(screen.o)
+ .group         0x00000000        0xc build/lib/Hal.a(screen.o)
+ .group         0x00000000        0xc build/lib/Hal.a(screen.o)
+ .group         0x00000000        0xc build/lib/Hal.a(screen.o)
+ .group         0x00000000        0xc build/lib/Hal.a(screen.o)
+ .group         0x00000000        0xc build/lib/Hal.a(screen.o)
+ .group         0x00000000        0xc build/lib/Hal.a(screen.o)
+ .group         0x00000000        0xc build/lib/Hal.a(screen.o)
+ .group         0x00000000        0xc build/lib/Hal.a(screen.o)
+ .group         0x00000000        0xc build/lib/Hal.a(screen.o)
+ .group         0x00000000        0xc build/lib/Hal.a(screen.o)
+ .group         0x00000000        0xc build/lib/Hal.a(screen.o)
+ .text          0x00000000        0x0 build/lib/Hal.a(screen.o)
+ .data          0x00000000        0x0 build/lib/Hal.a(screen.o)
+ .bss           0x00000000        0x0 build/lib/Hal.a(screen.o)
+ .text.DisplayAllocate
+                0x00000000       0x14 build/lib/Hal.a(screen.o)
+ .text.DisplayCreate
+                0x00000000       0x58 build/lib/Hal.a(screen.o)
+ .text.DisplayToggleDots
+                0x00000000       0x50 build/lib/Hal.a(screen.o)
+ .bss.instances.0
+                0x00000000       0x10 build/lib/Hal.a(screen.o)
+ .debug_macro   0x00000000      0xb1a build/lib/Hal.a(screen.o)
+ .debug_macro   0x00000000       0x22 build/lib/Hal.a(screen.o)
+ .debug_macro   0x00000000       0x8e build/lib/Hal.a(screen.o)
+ .debug_macro   0x00000000       0x51 build/lib/Hal.a(screen.o)
+ .debug_macro   0x00000000      0x103 build/lib/Hal.a(screen.o)
+ .debug_macro   0x00000000       0x6a build/lib/Hal.a(screen.o)
+ .debug_macro   0x00000000      0x1df build/lib/Hal.a(screen.o)
+ .debug_macro   0x00000000       0x74 build/lib/Hal.a(screen.o)
+ .debug_macro   0x00000000       0x2a build/lib/Hal.a(screen.o)
+ .debug_macro   0x00000000       0x3c build/lib/Hal.a(screen.o)
+ .debug_macro   0x00000000       0x34 build/lib/Hal.a(screen.o)
+ .debug_macro   0x00000000      0x370 build/lib/Hal.a(screen.o)
+ .debug_macro   0x00000000       0x16 build/lib/Hal.a(screen.o)
+ .debug_macro   0x00000000       0x4a build/lib/Hal.a(screen.o)
+ .debug_macro   0x00000000       0x34 build/lib/Hal.a(screen.o)
+ .debug_macro   0x00000000       0x10 build/lib/Hal.a(screen.o)
+ .debug_macro   0x00000000       0x58 build/lib/Hal.a(screen.o)
+ .debug_macro   0x00000000      0x1e5 build/lib/Hal.a(screen.o)
  .group         0x00000000        0xc build/lib/board/edu-ciaa-nxp.a(board.o)
  .group         0x00000000        0xc build/lib/board/edu-ciaa-nxp.a(board.o)
  .group         0x00000000        0xc build/lib/board/edu-ciaa-nxp.a(board.o)
@@ -516,6 +638,35 @@ Discarded input sections
  .text          0x00000000        0x0 build/lib/board/edu-ciaa-nxp.a(board.o)
  .data          0x00000000        0x0 build/lib/board/edu-ciaa-nxp.a(board.o)
  .bss           0x00000000        0x0 build/lib/board/edu-ciaa-nxp.a(board.o)
+ .text.Chip_SCU_PinMuxSet
+                0x00000000       0x34 build/lib/board/edu-ciaa-nxp.a(board.o)
+ .text.Chip_CREG_SetFlashAcceleration
+                0x00000000       0x54 build/lib/board/edu-ciaa-nxp.a(board.o)
+ .text.Chip_GPIO_SetPinState
+                0x00000000       0x38 build/lib/board/edu-ciaa-nxp.a(board.o)
+ .text.Chip_GPIO_SetPinDIROutput
+                0x00000000       0x3e build/lib/board/edu-ciaa-nxp.a(board.o)
+ .text.Chip_GPIO_SetPinDIRInput
+                0x00000000       0x40 build/lib/board/edu-ciaa-nxp.a(board.o)
+ .text.Chip_GPIO_SetPinDIR
+                0x00000000       0x42 build/lib/board/edu-ciaa-nxp.a(board.o)
+ .rodata.InitClkStates
+                0x00000000        0x4 build/lib/board/edu-ciaa-nxp.a(board.o)
+ .rodata.ExtRateIn
+                0x00000000        0x4 build/lib/board/edu-ciaa-nxp.a(board.o)
+ .rodata.OscRateIn
+                0x00000000        0x4 build/lib/board/edu-ciaa-nxp.a(board.o)
+ .text.SetupClocking
+                0x00000000       0x74 build/lib/board/edu-ciaa-nxp.a(board.o)
+ .text.BoardSetup
+                0x00000000      0x138 build/lib/board/edu-ciaa-nxp.a(board.o)
+ .debug_info    0x00000000      0xd65 build/lib/board/edu-ciaa-nxp.a(board.o)
+ .debug_abbrev  0x00000000      0x213 build/lib/board/edu-ciaa-nxp.a(board.o)
+ .debug_aranges
+                0x00000000       0x58 build/lib/board/edu-ciaa-nxp.a(board.o)
+ .debug_rnglists
+                0x00000000       0x3e build/lib/board/edu-ciaa-nxp.a(board.o)
+ .debug_macro   0x00000000      0x3f1 build/lib/board/edu-ciaa-nxp.a(board.o)
  .debug_macro   0x00000000      0xb1a build/lib/board/edu-ciaa-nxp.a(board.o)
  .debug_macro   0x00000000       0x10 build/lib/board/edu-ciaa-nxp.a(board.o)
  .debug_macro   0x00000000       0x22 build/lib/board/edu-ciaa-nxp.a(board.o)
@@ -588,6 +739,12 @@ Discarded input sections
  .debug_macro   0x00000000      0x1e5 build/lib/board/edu-ciaa-nxp.a(board.o)
  .debug_macro   0x00000000       0x16 build/lib/board/edu-ciaa-nxp.a(board.o)
  .debug_macro   0x00000000       0x29 build/lib/board/edu-ciaa-nxp.a(board.o)
+ .debug_line    0x00000000      0x9a7 build/lib/board/edu-ciaa-nxp.a(board.o)
+ .debug_str     0x00000000    0x1ad19 build/lib/board/edu-ciaa-nxp.a(board.o)
+ .comment       0x00000000       0x13 build/lib/board/edu-ciaa-nxp.a(board.o)
+ .debug_frame   0x00000000      0x13c build/lib/board/edu-ciaa-nxp.a(board.o)
+ .ARM.attributes
+                0x00000000       0x32 build/lib/board/edu-ciaa-nxp.a(board.o)
  .group         0x00000000        0xc build/lib/board/edu-ciaa-nxp.a(chip_18xx_43xx.o)
  .group         0x00000000        0xc build/lib/board/edu-ciaa-nxp.a(chip_18xx_43xx.o)
  .group         0x00000000        0xc build/lib/board/edu-ciaa-nxp.a(chip_18xx_43xx.o)
@@ -650,12 +807,23 @@ Discarded input sections
                 0x00000000       0x20 build/lib/board/edu-ciaa-nxp.a(chip_18xx_43xx.o)
  .rodata.usbPLLSetup
                 0x00000000       0x14 build/lib/board/edu-ciaa-nxp.a(chip_18xx_43xx.o)
+ .bss.SystemCoreClock
+                0x00000000        0x4 build/lib/board/edu-ciaa-nxp.a(chip_18xx_43xx.o)
  .text.Chip_USB_PllSetup
                 0x00000000       0x44 build/lib/board/edu-ciaa-nxp.a(chip_18xx_43xx.o)
  .text.Chip_USB0_Init
                 0x00000000       0x2e build/lib/board/edu-ciaa-nxp.a(chip_18xx_43xx.o)
  .text.Chip_USB1_Init
                 0x00000000       0x4c build/lib/board/edu-ciaa-nxp.a(chip_18xx_43xx.o)
+ .text.SystemCoreClockUpdate
+                0x00000000       0x18 build/lib/board/edu-ciaa-nxp.a(chip_18xx_43xx.o)
+ .debug_info    0x00000000      0xb2e build/lib/board/edu-ciaa-nxp.a(chip_18xx_43xx.o)
+ .debug_abbrev  0x00000000      0x1e9 build/lib/board/edu-ciaa-nxp.a(chip_18xx_43xx.o)
+ .debug_aranges
+                0x00000000       0x40 build/lib/board/edu-ciaa-nxp.a(chip_18xx_43xx.o)
+ .debug_rnglists
+                0x00000000       0x2b build/lib/board/edu-ciaa-nxp.a(chip_18xx_43xx.o)
+ .debug_macro   0x00000000      0x320 build/lib/board/edu-ciaa-nxp.a(chip_18xx_43xx.o)
  .debug_macro   0x00000000      0xb1a build/lib/board/edu-ciaa-nxp.a(chip_18xx_43xx.o)
  .debug_macro   0x00000000       0x10 build/lib/board/edu-ciaa-nxp.a(chip_18xx_43xx.o)
  .debug_macro   0x00000000       0x22 build/lib/board/edu-ciaa-nxp.a(chip_18xx_43xx.o)
@@ -711,6 +879,12 @@ Discarded input sections
  .debug_macro   0x00000000       0x18 build/lib/board/edu-ciaa-nxp.a(chip_18xx_43xx.o)
  .debug_macro   0x00000000       0x22 build/lib/board/edu-ciaa-nxp.a(chip_18xx_43xx.o)
  .debug_macro   0x00000000       0x40 build/lib/board/edu-ciaa-nxp.a(chip_18xx_43xx.o)
+ .debug_line    0x00000000      0x831 build/lib/board/edu-ciaa-nxp.a(chip_18xx_43xx.o)
+ .debug_str     0x00000000    0x17a90 build/lib/board/edu-ciaa-nxp.a(chip_18xx_43xx.o)
+ .comment       0x00000000       0x13 build/lib/board/edu-ciaa-nxp.a(chip_18xx_43xx.o)
+ .debug_frame   0x00000000       0xa0 build/lib/board/edu-ciaa-nxp.a(chip_18xx_43xx.o)
+ .ARM.attributes
+                0x00000000       0x32 build/lib/board/edu-ciaa-nxp.a(chip_18xx_43xx.o)
  .group         0x00000000        0xc build/lib/board/edu-ciaa-nxp.a(clock_18xx_43xx.o)
  .group         0x00000000        0xc build/lib/board/edu-ciaa-nxp.a(clock_18xx_43xx.o)
  .group         0x00000000        0xc build/lib/board/edu-ciaa-nxp.a(clock_18xx_43xx.o)
@@ -771,16 +945,46 @@ Discarded input sections
  .bss           0x00000000        0x0 build/lib/board/edu-ciaa-nxp.a(clock_18xx_43xx.o)
  .text.Chip_Clock_DisableMainPLL
                 0x00000000       0x20 build/lib/board/edu-ciaa-nxp.a(clock_18xx_43xx.o)
+ .rodata.periph_to_base
+                0x00000000       0x6c build/lib/board/edu-ciaa-nxp.a(clock_18xx_43xx.o)
+ .bss.audio_usb_pll_freq
+                0x00000000        0x8 build/lib/board/edu-ciaa-nxp.a(clock_18xx_43xx.o)
+ .text.ABS      0x00000000       0x22 build/lib/board/edu-ciaa-nxp.a(clock_18xx_43xx.o)
+ .text.pll_calc_divs
+                0x00000000      0x124 build/lib/board/edu-ciaa-nxp.a(clock_18xx_43xx.o)
+ .text.pll_get_frac
+                0x00000000      0x180 build/lib/board/edu-ciaa-nxp.a(clock_18xx_43xx.o)
  .text.Chip_Clock_TestMainPLLMultiplier
                 0x00000000       0x48 build/lib/board/edu-ciaa-nxp.a(clock_18xx_43xx.o)
+ .text.Chip_Clock_GetDivRate
+                0x00000000       0x40 build/lib/board/edu-ciaa-nxp.a(clock_18xx_43xx.o)
+ .text.Chip_Clock_FindBaseClock
+                0x00000000       0x90 build/lib/board/edu-ciaa-nxp.a(clock_18xx_43xx.o)
+ .text.Chip_Clock_EnableCrystal
+                0x00000000       0x70 build/lib/board/edu-ciaa-nxp.a(clock_18xx_43xx.o)
+ .text.Chip_Clock_CalcMainPLLValue
+                0x00000000       0xd8 build/lib/board/edu-ciaa-nxp.a(clock_18xx_43xx.o)
  .text.Chip_Clock_DisableCrystal
                 0x00000000       0x20 build/lib/board/edu-ciaa-nxp.a(clock_18xx_43xx.o)
  .text.Chip_Clock_SetupMainPLLHz
                 0x00000000      0x126 build/lib/board/edu-ciaa-nxp.a(clock_18xx_43xx.o)
  .text.Chip_Clock_SetupMainPLLMult
                 0x00000000      0x100 build/lib/board/edu-ciaa-nxp.a(clock_18xx_43xx.o)
+ .text.Chip_Clock_GetMainPLLHz
+                0x00000000       0xbc build/lib/board/edu-ciaa-nxp.a(clock_18xx_43xx.o)
+ .rodata        0x00000000        0x6 build/lib/board/edu-ciaa-nxp.a(clock_18xx_43xx.o)
  .text.Chip_Clock_SetDivider
                 0x00000000       0x84 build/lib/board/edu-ciaa-nxp.a(clock_18xx_43xx.o)
+ .text.Chip_Clock_GetDividerSource
+                0x00000000       0x40 build/lib/board/edu-ciaa-nxp.a(clock_18xx_43xx.o)
+ .text.Chip_Clock_GetDividerDivisor
+                0x00000000       0x38 build/lib/board/edu-ciaa-nxp.a(clock_18xx_43xx.o)
+ .text.Chip_Clock_GetClockInputHz
+                0x00000000      0x140 build/lib/board/edu-ciaa-nxp.a(clock_18xx_43xx.o)
+ .text.Chip_Clock_GetBaseClocktHz
+                0x00000000       0x24 build/lib/board/edu-ciaa-nxp.a(clock_18xx_43xx.o)
+ .text.Chip_Clock_SetBaseClock
+                0x00000000       0x9c build/lib/board/edu-ciaa-nxp.a(clock_18xx_43xx.o)
  .text.Chip_Clock_GetBaseClockOpts
                 0x00000000       0x84 build/lib/board/edu-ciaa-nxp.a(clock_18xx_43xx.o)
  .text.Chip_Clock_EnableBaseClock
@@ -789,6 +993,8 @@ Discarded input sections
                 0x00000000       0x3c build/lib/board/edu-ciaa-nxp.a(clock_18xx_43xx.o)
  .text.Chip_Clock_IsBaseClockEnabled
                 0x00000000       0x44 build/lib/board/edu-ciaa-nxp.a(clock_18xx_43xx.o)
+ .text.Chip_Clock_GetBaseClock
+                0x00000000       0x4c build/lib/board/edu-ciaa-nxp.a(clock_18xx_43xx.o)
  .text.Chip_Clock_EnableOpts
                 0x00000000       0x7c build/lib/board/edu-ciaa-nxp.a(clock_18xx_43xx.o)
  .text.Chip_Clock_Enable
@@ -801,6 +1007,8 @@ Discarded input sections
                 0x00000000       0x24 build/lib/board/edu-ciaa-nxp.a(clock_18xx_43xx.o)
  .text.Chip_Clock_ClearPowerDown
                 0x00000000       0x24 build/lib/board/edu-ciaa-nxp.a(clock_18xx_43xx.o)
+ .text.Chip_Clock_GetRate
+                0x00000000       0x88 build/lib/board/edu-ciaa-nxp.a(clock_18xx_43xx.o)
  .text.Chip_Clock_GetEMCRate
                 0x00000000       0x48 build/lib/board/edu-ciaa-nxp.a(clock_18xx_43xx.o)
  .text.Chip_Clock_SetupPLL
@@ -811,6 +1019,13 @@ Discarded input sections
                 0x00000000       0x38 build/lib/board/edu-ciaa-nxp.a(clock_18xx_43xx.o)
  .text.Chip_Clock_GetPLLStatus
                 0x00000000       0x28 build/lib/board/edu-ciaa-nxp.a(clock_18xx_43xx.o)
+ .debug_info    0x00000000     0x1585 build/lib/board/edu-ciaa-nxp.a(clock_18xx_43xx.o)
+ .debug_abbrev  0x00000000      0x30f build/lib/board/edu-ciaa-nxp.a(clock_18xx_43xx.o)
+ .debug_aranges
+                0x00000000      0x138 build/lib/board/edu-ciaa-nxp.a(clock_18xx_43xx.o)
+ .debug_rnglists
+                0x00000000      0x100 build/lib/board/edu-ciaa-nxp.a(clock_18xx_43xx.o)
+ .debug_macro   0x00000000      0x326 build/lib/board/edu-ciaa-nxp.a(clock_18xx_43xx.o)
  .debug_macro   0x00000000      0xb1a build/lib/board/edu-ciaa-nxp.a(clock_18xx_43xx.o)
  .debug_macro   0x00000000       0x10 build/lib/board/edu-ciaa-nxp.a(clock_18xx_43xx.o)
  .debug_macro   0x00000000       0x22 build/lib/board/edu-ciaa-nxp.a(clock_18xx_43xx.o)
@@ -866,6 +1081,12 @@ Discarded input sections
  .debug_macro   0x00000000       0x18 build/lib/board/edu-ciaa-nxp.a(clock_18xx_43xx.o)
  .debug_macro   0x00000000       0x22 build/lib/board/edu-ciaa-nxp.a(clock_18xx_43xx.o)
  .debug_macro   0x00000000       0x40 build/lib/board/edu-ciaa-nxp.a(clock_18xx_43xx.o)
+ .debug_line    0x00000000     0x1179 build/lib/board/edu-ciaa-nxp.a(clock_18xx_43xx.o)
+ .debug_str     0x00000000    0x17ef2 build/lib/board/edu-ciaa-nxp.a(clock_18xx_43xx.o)
+ .comment       0x00000000       0x13 build/lib/board/edu-ciaa-nxp.a(clock_18xx_43xx.o)
+ .debug_frame   0x00000000      0x568 build/lib/board/edu-ciaa-nxp.a(clock_18xx_43xx.o)
+ .ARM.attributes
+                0x00000000       0x32 build/lib/board/edu-ciaa-nxp.a(clock_18xx_43xx.o)
  .group         0x00000000        0xc build/lib/board/edu-ciaa-nxp.a(sysinit_18xx_43xx.o)
  .group         0x00000000        0xc build/lib/board/edu-ciaa-nxp.a(sysinit_18xx_43xx.o)
  .group         0x00000000        0xc build/lib/board/edu-ciaa-nxp.a(sysinit_18xx_43xx.o)
@@ -924,12 +1145,29 @@ Discarded input sections
  .text          0x00000000        0x0 build/lib/board/edu-ciaa-nxp.a(sysinit_18xx_43xx.o)
  .data          0x00000000        0x0 build/lib/board/edu-ciaa-nxp.a(sysinit_18xx_43xx.o)
  .bss           0x00000000        0x0 build/lib/board/edu-ciaa-nxp.a(sysinit_18xx_43xx.o)
+ .text.Chip_Clock_DisableMainPLL
+                0x00000000       0x20 build/lib/board/edu-ciaa-nxp.a(sysinit_18xx_43xx.o)
+ .text.Chip_Clock_SetupMainPLL
+                0x00000000       0x48 build/lib/board/edu-ciaa-nxp.a(sysinit_18xx_43xx.o)
+ .text.Chip_Clock_MainPLLLocked
+                0x00000000       0x24 build/lib/board/edu-ciaa-nxp.a(sysinit_18xx_43xx.o)
+ .rodata.InitClkStates
+                0x00000000       0x48 build/lib/board/edu-ciaa-nxp.a(sysinit_18xx_43xx.o)
+ .text.Chip_SetupCoreClock
+                0x00000000      0x148 build/lib/board/edu-ciaa-nxp.a(sysinit_18xx_43xx.o)
  .text.Chip_SetupXtalClocking
                 0x00000000       0x18 build/lib/board/edu-ciaa-nxp.a(sysinit_18xx_43xx.o)
  .text.Chip_SetupIrcClocking
                 0x00000000       0x18 build/lib/board/edu-ciaa-nxp.a(sysinit_18xx_43xx.o)
  .text.Chip_SystemInit
                 0x00000000        0xc build/lib/board/edu-ciaa-nxp.a(sysinit_18xx_43xx.o)
+ .debug_info    0x00000000      0x948 build/lib/board/edu-ciaa-nxp.a(sysinit_18xx_43xx.o)
+ .debug_abbrev  0x00000000      0x1e0 build/lib/board/edu-ciaa-nxp.a(sysinit_18xx_43xx.o)
+ .debug_aranges
+                0x00000000       0x50 build/lib/board/edu-ciaa-nxp.a(sysinit_18xx_43xx.o)
+ .debug_rnglists
+                0x00000000       0x38 build/lib/board/edu-ciaa-nxp.a(sysinit_18xx_43xx.o)
+ .debug_macro   0x00000000      0x320 build/lib/board/edu-ciaa-nxp.a(sysinit_18xx_43xx.o)
  .debug_macro   0x00000000      0xb1a build/lib/board/edu-ciaa-nxp.a(sysinit_18xx_43xx.o)
  .debug_macro   0x00000000       0x10 build/lib/board/edu-ciaa-nxp.a(sysinit_18xx_43xx.o)
  .debug_macro   0x00000000       0x22 build/lib/board/edu-ciaa-nxp.a(sysinit_18xx_43xx.o)
@@ -985,6 +1223,12 @@ Discarded input sections
  .debug_macro   0x00000000       0x18 build/lib/board/edu-ciaa-nxp.a(sysinit_18xx_43xx.o)
  .debug_macro   0x00000000       0x22 build/lib/board/edu-ciaa-nxp.a(sysinit_18xx_43xx.o)
  .debug_macro   0x00000000       0x40 build/lib/board/edu-ciaa-nxp.a(sysinit_18xx_43xx.o)
+ .debug_line    0x00000000      0x913 build/lib/board/edu-ciaa-nxp.a(sysinit_18xx_43xx.o)
+ .debug_str     0x00000000    0x17984 build/lib/board/edu-ciaa-nxp.a(sysinit_18xx_43xx.o)
+ .comment       0x00000000       0x13 build/lib/board/edu-ciaa-nxp.a(sysinit_18xx_43xx.o)
+ .debug_frame   0x00000000       0xf4 build/lib/board/edu-ciaa-nxp.a(sysinit_18xx_43xx.o)
+ .ARM.attributes
+                0x00000000       0x32 build/lib/board/edu-ciaa-nxp.a(sysinit_18xx_43xx.o)
  .text          0x00000000        0xc C:/msys64/ucrt64/bin/../lib/gcc/arm-none-eabi/13.3.0/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/softfp\libc_nano.a(libc_a-atexit.o)
  .data          0x00000000        0x0 C:/msys64/ucrt64/bin/../lib/gcc/arm-none-eabi/13.3.0/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/softfp\libc_nano.a(libc_a-atexit.o)
  .bss           0x00000000        0x0 C:/msys64/ucrt64/bin/../lib/gcc/arm-none-eabi/13.3.0/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/softfp\libc_nano.a(libc_a-atexit.o)
@@ -1015,13 +1259,70 @@ Discarded input sections
  .debug_frame   0x00000000       0x28 C:/msys64/ucrt64/bin/../lib/gcc/arm-none-eabi/13.3.0/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/softfp\libc_nano.a(libc_a-exit.o)
  .ARM.attributes
                 0x00000000       0x32 C:/msys64/ucrt64/bin/../lib/gcc/arm-none-eabi/13.3.0/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/softfp\libc_nano.a(libc_a-exit.o)
+ .text          0x00000000       0x20 C:/msys64/ucrt64/bin/../lib/gcc/arm-none-eabi/13.3.0/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/softfp\libc_nano.a(libc_a-malloc.o)
  .data          0x00000000        0x0 C:/msys64/ucrt64/bin/../lib/gcc/arm-none-eabi/13.3.0/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/softfp\libc_nano.a(libc_a-malloc.o)
  .bss           0x00000000        0x0 C:/msys64/ucrt64/bin/../lib/gcc/arm-none-eabi/13.3.0/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/softfp\libc_nano.a(libc_a-malloc.o)
+ .debug_info    0x00000000      0x7a0 C:/msys64/ucrt64/bin/../lib/gcc/arm-none-eabi/13.3.0/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/softfp\libc_nano.a(libc_a-malloc.o)
+ .debug_abbrev  0x00000000      0x1cf C:/msys64/ucrt64/bin/../lib/gcc/arm-none-eabi/13.3.0/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/softfp\libc_nano.a(libc_a-malloc.o)
+ .debug_loclists
+                0x00000000       0x4a C:/msys64/ucrt64/bin/../lib/gcc/arm-none-eabi/13.3.0/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/softfp\libc_nano.a(libc_a-malloc.o)
+ .debug_aranges
+                0x00000000       0x20 C:/msys64/ucrt64/bin/../lib/gcc/arm-none-eabi/13.3.0/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/softfp\libc_nano.a(libc_a-malloc.o)
+ .debug_line    0x00000000      0x174 C:/msys64/ucrt64/bin/../lib/gcc/arm-none-eabi/13.3.0/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/softfp\libc_nano.a(libc_a-malloc.o)
+ .debug_str     0x00000000      0x4d1 C:/msys64/ucrt64/bin/../lib/gcc/arm-none-eabi/13.3.0/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/softfp\libc_nano.a(libc_a-malloc.o)
+ .comment       0x00000000       0x13 C:/msys64/ucrt64/bin/../lib/gcc/arm-none-eabi/13.3.0/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/softfp\libc_nano.a(libc_a-malloc.o)
+ .debug_frame   0x00000000       0x30 C:/msys64/ucrt64/bin/../lib/gcc/arm-none-eabi/13.3.0/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/softfp\libc_nano.a(libc_a-malloc.o)
+ .ARM.attributes
+                0x00000000       0x32 C:/msys64/ucrt64/bin/../lib/gcc/arm-none-eabi/13.3.0/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/softfp\libc_nano.a(libc_a-malloc.o)
+ .text          0x00000000      0x148 C:/msys64/ucrt64/bin/../lib/gcc/arm-none-eabi/13.3.0/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/softfp\libc_nano.a(libc_a-mallocr.o)
  .data          0x00000000        0x0 C:/msys64/ucrt64/bin/../lib/gcc/arm-none-eabi/13.3.0/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/softfp\libc_nano.a(libc_a-mallocr.o)
+ .bss           0x00000000        0x8 C:/msys64/ucrt64/bin/../lib/gcc/arm-none-eabi/13.3.0/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/softfp\libc_nano.a(libc_a-mallocr.o)
+ .debug_info    0x00000000      0x9c0 C:/msys64/ucrt64/bin/../lib/gcc/arm-none-eabi/13.3.0/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/softfp\libc_nano.a(libc_a-mallocr.o)
+ .debug_abbrev  0x00000000      0x24a C:/msys64/ucrt64/bin/../lib/gcc/arm-none-eabi/13.3.0/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/softfp\libc_nano.a(libc_a-mallocr.o)
+ .debug_loclists
+                0x00000000      0x263 C:/msys64/ucrt64/bin/../lib/gcc/arm-none-eabi/13.3.0/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/softfp\libc_nano.a(libc_a-mallocr.o)
+ .debug_aranges
+                0x00000000       0x20 C:/msys64/ucrt64/bin/../lib/gcc/arm-none-eabi/13.3.0/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/softfp\libc_nano.a(libc_a-mallocr.o)
+ .debug_rnglists
+                0x00000000       0x1e C:/msys64/ucrt64/bin/../lib/gcc/arm-none-eabi/13.3.0/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/softfp\libc_nano.a(libc_a-mallocr.o)
+ .debug_line    0x00000000      0x445 C:/msys64/ucrt64/bin/../lib/gcc/arm-none-eabi/13.3.0/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/softfp\libc_nano.a(libc_a-mallocr.o)
+ .debug_str     0x00000000      0x58d C:/msys64/ucrt64/bin/../lib/gcc/arm-none-eabi/13.3.0/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/softfp\libc_nano.a(libc_a-mallocr.o)
+ .comment       0x00000000       0x13 C:/msys64/ucrt64/bin/../lib/gcc/arm-none-eabi/13.3.0/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/softfp\libc_nano.a(libc_a-mallocr.o)
+ .debug_frame   0x00000000       0x50 C:/msys64/ucrt64/bin/../lib/gcc/arm-none-eabi/13.3.0/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/softfp\libc_nano.a(libc_a-mallocr.o)
+ .ARM.attributes
+                0x00000000       0x32 C:/msys64/ucrt64/bin/../lib/gcc/arm-none-eabi/13.3.0/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/softfp\libc_nano.a(libc_a-mallocr.o)
+ .text          0x00000000       0x18 C:/msys64/ucrt64/bin/../lib/gcc/arm-none-eabi/13.3.0/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/softfp\libc_nano.a(libc_a-mlock.o)
  .data          0x00000000        0x0 C:/msys64/ucrt64/bin/../lib/gcc/arm-none-eabi/13.3.0/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/softfp\libc_nano.a(libc_a-mlock.o)
  .bss           0x00000000        0x0 C:/msys64/ucrt64/bin/../lib/gcc/arm-none-eabi/13.3.0/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/softfp\libc_nano.a(libc_a-mlock.o)
+ .debug_info    0x00000000      0x76b C:/msys64/ucrt64/bin/../lib/gcc/arm-none-eabi/13.3.0/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/softfp\libc_nano.a(libc_a-mlock.o)
+ .debug_abbrev  0x00000000      0x1bf C:/msys64/ucrt64/bin/../lib/gcc/arm-none-eabi/13.3.0/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/softfp\libc_nano.a(libc_a-mlock.o)
+ .debug_loclists
+                0x00000000       0x3c C:/msys64/ucrt64/bin/../lib/gcc/arm-none-eabi/13.3.0/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/softfp\libc_nano.a(libc_a-mlock.o)
+ .debug_aranges
+                0x00000000       0x20 C:/msys64/ucrt64/bin/../lib/gcc/arm-none-eabi/13.3.0/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/softfp\libc_nano.a(libc_a-mlock.o)
+ .debug_line    0x00000000      0x161 C:/msys64/ucrt64/bin/../lib/gcc/arm-none-eabi/13.3.0/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/softfp\libc_nano.a(libc_a-mlock.o)
+ .debug_str     0x00000000      0x52e C:/msys64/ucrt64/bin/../lib/gcc/arm-none-eabi/13.3.0/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/softfp\libc_nano.a(libc_a-mlock.o)
+ .comment       0x00000000       0x13 C:/msys64/ucrt64/bin/../lib/gcc/arm-none-eabi/13.3.0/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/softfp\libc_nano.a(libc_a-mlock.o)
+ .debug_frame   0x00000000       0x30 C:/msys64/ucrt64/bin/../lib/gcc/arm-none-eabi/13.3.0/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/softfp\libc_nano.a(libc_a-mlock.o)
+ .ARM.attributes
+                0x00000000       0x32 C:/msys64/ucrt64/bin/../lib/gcc/arm-none-eabi/13.3.0/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/softfp\libc_nano.a(libc_a-mlock.o)
  .text          0x00000000      0x2dc C:/msys64/ucrt64/bin/../lib/gcc/arm-none-eabi/13.3.0/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/softfp\libc_nano.a(libc_a-findfp.o)
  .data          0x00000000        0xc C:/msys64/ucrt64/bin/../lib/gcc/arm-none-eabi/13.3.0/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/softfp\libc_nano.a(libc_a-findfp.o)
+ .bss           0x00000000      0x13c C:/msys64/ucrt64/bin/../lib/gcc/arm-none-eabi/13.3.0/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/softfp\libc_nano.a(libc_a-findfp.o)
+ .debug_info    0x00000000     0x10c4 C:/msys64/ucrt64/bin/../lib/gcc/arm-none-eabi/13.3.0/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/softfp\libc_nano.a(libc_a-findfp.o)
+ .debug_abbrev  0x00000000      0x446 C:/msys64/ucrt64/bin/../lib/gcc/arm-none-eabi/13.3.0/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/softfp\libc_nano.a(libc_a-findfp.o)
+ .debug_loclists
+                0x00000000      0x2b8 C:/msys64/ucrt64/bin/../lib/gcc/arm-none-eabi/13.3.0/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/softfp\libc_nano.a(libc_a-findfp.o)
+ .debug_aranges
+                0x00000000       0x20 C:/msys64/ucrt64/bin/../lib/gcc/arm-none-eabi/13.3.0/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/softfp\libc_nano.a(libc_a-findfp.o)
+ .debug_rnglists
+                0x00000000       0x9f C:/msys64/ucrt64/bin/../lib/gcc/arm-none-eabi/13.3.0/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/softfp\libc_nano.a(libc_a-findfp.o)
+ .debug_line    0x00000000      0x66c C:/msys64/ucrt64/bin/../lib/gcc/arm-none-eabi/13.3.0/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/softfp\libc_nano.a(libc_a-findfp.o)
+ .debug_str     0x00000000      0x72f C:/msys64/ucrt64/bin/../lib/gcc/arm-none-eabi/13.3.0/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/softfp\libc_nano.a(libc_a-findfp.o)
+ .comment       0x00000000       0x13 C:/msys64/ucrt64/bin/../lib/gcc/arm-none-eabi/13.3.0/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/softfp\libc_nano.a(libc_a-findfp.o)
+ .debug_frame   0x00000000      0x13c C:/msys64/ucrt64/bin/../lib/gcc/arm-none-eabi/13.3.0/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/softfp\libc_nano.a(libc_a-findfp.o)
+ .ARM.attributes
+                0x00000000       0x32 C:/msys64/ucrt64/bin/../lib/gcc/arm-none-eabi/13.3.0/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/softfp\libc_nano.a(libc_a-findfp.o)
  .text          0x00000000       0x44 C:/msys64/ucrt64/bin/../lib/gcc/arm-none-eabi/13.3.0/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/softfp\libc_nano.a(libc_a-fwalk.o)
  .data          0x00000000        0x0 C:/msys64/ucrt64/bin/../lib/gcc/arm-none-eabi/13.3.0/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/softfp\libc_nano.a(libc_a-fwalk.o)
  .bss           0x00000000        0x0 C:/msys64/ucrt64/bin/../lib/gcc/arm-none-eabi/13.3.0/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/softfp\libc_nano.a(libc_a-fwalk.o)
@@ -1071,8 +1372,31 @@ Discarded input sections
                 0x00000000       0x32 C:/msys64/ucrt64/bin/../lib/gcc/arm-none-eabi/13.3.0/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/softfp\libc_nano.a(libc_a-closer.o)
  .text          0x00000000       0xd4 C:/msys64/ucrt64/bin/../lib/gcc/arm-none-eabi/13.3.0/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/softfp\libc_nano.a(libc_a-reent.o)
  .data          0x00000000        0x0 C:/msys64/ucrt64/bin/../lib/gcc/arm-none-eabi/13.3.0/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/softfp\libc_nano.a(libc_a-reent.o)
+ .bss           0x00000000        0x4 C:/msys64/ucrt64/bin/../lib/gcc/arm-none-eabi/13.3.0/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/softfp\libc_nano.a(libc_a-reent.o)
+ .debug_info    0x00000000      0x8a9 C:/msys64/ucrt64/bin/../lib/gcc/arm-none-eabi/13.3.0/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/softfp\libc_nano.a(libc_a-reent.o)
+ .debug_abbrev  0x00000000      0x1ee C:/msys64/ucrt64/bin/../lib/gcc/arm-none-eabi/13.3.0/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/softfp\libc_nano.a(libc_a-reent.o)
+ .debug_loclists
+                0x00000000       0x80 C:/msys64/ucrt64/bin/../lib/gcc/arm-none-eabi/13.3.0/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/softfp\libc_nano.a(libc_a-reent.o)
+ .debug_aranges
+                0x00000000       0x20 C:/msys64/ucrt64/bin/../lib/gcc/arm-none-eabi/13.3.0/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/softfp\libc_nano.a(libc_a-reent.o)
+ .debug_line    0x00000000      0x284 C:/msys64/ucrt64/bin/../lib/gcc/arm-none-eabi/13.3.0/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/softfp\libc_nano.a(libc_a-reent.o)
+ .debug_str     0x00000000      0x4cb C:/msys64/ucrt64/bin/../lib/gcc/arm-none-eabi/13.3.0/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/softfp\libc_nano.a(libc_a-reent.o)
+ .comment       0x00000000       0x13 C:/msys64/ucrt64/bin/../lib/gcc/arm-none-eabi/13.3.0/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/softfp\libc_nano.a(libc_a-reent.o)
+ .debug_frame   0x00000000       0x40 C:/msys64/ucrt64/bin/../lib/gcc/arm-none-eabi/13.3.0/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/softfp\libc_nano.a(libc_a-reent.o)
+ .ARM.attributes
+                0x00000000       0x32 C:/msys64/ucrt64/bin/../lib/gcc/arm-none-eabi/13.3.0/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/softfp\libc_nano.a(libc_a-reent.o)
  .text          0x00000000        0x0 C:/msys64/ucrt64/bin/../lib/gcc/arm-none-eabi/13.3.0/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/softfp\libc_nano.a(libc_a-impure.o)
+ .data          0x00000000       0x50 C:/msys64/ucrt64/bin/../lib/gcc/arm-none-eabi/13.3.0/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/softfp\libc_nano.a(libc_a-impure.o)
  .bss           0x00000000        0x0 C:/msys64/ucrt64/bin/../lib/gcc/arm-none-eabi/13.3.0/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/softfp\libc_nano.a(libc_a-impure.o)
+ .debug_info    0x00000000      0x715 C:/msys64/ucrt64/bin/../lib/gcc/arm-none-eabi/13.3.0/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/softfp\libc_nano.a(libc_a-impure.o)
+ .debug_abbrev  0x00000000      0x149 C:/msys64/ucrt64/bin/../lib/gcc/arm-none-eabi/13.3.0/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/softfp\libc_nano.a(libc_a-impure.o)
+ .debug_aranges
+                0x00000000       0x18 C:/msys64/ucrt64/bin/../lib/gcc/arm-none-eabi/13.3.0/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/softfp\libc_nano.a(libc_a-impure.o)
+ .debug_line    0x00000000       0xfa C:/msys64/ucrt64/bin/../lib/gcc/arm-none-eabi/13.3.0/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/softfp\libc_nano.a(libc_a-impure.o)
+ .debug_str     0x00000000      0x4ac C:/msys64/ucrt64/bin/../lib/gcc/arm-none-eabi/13.3.0/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/softfp\libc_nano.a(libc_a-impure.o)
+ .comment       0x00000000       0x13 C:/msys64/ucrt64/bin/../lib/gcc/arm-none-eabi/13.3.0/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/softfp\libc_nano.a(libc_a-impure.o)
+ .ARM.attributes
+                0x00000000       0x32 C:/msys64/ucrt64/bin/../lib/gcc/arm-none-eabi/13.3.0/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/softfp\libc_nano.a(libc_a-impure.o)
  .text          0x00000000       0x2c C:/msys64/ucrt64/bin/../lib/gcc/arm-none-eabi/13.3.0/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/softfp\libc_nano.a(libc_a-lseekr.o)
  .data          0x00000000        0x0 C:/msys64/ucrt64/bin/../lib/gcc/arm-none-eabi/13.3.0/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/softfp\libc_nano.a(libc_a-lseekr.o)
  .bss           0x00000000        0x0 C:/msys64/ucrt64/bin/../lib/gcc/arm-none-eabi/13.3.0/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/softfp\libc_nano.a(libc_a-lseekr.o)
@@ -1103,8 +1427,21 @@ Discarded input sections
  .debug_frame   0x00000000       0x2c C:/msys64/ucrt64/bin/../lib/gcc/arm-none-eabi/13.3.0/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/softfp\libc_nano.a(libc_a-readr.o)
  .ARM.attributes
                 0x00000000       0x32 C:/msys64/ucrt64/bin/../lib/gcc/arm-none-eabi/13.3.0/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/softfp\libc_nano.a(libc_a-readr.o)
+ .text          0x00000000       0x24 C:/msys64/ucrt64/bin/../lib/gcc/arm-none-eabi/13.3.0/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/softfp\libc_nano.a(libc_a-sbrkr.o)
  .data          0x00000000        0x0 C:/msys64/ucrt64/bin/../lib/gcc/arm-none-eabi/13.3.0/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/softfp\libc_nano.a(libc_a-sbrkr.o)
  .bss           0x00000000        0x0 C:/msys64/ucrt64/bin/../lib/gcc/arm-none-eabi/13.3.0/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/softfp\libc_nano.a(libc_a-sbrkr.o)
+ .debug_info    0x00000000      0x782 C:/msys64/ucrt64/bin/../lib/gcc/arm-none-eabi/13.3.0/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/softfp\libc_nano.a(libc_a-sbrkr.o)
+ .debug_abbrev  0x00000000      0x1da C:/msys64/ucrt64/bin/../lib/gcc/arm-none-eabi/13.3.0/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/softfp\libc_nano.a(libc_a-sbrkr.o)
+ .debug_loclists
+                0x00000000       0x4b C:/msys64/ucrt64/bin/../lib/gcc/arm-none-eabi/13.3.0/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/softfp\libc_nano.a(libc_a-sbrkr.o)
+ .debug_aranges
+                0x00000000       0x20 C:/msys64/ucrt64/bin/../lib/gcc/arm-none-eabi/13.3.0/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/softfp\libc_nano.a(libc_a-sbrkr.o)
+ .debug_line    0x00000000      0x19c C:/msys64/ucrt64/bin/../lib/gcc/arm-none-eabi/13.3.0/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/softfp\libc_nano.a(libc_a-sbrkr.o)
+ .debug_str     0x00000000      0x4b5 C:/msys64/ucrt64/bin/../lib/gcc/arm-none-eabi/13.3.0/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/softfp\libc_nano.a(libc_a-sbrkr.o)
+ .comment       0x00000000       0x13 C:/msys64/ucrt64/bin/../lib/gcc/arm-none-eabi/13.3.0/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/softfp\libc_nano.a(libc_a-sbrkr.o)
+ .debug_frame   0x00000000       0x2c C:/msys64/ucrt64/bin/../lib/gcc/arm-none-eabi/13.3.0/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/softfp\libc_nano.a(libc_a-sbrkr.o)
+ .ARM.attributes
+                0x00000000       0x32 C:/msys64/ucrt64/bin/../lib/gcc/arm-none-eabi/13.3.0/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/softfp\libc_nano.a(libc_a-sbrkr.o)
  .text          0x00000000       0x2c C:/msys64/ucrt64/bin/../lib/gcc/arm-none-eabi/13.3.0/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/softfp\libc_nano.a(libc_a-writer.o)
  .data          0x00000000        0x0 C:/msys64/ucrt64/bin/../lib/gcc/arm-none-eabi/13.3.0/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/softfp\libc_nano.a(libc_a-writer.o)
  .bss           0x00000000        0x0 C:/msys64/ucrt64/bin/../lib/gcc/arm-none-eabi/13.3.0/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/softfp\libc_nano.a(libc_a-writer.o)
@@ -1150,7 +1487,37 @@ Discarded input sections
  .debug_frame   0x00000000       0x34 C:/msys64/ucrt64/bin/../lib/gcc/arm-none-eabi/13.3.0/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/softfp\libc_nano.a(libc_a-fini.o)
  .ARM.attributes
                 0x00000000       0x32 C:/msys64/ucrt64/bin/../lib/gcc/arm-none-eabi/13.3.0/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/softfp\libc_nano.a(libc_a-fini.o)
+ .text          0x00000000       0x28 C:/msys64/ucrt64/bin/../lib/gcc/arm-none-eabi/13.3.0/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/softfp\libc_nano.a(libc_a-lock.o)
  .data          0x00000000        0x0 C:/msys64/ucrt64/bin/../lib/gcc/arm-none-eabi/13.3.0/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/softfp\libc_nano.a(libc_a-lock.o)
+ .bss           0x00000000       0x1d C:/msys64/ucrt64/bin/../lib/gcc/arm-none-eabi/13.3.0/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/softfp\libc_nano.a(libc_a-lock.o)
+ .debug_info    0x00000000      0x218 C:/msys64/ucrt64/bin/../lib/gcc/arm-none-eabi/13.3.0/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/softfp\libc_nano.a(libc_a-lock.o)
+ .debug_abbrev  0x00000000      0x115 C:/msys64/ucrt64/bin/../lib/gcc/arm-none-eabi/13.3.0/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/softfp\libc_nano.a(libc_a-lock.o)
+ .debug_loclists
+                0x00000000       0x24 C:/msys64/ucrt64/bin/../lib/gcc/arm-none-eabi/13.3.0/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/softfp\libc_nano.a(libc_a-lock.o)
+ .debug_aranges
+                0x00000000       0x20 C:/msys64/ucrt64/bin/../lib/gcc/arm-none-eabi/13.3.0/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/softfp\libc_nano.a(libc_a-lock.o)
+ .debug_line    0x00000000       0xd7 C:/msys64/ucrt64/bin/../lib/gcc/arm-none-eabi/13.3.0/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/softfp\libc_nano.a(libc_a-lock.o)
+ .debug_str     0x00000000      0x323 C:/msys64/ucrt64/bin/../lib/gcc/arm-none-eabi/13.3.0/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/softfp\libc_nano.a(libc_a-lock.o)
+ .comment       0x00000000       0x13 C:/msys64/ucrt64/bin/../lib/gcc/arm-none-eabi/13.3.0/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/softfp\libc_nano.a(libc_a-lock.o)
+ .debug_frame   0x00000000       0xb0 C:/msys64/ucrt64/bin/../lib/gcc/arm-none-eabi/13.3.0/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/softfp\libc_nano.a(libc_a-lock.o)
+ .ARM.attributes
+                0x00000000       0x32 C:/msys64/ucrt64/bin/../lib/gcc/arm-none-eabi/13.3.0/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/softfp\libc_nano.a(libc_a-lock.o)
+ .text          0x00000000      0x134 C:/msys64/ucrt64/bin/../lib/gcc/arm-none-eabi/13.3.0/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/softfp\libc_nano.a(libc_a-memcpy.o)
+ .data          0x00000000        0x0 C:/msys64/ucrt64/bin/../lib/gcc/arm-none-eabi/13.3.0/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/softfp\libc_nano.a(libc_a-memcpy.o)
+ .bss           0x00000000        0x0 C:/msys64/ucrt64/bin/../lib/gcc/arm-none-eabi/13.3.0/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/softfp\libc_nano.a(libc_a-memcpy.o)
+ .ARM.extab     0x00000000        0x0 C:/msys64/ucrt64/bin/../lib/gcc/arm-none-eabi/13.3.0/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/softfp\libc_nano.a(libc_a-memcpy.o)
+ .ARM.exidx     0x00000000        0x8 C:/msys64/ucrt64/bin/../lib/gcc/arm-none-eabi/13.3.0/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/softfp\libc_nano.a(libc_a-memcpy.o)
+ .debug_line    0x00000000       0xb9 C:/msys64/ucrt64/bin/../lib/gcc/arm-none-eabi/13.3.0/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/softfp\libc_nano.a(libc_a-memcpy.o)
+ .debug_line_str
+                0x00000000       0x91 C:/msys64/ucrt64/bin/../lib/gcc/arm-none-eabi/13.3.0/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/softfp\libc_nano.a(libc_a-memcpy.o)
+ .debug_info    0x00000000       0x33 C:/msys64/ucrt64/bin/../lib/gcc/arm-none-eabi/13.3.0/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/softfp\libc_nano.a(libc_a-memcpy.o)
+ .debug_abbrev  0x00000000       0x28 C:/msys64/ucrt64/bin/../lib/gcc/arm-none-eabi/13.3.0/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/softfp\libc_nano.a(libc_a-memcpy.o)
+ .debug_aranges
+                0x00000000       0x20 C:/msys64/ucrt64/bin/../lib/gcc/arm-none-eabi/13.3.0/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/softfp\libc_nano.a(libc_a-memcpy.o)
+ .debug_str     0x00000000       0xa4 C:/msys64/ucrt64/bin/../lib/gcc/arm-none-eabi/13.3.0/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/softfp\libc_nano.a(libc_a-memcpy.o)
+ .debug_frame   0x00000000       0x28 C:/msys64/ucrt64/bin/../lib/gcc/arm-none-eabi/13.3.0/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/softfp\libc_nano.a(libc_a-memcpy.o)
+ .ARM.attributes
+                0x00000000       0x20 C:/msys64/ucrt64/bin/../lib/gcc/arm-none-eabi/13.3.0/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/softfp\libc_nano.a(libc_a-memcpy.o)
  .text          0x00000000       0xbc C:/msys64/ucrt64/bin/../lib/gcc/arm-none-eabi/13.3.0/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/softfp\libc_nano.a(libc_a-__atexit.o)
  .data          0x00000000        0x4 C:/msys64/ucrt64/bin/../lib/gcc/arm-none-eabi/13.3.0/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/softfp\libc_nano.a(libc_a-__atexit.o)
  .bss           0x00000000       0x8c C:/msys64/ucrt64/bin/../lib/gcc/arm-none-eabi/13.3.0/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/softfp\libc_nano.a(libc_a-__atexit.o)
@@ -1183,8 +1550,23 @@ Discarded input sections
  .debug_frame   0x00000000       0x4c C:/msys64/ucrt64/bin/../lib/gcc/arm-none-eabi/13.3.0/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/softfp\libc_nano.a(libc_a-__call_atexit.o)
  .ARM.attributes
                 0x00000000       0x32 C:/msys64/ucrt64/bin/../lib/gcc/arm-none-eabi/13.3.0/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/softfp\libc_nano.a(libc_a-__call_atexit.o)
+ .text          0x00000000       0xbc C:/msys64/ucrt64/bin/../lib/gcc/arm-none-eabi/13.3.0/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/softfp\libc_nano.a(libc_a-freer.o)
  .data          0x00000000        0x0 C:/msys64/ucrt64/bin/../lib/gcc/arm-none-eabi/13.3.0/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/softfp\libc_nano.a(libc_a-freer.o)
  .bss           0x00000000        0x0 C:/msys64/ucrt64/bin/../lib/gcc/arm-none-eabi/13.3.0/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/softfp\libc_nano.a(libc_a-freer.o)
+ .debug_info    0x00000000      0x889 C:/msys64/ucrt64/bin/../lib/gcc/arm-none-eabi/13.3.0/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/softfp\libc_nano.a(libc_a-freer.o)
+ .debug_abbrev  0x00000000      0x249 C:/msys64/ucrt64/bin/../lib/gcc/arm-none-eabi/13.3.0/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/softfp\libc_nano.a(libc_a-freer.o)
+ .debug_loclists
+                0x00000000      0x164 C:/msys64/ucrt64/bin/../lib/gcc/arm-none-eabi/13.3.0/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/softfp\libc_nano.a(libc_a-freer.o)
+ .debug_aranges
+                0x00000000       0x20 C:/msys64/ucrt64/bin/../lib/gcc/arm-none-eabi/13.3.0/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/softfp\libc_nano.a(libc_a-freer.o)
+ .debug_rnglists
+                0x00000000       0x13 C:/msys64/ucrt64/bin/../lib/gcc/arm-none-eabi/13.3.0/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/softfp\libc_nano.a(libc_a-freer.o)
+ .debug_line    0x00000000      0x2cc C:/msys64/ucrt64/bin/../lib/gcc/arm-none-eabi/13.3.0/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/softfp\libc_nano.a(libc_a-freer.o)
+ .debug_str     0x00000000      0x52c C:/msys64/ucrt64/bin/../lib/gcc/arm-none-eabi/13.3.0/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/softfp\libc_nano.a(libc_a-freer.o)
+ .comment       0x00000000       0x13 C:/msys64/ucrt64/bin/../lib/gcc/arm-none-eabi/13.3.0/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/softfp\libc_nano.a(libc_a-freer.o)
+ .debug_frame   0x00000000       0x58 C:/msys64/ucrt64/bin/../lib/gcc/arm-none-eabi/13.3.0/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/softfp\libc_nano.a(libc_a-freer.o)
+ .ARM.attributes
+                0x00000000       0x32 C:/msys64/ucrt64/bin/../lib/gcc/arm-none-eabi/13.3.0/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/softfp\libc_nano.a(libc_a-freer.o)
  .text          0x00000000      0x1a4 C:/msys64/ucrt64/bin/../lib/gcc/arm-none-eabi/13.3.0/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/softfp\libc_nano.a(libc_a-fflush.o)
  .data          0x00000000        0x0 C:/msys64/ucrt64/bin/../lib/gcc/arm-none-eabi/13.3.0/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/softfp\libc_nano.a(libc_a-fflush.o)
  .bss           0x00000000        0x0 C:/msys64/ucrt64/bin/../lib/gcc/arm-none-eabi/13.3.0/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/softfp\libc_nano.a(libc_a-fflush.o)
@@ -1232,7 +1614,14 @@ Discarded input sections
  .debug_frame   0x00000000       0x20 C:/msys64/ucrt64/bin/../lib/gcc/arm-none-eabi/13.3.0/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/softfp\libnosys.a(read.o)
  .ARM.attributes
                 0x00000000       0x32 C:/msys64/ucrt64/bin/../lib/gcc/arm-none-eabi/13.3.0/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/softfp\libnosys.a(read.o)
+ .text          0x00000000       0x1c C:/msys64/ucrt64/bin/../lib/gcc/arm-none-eabi/13.3.0/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/softfp\libnosys.a(sbrk.o)
  .data          0x00000000        0x0 C:/msys64/ucrt64/bin/../lib/gcc/arm-none-eabi/13.3.0/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/softfp\libnosys.a(sbrk.o)
+ .bss           0x00000000        0x4 C:/msys64/ucrt64/bin/../lib/gcc/arm-none-eabi/13.3.0/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/softfp\libnosys.a(sbrk.o)
+ .debug_loclists
+                0x00000000       0x30 C:/msys64/ucrt64/bin/../lib/gcc/arm-none-eabi/13.3.0/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/softfp\libnosys.a(sbrk.o)
+ .debug_frame   0x00000000       0x20 C:/msys64/ucrt64/bin/../lib/gcc/arm-none-eabi/13.3.0/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/softfp\libnosys.a(sbrk.o)
+ .ARM.attributes
+                0x00000000       0x32 C:/msys64/ucrt64/bin/../lib/gcc/arm-none-eabi/13.3.0/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/softfp\libnosys.a(sbrk.o)
  .text          0x00000000       0x10 C:/msys64/ucrt64/bin/../lib/gcc/arm-none-eabi/13.3.0/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/softfp\libnosys.a(write.o)
  .data          0x00000000        0x0 C:/msys64/ucrt64/bin/../lib/gcc/arm-none-eabi/13.3.0/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/softfp\libnosys.a(write.o)
  .bss           0x00000000        0x0 C:/msys64/ucrt64/bin/../lib/gcc/arm-none-eabi/13.3.0/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/softfp\libnosys.a(write.o)
@@ -1352,25 +1741,25 @@ LOAD C:/msys64/ucrt64/bin/../lib/gcc/arm-none-eabi/13.3.0/thumb/v7e-m+fp/softfp/
                 0x1a000114                        . = ALIGN (0x4)
                 0x1a000114                        __section_table_start = .
                 0x1a000114                        __data_section_table = .
-                0x1a000114        0x4 LONG 0x1a001c00 LOADADDR (.data)
+                0x1a000114        0x4 LONG 0x1a0006f4 LOADADDR (.data)
                 0x1a000118        0x4 LONG 0x10000000 ADDR (.data)
-                0x1a00011c        0x4 LONG 0x54 SIZEOF (.data)
-                0x1a000120        0x4 LONG 0x1a001c00 LOADADDR (.data_RAM2)
+                0x1a00011c        0x4 LONG 0x0 SIZEOF (.data)
+                0x1a000120        0x4 LONG 0x1a0006f4 LOADADDR (.data_RAM2)
                 0x1a000124        0x4 LONG 0x10080000 ADDR (.data_RAM2)
                 0x1a000128        0x4 LONG 0x0 SIZEOF (.data_RAM2)
-                0x1a00012c        0x4 LONG 0x1a001c00 LOADADDR (.data_RAM3)
+                0x1a00012c        0x4 LONG 0x1a0006f4 LOADADDR (.data_RAM3)
                 0x1a000130        0x4 LONG 0x20000000 ADDR (.data_RAM3)
                 0x1a000134        0x4 LONG 0x0 SIZEOF (.data_RAM3)
-                0x1a000138        0x4 LONG 0x1a001c00 LOADADDR (.data_RAM4)
+                0x1a000138        0x4 LONG 0x1a0006f4 LOADADDR (.data_RAM4)
                 0x1a00013c        0x4 LONG 0x20008000 ADDR (.data_RAM4)
                 0x1a000140        0x4 LONG 0x0 SIZEOF (.data_RAM4)
-                0x1a000144        0x4 LONG 0x1a001c00 LOADADDR (.data_RAM5)
+                0x1a000144        0x4 LONG 0x1a0006f4 LOADADDR (.data_RAM5)
                 0x1a000148        0x4 LONG 0x2000c000 ADDR (.data_RAM5)
                 0x1a00014c        0x4 LONG 0x0 SIZEOF (.data_RAM5)
                 0x1a000150                        __data_section_table_end = .
                 0x1a000150                        __bss_section_table = .
-                0x1a000150        0x4 LONG 0x10000054 ADDR (.bss)
-                0x1a000154        0x4 LONG 0x1a4 SIZEOF (.bss)
+                0x1a000150        0x4 LONG 0x10000000 ADDR (.bss)
+                0x1a000154        0x4 LONG 0x0 SIZEOF (.bss)
                 0x1a000158        0x4 LONG 0x10080000 ADDR (.bss_RAM2)
                 0x1a00015c        0x4 LONG 0x0 SIZEOF (.bss_RAM2)
                 0x1a000160        0x4 LONG 0x20000000 ADDR (.bss_RAM3)
@@ -1470,193 +1859,53 @@ LOAD C:/msys64/ucrt64/bin/../lib/gcc/arm-none-eabi/13.3.0/thumb/v7e-m+fp/softfp/
 .iplt           0x1a000250        0x0
  .iplt          0x1a000250        0x0 build/obj/src/main.o
 
-.text           0x1a000250     0x19b0
+.text           0x1a000250      0x4a4
  *(.text*)
- .text.FlashLed
-                0x1a000250       0xb0 build/obj/src/main.o
- .text.SwitchLed
-                0x1a000300       0x50 build/obj/src/main.o
- .text.ToggleLed
-                0x1a000350       0x2a build/obj/src/main.o
- .text.TestLed  0x1a00037a       0x3c build/obj/src/main.o
- .text.Delay    0x1a0003b6       0x3e build/obj/src/main.o
- .text.main     0x1a0003f4       0x2c build/obj/src/main.o
-                0x1a0003f4                main
- .text.Chip_SCU_PinMuxSet
-                0x1a000420       0x34 build/obj/src/placa.o
- .text.ConfigureLeds
-                0x1a000454       0xac build/obj/src/placa.o
- .text.ConfigureKeys
-                0x1a000500       0x78 build/obj/src/placa.o
- .text.PlacaCreate
-                0x1a000578       0x20 build/obj/src/placa.o
-                0x1a000578                PlacaCreate
+ .text.main     0x1a000250      0x140 build/obj/src/main.o
+                0x1a000250                main
  .text.ResetISR
-                0x1a000598       0xe4 build/obj/external/base/soc/lpc43xx/startup/cr_startup_lpc43xx.o
-                0x1a000598                ResetISR
- .text.Chip_GPIO_SetPinState
-                0x1a00067c       0x38 build/lib/Hal.a(inoutput.o)
+                0x1a000390       0xe4 build/obj/external/base/soc/lpc43xx/startup/cr_startup_lpc43xx.o
+                0x1a000390                ResetISR
  .text.Chip_GPIO_ReadPortBit
-                0x1a0006b4       0x34 build/lib/Hal.a(inoutput.o)
- .text.Chip_GPIO_SetPinDIROutput
-                0x1a0006e8       0x3e build/lib/Hal.a(inoutput.o)
- .text.Chip_GPIO_SetPinDIRInput
-                0x1a000726       0x40 build/lib/Hal.a(inoutput.o)
- .text.Chip_GPIO_SetPinDIR
-                0x1a000766       0x42 build/lib/Hal.a(inoutput.o)
- .text.Chip_GPIO_SetPinToggle
-                0x1a0007a8       0x32 build/lib/Hal.a(inoutput.o)
- *fill*         0x1a0007da        0x2 
- .text.InoutputOutputCreate
-                0x1a0007dc       0x58 build/lib/Hal.a(inoutput.o)
-                0x1a0007dc                InoutputOutputCreate
- .text.InoutputOutputActivate
-                0x1a000834       0x2c build/lib/Hal.a(inoutput.o)
-                0x1a000834                InoutputOutputActivate
- .text.InoutputOutputDeactivate
-                0x1a000860       0x2c build/lib/Hal.a(inoutput.o)
-                0x1a000860                InoutputOutputDeactivate
- .text.InoutputOutputToggle
-                0x1a00088c       0x2c build/lib/Hal.a(inoutput.o)
-                0x1a00088c                InoutputOutputToggle
- .text.InoutputInputCreate
-                0x1a0008b8       0x60 build/lib/Hal.a(inoutput.o)
-                0x1a0008b8                InoutputInputCreate
+                0x1a000474       0x34 build/lib/Hal.a(inoutput.o)
  .text.InoutputInputGetState
-                0x1a000918       0x58 build/lib/Hal.a(inoutput.o)
-                0x1a000918                InoutputInputGetState
+                0x1a0004a8       0x58 build/lib/Hal.a(inoutput.o)
+                0x1a0004a8                InoutputInputGetState
  .text.InoutputInputHasChanged
-                0x1a000970       0x5e build/lib/Hal.a(inoutput.o)
-                0x1a000970                InoutputInputHasChanged
+                0x1a000500       0x5e build/lib/Hal.a(inoutput.o)
+                0x1a000500                InoutputInputHasChanged
  .text.InoutputInputHasActivated
-                0x1a0009ce       0x22 build/lib/Hal.a(inoutput.o)
-                0x1a0009ce                InoutputInputHasActivated
- .text.Chip_SCU_PinMuxSet
-                0x1a0009f0       0x34 build/lib/board/edu-ciaa-nxp.a(board.o)
- .text.Chip_CREG_SetFlashAcceleration
-                0x1a000a24       0x54 build/lib/board/edu-ciaa-nxp.a(board.o)
- .text.Chip_GPIO_SetPinState
-                0x1a000a78       0x38 build/lib/board/edu-ciaa-nxp.a(board.o)
- .text.Chip_GPIO_SetPinDIROutput
-                0x1a000ab0       0x3e build/lib/board/edu-ciaa-nxp.a(board.o)
- .text.Chip_GPIO_SetPinDIRInput
-                0x1a000aee       0x40 build/lib/board/edu-ciaa-nxp.a(board.o)
- .text.Chip_GPIO_SetPinDIR
-                0x1a000b2e       0x42 build/lib/board/edu-ciaa-nxp.a(board.o)
- .text.SetupClocking
-                0x1a000b70       0x74 build/lib/board/edu-ciaa-nxp.a(board.o)
- .text.BoardSetup
-                0x1a000be4      0x138 build/lib/board/edu-ciaa-nxp.a(board.o)
-                0x1a000be4                BoardSetup
- .text.SystemCoreClockUpdate
-                0x1a000d1c       0x18 build/lib/board/edu-ciaa-nxp.a(chip_18xx_43xx.o)
-                0x1a000d1c                SystemCoreClockUpdate
- .text.ABS      0x1a000d34       0x22 build/lib/board/edu-ciaa-nxp.a(clock_18xx_43xx.o)
- *fill*         0x1a000d56        0x2 
- .text.pll_calc_divs
-                0x1a000d58      0x124 build/lib/board/edu-ciaa-nxp.a(clock_18xx_43xx.o)
- .text.pll_get_frac
-                0x1a000e7c      0x180 build/lib/board/edu-ciaa-nxp.a(clock_18xx_43xx.o)
- .text.Chip_Clock_GetDivRate
-                0x1a000ffc       0x40 build/lib/board/edu-ciaa-nxp.a(clock_18xx_43xx.o)
- .text.Chip_Clock_FindBaseClock
-                0x1a00103c       0x90 build/lib/board/edu-ciaa-nxp.a(clock_18xx_43xx.o)
- .text.Chip_Clock_EnableCrystal
-                0x1a0010cc       0x70 build/lib/board/edu-ciaa-nxp.a(clock_18xx_43xx.o)
-                0x1a0010cc                Chip_Clock_EnableCrystal
- .text.Chip_Clock_CalcMainPLLValue
-                0x1a00113c       0xd8 build/lib/board/edu-ciaa-nxp.a(clock_18xx_43xx.o)
-                0x1a00113c                Chip_Clock_CalcMainPLLValue
- .text.Chip_Clock_GetMainPLLHz
-                0x1a001214       0xbc build/lib/board/edu-ciaa-nxp.a(clock_18xx_43xx.o)
-                0x1a001214                Chip_Clock_GetMainPLLHz
- .text.Chip_Clock_GetDividerSource
-                0x1a0012d0       0x40 build/lib/board/edu-ciaa-nxp.a(clock_18xx_43xx.o)
-                0x1a0012d0                Chip_Clock_GetDividerSource
- .text.Chip_Clock_GetDividerDivisor
-                0x1a001310       0x38 build/lib/board/edu-ciaa-nxp.a(clock_18xx_43xx.o)
-                0x1a001310                Chip_Clock_GetDividerDivisor
- .text.Chip_Clock_GetClockInputHz
-                0x1a001348      0x140 build/lib/board/edu-ciaa-nxp.a(clock_18xx_43xx.o)
-                0x1a001348                Chip_Clock_GetClockInputHz
- .text.Chip_Clock_GetBaseClocktHz
-                0x1a001488       0x24 build/lib/board/edu-ciaa-nxp.a(clock_18xx_43xx.o)
-                0x1a001488                Chip_Clock_GetBaseClocktHz
- .text.Chip_Clock_SetBaseClock
-                0x1a0014ac       0x9c build/lib/board/edu-ciaa-nxp.a(clock_18xx_43xx.o)
-                0x1a0014ac                Chip_Clock_SetBaseClock
- .text.Chip_Clock_GetBaseClock
-                0x1a001548       0x4c build/lib/board/edu-ciaa-nxp.a(clock_18xx_43xx.o)
-                0x1a001548                Chip_Clock_GetBaseClock
- .text.Chip_Clock_GetRate
-                0x1a001594       0x88 build/lib/board/edu-ciaa-nxp.a(clock_18xx_43xx.o)
-                0x1a001594                Chip_Clock_GetRate
- .text.Chip_Clock_DisableMainPLL
-                0x1a00161c       0x20 build/lib/board/edu-ciaa-nxp.a(sysinit_18xx_43xx.o)
- .text.Chip_Clock_SetupMainPLL
-                0x1a00163c       0x48 build/lib/board/edu-ciaa-nxp.a(sysinit_18xx_43xx.o)
- .text.Chip_Clock_MainPLLLocked
-                0x1a001684       0x24 build/lib/board/edu-ciaa-nxp.a(sysinit_18xx_43xx.o)
- .text.Chip_SetupCoreClock
-                0x1a0016a8      0x148 build/lib/board/edu-ciaa-nxp.a(sysinit_18xx_43xx.o)
-                0x1a0016a8                Chip_SetupCoreClock
- .text          0x1a0017f0       0x20 C:/msys64/ucrt64/bin/../lib/gcc/arm-none-eabi/13.3.0/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/softfp\libc_nano.a(libc_a-malloc.o)
-                0x1a0017f0                malloc
-                0x1a001800                free
- .text          0x1a001810      0x148 C:/msys64/ucrt64/bin/../lib/gcc/arm-none-eabi/13.3.0/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/softfp\libc_nano.a(libc_a-mallocr.o)
-                0x1a001858                _malloc_r
- .text          0x1a001958       0x18 C:/msys64/ucrt64/bin/../lib/gcc/arm-none-eabi/13.3.0/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/softfp\libc_nano.a(libc_a-mlock.o)
-                0x1a001958                __malloc_lock
-                0x1a001964                __malloc_unlock
- .text          0x1a001970       0xa4 C:/msys64/ucrt64/bin/../lib/gcc/arm-none-eabi/13.3.0/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/softfp\libc_nano.a(libc_a-memset.o)
-                0x1a001970                memset
- .text          0x1a001a14       0x24 C:/msys64/ucrt64/bin/../lib/gcc/arm-none-eabi/13.3.0/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/softfp\libc_nano.a(libc_a-sbrkr.o)
-                0x1a001a14                _sbrk_r
- .text          0x1a001a38       0x28 C:/msys64/ucrt64/bin/../lib/gcc/arm-none-eabi/13.3.0/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/softfp\libc_nano.a(libc_a-lock.o)
-                0x1a001a38                __retarget_lock_init
-                0x1a001a3c                __retarget_lock_init_recursive
-                0x1a001a40                __retarget_lock_close
-                0x1a001a44                __retarget_lock_close_recursive
-                0x1a001a48                __retarget_lock_acquire
-                0x1a001a4c                __retarget_lock_acquire_recursive
-                0x1a001a50                __retarget_lock_try_acquire
-                0x1a001a54                __retarget_lock_try_acquire_recursive
-                0x1a001a58                __retarget_lock_release
-                0x1a001a5c                __retarget_lock_release_recursive
- .text          0x1a001a60       0xbc C:/msys64/ucrt64/bin/../lib/gcc/arm-none-eabi/13.3.0/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/softfp\libc_nano.a(libc_a-freer.o)
-                0x1a001a60                _free_r
- .text          0x1a001b1c       0x1c C:/msys64/ucrt64/bin/../lib/gcc/arm-none-eabi/13.3.0/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/softfp\libnosys.a(sbrk.o)
-                0x1a001b1c                _sbrk
+                0x1a00055e       0x22 build/lib/Hal.a(inoutput.o)
+                0x1a00055e                InoutputInputHasActivated
+ .text.DisplayWriteBCD
+                0x1a000580       0x68 build/lib/Hal.a(screen.o)
+                0x1a000580                DisplayWriteBCD
+ .text.DisplayRefresh
+                0x1a0005e8       0x56 build/lib/Hal.a(screen.o)
+                0x1a0005e8                DisplayRefresh
+ *fill*         0x1a00063e        0x2 
+ .text          0x1a000640       0xa4 C:/msys64/ucrt64/bin/../lib/gcc/arm-none-eabi/13.3.0/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/softfp\libc_nano.a(libc_a-memset.o)
+                0x1a000640                memset
  *(.rodata .rodata.* .constdata .constdata.*)
- .rodata.InitClkStates
-                0x1a001b38        0x4 build/lib/board/edu-ciaa-nxp.a(board.o)
- .rodata.ExtRateIn
-                0x1a001b3c        0x4 build/lib/board/edu-ciaa-nxp.a(board.o)
-                0x1a001b3c                ExtRateIn
- .rodata.OscRateIn
-                0x1a001b40        0x4 build/lib/board/edu-ciaa-nxp.a(board.o)
-                0x1a001b40                OscRateIn
- .rodata.periph_to_base
-                0x1a001b44       0x6c build/lib/board/edu-ciaa-nxp.a(clock_18xx_43xx.o)
- .rodata        0x1a001bb0        0x6 build/lib/board/edu-ciaa-nxp.a(clock_18xx_43xx.o)
- *fill*         0x1a001bb6        0x2 
- .rodata.InitClkStates
-                0x1a001bb8       0x48 build/lib/board/edu-ciaa-nxp.a(sysinit_18xx_43xx.o)
-                0x1a001c00                        . = ALIGN (0x4)
+ .rodata        0x1a0006e4        0x4 build/obj/src/main.o
+ .rodata.IMAGES
+                0x1a0006e8        0xa build/lib/Hal.a(screen.o)
+                0x1a0006f4                        . = ALIGN (0x4)
+ *fill*         0x1a0006f2        0x2 
 
-.rel.dyn        0x1a001c00        0x0
- .rel.iplt      0x1a001c00        0x0 build/obj/src/main.o
+.rel.dyn        0x1a0006f4        0x0
+ .rel.iplt      0x1a0006f4        0x0 build/obj/src/main.o
 
 .ARM.extab
  *(.ARM.extab* .gnu.linkonce.armextab.*)
-                0x1a001c00                        __exidx_start = .
+                0x1a0006f4                        __exidx_start = .
 
 .ARM.exidx
  *(.ARM.exidx* .gnu.linkonce.armexidx.*)
-                0x1a001c00                        __exidx_end = .
-                0x1a001c00                        _etext = .
+                0x1a0006f4                        __exidx_end = .
+                0x1a0006f4                        _etext = .
 
-.data_RAM2      0x10080000        0x0 load address 0x1a001c00
+.data_RAM2      0x10080000        0x0 load address 0x1a0006f4
  FILL mask 0xff
                 [!provide]                        PROVIDE (__start_data_RAM2 = .)
  *(.ramfunc.$RAM2)
@@ -1667,7 +1916,7 @@ LOAD C:/msys64/ucrt64/bin/../lib/gcc/arm-none-eabi/13.3.0/thumb/v7e-m+fp/softfp/
                 0x10080000                        . = ALIGN (0x4)
                 [!provide]                        PROVIDE (__end_data_RAM2 = .)
 
-.data_RAM3      0x20000000        0x0 load address 0x1a001c00
+.data_RAM3      0x20000000        0x0 load address 0x1a0006f4
  FILL mask 0xff
                 [!provide]                        PROVIDE (__start_data_RAM3 = .)
  *(.ramfunc.$RAM3)
@@ -1677,7 +1926,7 @@ LOAD C:/msys64/ucrt64/bin/../lib/gcc/arm-none-eabi/13.3.0/thumb/v7e-m+fp/softfp/
                 0x20000000                        . = ALIGN (0x4)
                 [!provide]                        PROVIDE (__end_data_RAM3 = .)
 
-.data_RAM4      0x20008000        0x0 load address 0x1a001c00
+.data_RAM4      0x20008000        0x0 load address 0x1a0006f4
  FILL mask 0xff
                 [!provide]                        PROVIDE (__start_data_RAM4 = .)
  *(.ramfunc.$RAM4)
@@ -1687,7 +1936,7 @@ LOAD C:/msys64/ucrt64/bin/../lib/gcc/arm-none-eabi/13.3.0/thumb/v7e-m+fp/softfp/
                 0x20008000                        . = ALIGN (0x4)
                 [!provide]                        PROVIDE (__end_data_RAM4 = .)
 
-.data_RAM5      0x2000c000        0x0 load address 0x1a001c00
+.data_RAM5      0x2000c000        0x0 load address 0x1a0006f4
  FILL mask 0xff
                 [!provide]                        PROVIDE (__start_data_RAM5 = .)
  *(.ramfunc.$RAM5)
@@ -1703,22 +1952,17 @@ LOAD C:/msys64/ucrt64/bin/../lib/gcc/arm-none-eabi/13.3.0/thumb/v7e-m+fp/softfp/
                 0x10000000                        . = ALIGN (0x4)
                 0x10000000                        _end_uninit_RESERVED = .
 
-.data           0x10000000       0x54 load address 0x1a001c00
+.data           0x10000000        0x0 load address 0x1a0006f4
  FILL mask 0xff
                 0x10000000                        _data = .
  *(vtable)
  *(.ramfunc*)
  *(.data*)
- .data.state.0  0x10000000        0x1 build/obj/src/main.o
- *fill*         0x10000001        0x3 ff
- .data          0x10000004       0x50 C:/msys64/ucrt64/bin/../lib/gcc/arm-none-eabi/13.3.0/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/softfp\libc_nano.a(libc_a-impure.o)
-                0x10000004                _impure_ptr
-                0x10000008                _impure_data
-                0x10000054                        . = ALIGN (0x4)
-                0x10000054                        _edata = .
+                0x10000000                        . = ALIGN (0x4)
+                0x10000000                        _edata = .
 
-.igot.plt       0x10000054        0x0 load address 0x1a001c54
- .igot.plt      0x10000054        0x0 build/obj/src/main.o
+.igot.plt       0x10000000        0x0 load address 0x1a0006f4
+ .igot.plt      0x10000000        0x0 build/obj/src/main.o
 
 .bss_RAM2       0x10080000        0x0
                 [!provide]                        PROVIDE (__start_bss_RAM2 = .)
@@ -1748,40 +1992,13 @@ LOAD C:/msys64/ucrt64/bin/../lib/gcc/arm-none-eabi/13.3.0/thumb/v7e-m+fp/softfp/
                 0x2000c000                        . = ALIGN ((. != 0x0)?0x4:0x1)
                 [!provide]                        PROVIDE (__end_bss_RAM5 = .)
 
-.bss            0x10000054      0x1a4
-                0x10000054                        _bss = .
+.bss            0x10000000        0x0
+                0x10000000                        _bss = .
  *(.bss*)
- .bss.divisor.1
-                0x10000054        0x4 build/obj/src/main.o
- .bss.self.0    0x10000058       0x28 build/obj/src/placa.o
- .bss.SystemCoreClock
-                0x10000080        0x4 build/lib/board/edu-ciaa-nxp.a(chip_18xx_43xx.o)
-                0x10000080                SystemCoreClock
- .bss.audio_usb_pll_freq
-                0x10000084        0x8 build/lib/board/edu-ciaa-nxp.a(clock_18xx_43xx.o)
- .bss           0x1000008c        0x8 C:/msys64/ucrt64/bin/../lib/gcc/arm-none-eabi/13.3.0/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/softfp\libc_nano.a(libc_a-mallocr.o)
-                0x1000008c                __malloc_sbrk_start
-                0x10000090                __malloc_free_list
- .bss           0x10000094      0x13c C:/msys64/ucrt64/bin/../lib/gcc/arm-none-eabi/13.3.0/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/softfp\libc_nano.a(libc_a-findfp.o)
-                0x10000094                __sf
-                0x100001cc                __stdio_exit_handler
- .bss           0x100001d0        0x4 C:/msys64/ucrt64/bin/../lib/gcc/arm-none-eabi/13.3.0/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/softfp\libc_nano.a(libc_a-reent.o)
-                0x100001d0                errno
- .bss           0x100001d4       0x1d C:/msys64/ucrt64/bin/../lib/gcc/arm-none-eabi/13.3.0/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/softfp\libc_nano.a(libc_a-lock.o)
-                0x100001d4                __lock___arc4random_mutex
-                0x100001d8                __lock___dd_hash_mutex
-                0x100001dc                __lock___tz_mutex
-                0x100001e0                __lock___env_recursive_mutex
-                0x100001e4                __lock___malloc_recursive_mutex
-                0x100001e8                __lock___at_quick_exit_mutex
-                0x100001ec                __lock___atexit_recursive_mutex
-                0x100001f0                __lock___sfp_recursive_mutex
- *fill*         0x100001f1        0x3 
- .bss           0x100001f4        0x4 C:/msys64/ucrt64/bin/../lib/gcc/arm-none-eabi/13.3.0/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/softfp\libnosys.a(sbrk.o)
  *(COMMON)
-                0x100001f8                        . = ALIGN (0x4)
-                0x100001f8                        _ebss = .
-                0x100001f8                        PROVIDE (end = .)
+                0x10000000                        . = ALIGN (0x4)
+                0x10000000                        _ebss = .
+                0x10000000                        PROVIDE (end = .)
 
 .noinit_RAM2    0x10080000        0x0
  *(.noinit.$RAM2*)
@@ -1803,14 +2020,14 @@ LOAD C:/msys64/ucrt64/bin/../lib/gcc/arm-none-eabi/13.3.0/thumb/v7e-m+fp/softfp/
  *(.noinit.$RamAHB_ETB16*)
                 0x2000c000                        . = ALIGN (0x4)
 
-.noinit         0x100001f8        0x0
-                0x100001f8                        _noinit = .
+.noinit         0x10000000        0x0
+                0x10000000                        _noinit = .
  *(.noinit*)
-                0x100001f8                        . = ALIGN (0x4)
-                0x100001f8                        _end_noinit = .
+                0x10000000                        . = ALIGN (0x4)
+                0x10000000                        _end_noinit = .
                 [!provide]                        PROVIDE (_pvHeapStart = DEFINED (__user_heap_base)?__user_heap_base:.)
                 0x10008000                        PROVIDE (_vStackTop = DEFINED (__user_stack_top)?__user_stack_top:(__top_RamLoc32 - 0x0))
-                0x53ff703a                        PROVIDE (__valid_user_code_checksum = (0x0 - ((((((_vStackTop + (ResetISR + 0x1)) + (NMI_Handler + 0x1)) + (HardFault_Handler + 0x1)) + (DEFINED (MemManage_Handler)?MemManage_Handler:0x0 + 0x1)) + (DEFINED (BusFault_Handler)?BusFault_Handler:0x0 + 0x1)) + (DEFINED (UsageFault_Handler)?UsageFault_Handler:0x0 + 0x1))))
+                0x53ff7242                        PROVIDE (__valid_user_code_checksum = (0x0 - ((((((_vStackTop + (ResetISR + 0x1)) + (NMI_Handler + 0x1)) + (HardFault_Handler + 0x1)) + (DEFINED (MemManage_Handler)?MemManage_Handler:0x0 + 0x1)) + (DEFINED (BusFault_Handler)?BusFault_Handler:0x0 + 0x1)) + (DEFINED (UsageFault_Handler)?UsageFault_Handler:0x0 + 0x1))))
 OUTPUT(build/bin/reloj.elf elf32-littlearm)
 LOAD linker stubs
 
@@ -1821,341 +2038,177 @@ LOAD linker stubs
  .ARM.attributes
                 0x00000022       0x32 build/obj/src/main.o
  .ARM.attributes
-                0x00000054       0x32 build/obj/src/placa.o
+                0x00000054       0x32 build/obj/external/base/soc/lpc43xx/startup/cr_startup_lpc43xx.o
  .ARM.attributes
-                0x00000086       0x32 build/obj/external/base/soc/lpc43xx/startup/cr_startup_lpc43xx.o
+                0x00000086       0x32 build/lib/Hal.a(inoutput.o)
  .ARM.attributes
-                0x000000b8       0x32 build/lib/Hal.a(inoutput.o)
+                0x000000b8       0x32 build/lib/Hal.a(screen.o)
  .ARM.attributes
-                0x000000ea       0x32 build/lib/board/edu-ciaa-nxp.a(board.o)
- .ARM.attributes
-                0x0000011c       0x32 build/lib/board/edu-ciaa-nxp.a(chip_18xx_43xx.o)
- .ARM.attributes
-                0x0000014e       0x32 build/lib/board/edu-ciaa-nxp.a(clock_18xx_43xx.o)
- .ARM.attributes
-                0x00000180       0x32 build/lib/board/edu-ciaa-nxp.a(sysinit_18xx_43xx.o)
- .ARM.attributes
-                0x000001b2       0x32 C:/msys64/ucrt64/bin/../lib/gcc/arm-none-eabi/13.3.0/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/softfp\libc_nano.a(libc_a-malloc.o)
- .ARM.attributes
-                0x000001e4       0x32 C:/msys64/ucrt64/bin/../lib/gcc/arm-none-eabi/13.3.0/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/softfp\libc_nano.a(libc_a-mallocr.o)
- .ARM.attributes
-                0x00000216       0x32 C:/msys64/ucrt64/bin/../lib/gcc/arm-none-eabi/13.3.0/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/softfp\libc_nano.a(libc_a-mlock.o)
- .ARM.attributes
-                0x00000248       0x32 C:/msys64/ucrt64/bin/../lib/gcc/arm-none-eabi/13.3.0/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/softfp\libc_nano.a(libc_a-findfp.o)
- .ARM.attributes
-                0x0000027a       0x32 C:/msys64/ucrt64/bin/../lib/gcc/arm-none-eabi/13.3.0/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/softfp\libc_nano.a(libc_a-memset.o)
- .ARM.attributes
-                0x000002ac       0x32 C:/msys64/ucrt64/bin/../lib/gcc/arm-none-eabi/13.3.0/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/softfp\libc_nano.a(libc_a-reent.o)
- .ARM.attributes
-                0x000002de       0x32 C:/msys64/ucrt64/bin/../lib/gcc/arm-none-eabi/13.3.0/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/softfp\libc_nano.a(libc_a-impure.o)
- .ARM.attributes
-                0x00000310       0x32 C:/msys64/ucrt64/bin/../lib/gcc/arm-none-eabi/13.3.0/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/softfp\libc_nano.a(libc_a-sbrkr.o)
- .ARM.attributes
-                0x00000342       0x32 C:/msys64/ucrt64/bin/../lib/gcc/arm-none-eabi/13.3.0/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/softfp\libc_nano.a(libc_a-lock.o)
- .ARM.attributes
-                0x00000374       0x32 C:/msys64/ucrt64/bin/../lib/gcc/arm-none-eabi/13.3.0/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/softfp\libc_nano.a(libc_a-freer.o)
- .ARM.attributes
-                0x000003a6       0x32 C:/msys64/ucrt64/bin/../lib/gcc/arm-none-eabi/13.3.0/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/softfp\libnosys.a(sbrk.o)
+                0x000000ea       0x32 C:/msys64/ucrt64/bin/../lib/gcc/arm-none-eabi/13.3.0/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/softfp\libc_nano.a(libc_a-memset.o)
 
 .comment        0x00000000       0x12
  .comment       0x00000000       0x12 build/obj/src/main.o
                                  0x13 (size before relaxing)
- .comment       0x00000012       0x13 build/obj/src/placa.o
  .comment       0x00000012       0x13 build/obj/external/base/soc/lpc43xx/startup/cr_startup_lpc43xx.o
  .comment       0x00000012       0x13 build/lib/Hal.a(inoutput.o)
- .comment       0x00000012       0x13 build/lib/board/edu-ciaa-nxp.a(board.o)
- .comment       0x00000012       0x13 build/lib/board/edu-ciaa-nxp.a(chip_18xx_43xx.o)
- .comment       0x00000012       0x13 build/lib/board/edu-ciaa-nxp.a(clock_18xx_43xx.o)
- .comment       0x00000012       0x13 build/lib/board/edu-ciaa-nxp.a(sysinit_18xx_43xx.o)
- .comment       0x00000012       0x13 C:/msys64/ucrt64/bin/../lib/gcc/arm-none-eabi/13.3.0/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/softfp\libc_nano.a(libc_a-malloc.o)
- .comment       0x00000012       0x13 C:/msys64/ucrt64/bin/../lib/gcc/arm-none-eabi/13.3.0/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/softfp\libc_nano.a(libc_a-mallocr.o)
- .comment       0x00000012       0x13 C:/msys64/ucrt64/bin/../lib/gcc/arm-none-eabi/13.3.0/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/softfp\libc_nano.a(libc_a-mlock.o)
- .comment       0x00000012       0x13 C:/msys64/ucrt64/bin/../lib/gcc/arm-none-eabi/13.3.0/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/softfp\libc_nano.a(libc_a-findfp.o)
+ .comment       0x00000012       0x13 build/lib/Hal.a(screen.o)
  .comment       0x00000012       0x13 C:/msys64/ucrt64/bin/../lib/gcc/arm-none-eabi/13.3.0/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/softfp\libc_nano.a(libc_a-memset.o)
- .comment       0x00000012       0x13 C:/msys64/ucrt64/bin/../lib/gcc/arm-none-eabi/13.3.0/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/softfp\libc_nano.a(libc_a-reent.o)
- .comment       0x00000012       0x13 C:/msys64/ucrt64/bin/../lib/gcc/arm-none-eabi/13.3.0/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/softfp\libc_nano.a(libc_a-impure.o)
- .comment       0x00000012       0x13 C:/msys64/ucrt64/bin/../lib/gcc/arm-none-eabi/13.3.0/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/softfp\libc_nano.a(libc_a-sbrkr.o)
- .comment       0x00000012       0x13 C:/msys64/ucrt64/bin/../lib/gcc/arm-none-eabi/13.3.0/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/softfp\libc_nano.a(libc_a-lock.o)
- .comment       0x00000012       0x13 C:/msys64/ucrt64/bin/../lib/gcc/arm-none-eabi/13.3.0/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/softfp\libc_nano.a(libc_a-freer.o)
 
-.debug_info     0x00000000     0x93ca
- .debug_info    0x00000000      0x31c build/obj/src/main.o
- .debug_info    0x0000031c      0x3f5 build/obj/src/placa.o
- .debug_info    0x00000711      0x2d4 build/obj/external/base/soc/lpc43xx/startup/cr_startup_lpc43xx.o
- .debug_info    0x000009e5      0x5e0 build/lib/Hal.a(inoutput.o)
- .debug_info    0x00000fc5      0xd65 build/lib/board/edu-ciaa-nxp.a(board.o)
- .debug_info    0x00001d2a      0xb2e build/lib/board/edu-ciaa-nxp.a(chip_18xx_43xx.o)
- .debug_info    0x00002858     0x1585 build/lib/board/edu-ciaa-nxp.a(clock_18xx_43xx.o)
- .debug_info    0x00003ddd      0x948 build/lib/board/edu-ciaa-nxp.a(sysinit_18xx_43xx.o)
- .debug_info    0x00004725      0x7a0 C:/msys64/ucrt64/bin/../lib/gcc/arm-none-eabi/13.3.0/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/softfp\libc_nano.a(libc_a-malloc.o)
- .debug_info    0x00004ec5      0x9c0 C:/msys64/ucrt64/bin/../lib/gcc/arm-none-eabi/13.3.0/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/softfp\libc_nano.a(libc_a-mallocr.o)
- .debug_info    0x00005885      0x76b C:/msys64/ucrt64/bin/../lib/gcc/arm-none-eabi/13.3.0/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/softfp\libc_nano.a(libc_a-mlock.o)
- .debug_info    0x00005ff0     0x10c4 C:/msys64/ucrt64/bin/../lib/gcc/arm-none-eabi/13.3.0/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/softfp\libc_nano.a(libc_a-findfp.o)
- .debug_info    0x000070b4      0x135 C:/msys64/ucrt64/bin/../lib/gcc/arm-none-eabi/13.3.0/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/softfp\libc_nano.a(libc_a-memset.o)
- .debug_info    0x000071e9      0x8a9 C:/msys64/ucrt64/bin/../lib/gcc/arm-none-eabi/13.3.0/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/softfp\libc_nano.a(libc_a-reent.o)
- .debug_info    0x00007a92      0x715 C:/msys64/ucrt64/bin/../lib/gcc/arm-none-eabi/13.3.0/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/softfp\libc_nano.a(libc_a-impure.o)
- .debug_info    0x000081a7      0x782 C:/msys64/ucrt64/bin/../lib/gcc/arm-none-eabi/13.3.0/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/softfp\libc_nano.a(libc_a-sbrkr.o)
- .debug_info    0x00008929      0x218 C:/msys64/ucrt64/bin/../lib/gcc/arm-none-eabi/13.3.0/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/softfp\libc_nano.a(libc_a-lock.o)
- .debug_info    0x00008b41      0x889 C:/msys64/ucrt64/bin/../lib/gcc/arm-none-eabi/13.3.0/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/softfp\libc_nano.a(libc_a-freer.o)
+.debug_info     0x00000000     0x1431
+ .debug_info    0x00000000      0x6ff build/obj/src/main.o
+ .debug_info    0x000006ff      0x2d4 build/obj/external/base/soc/lpc43xx/startup/cr_startup_lpc43xx.o
+ .debug_info    0x000009d3      0x5e0 build/lib/Hal.a(inoutput.o)
+ .debug_info    0x00000fb3      0x349 build/lib/Hal.a(screen.o)
+ .debug_info    0x000012fc      0x135 C:/msys64/ucrt64/bin/../lib/gcc/arm-none-eabi/13.3.0/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/softfp\libc_nano.a(libc_a-memset.o)
 
-.debug_abbrev   0x00000000     0x2293
- .debug_abbrev  0x00000000      0x17c build/obj/src/main.o
- .debug_abbrev  0x0000017c      0x164 build/obj/src/placa.o
- .debug_abbrev  0x000002e0      0x179 build/obj/external/base/soc/lpc43xx/startup/cr_startup_lpc43xx.o
- .debug_abbrev  0x00000459      0x20b build/lib/Hal.a(inoutput.o)
- .debug_abbrev  0x00000664      0x213 build/lib/board/edu-ciaa-nxp.a(board.o)
- .debug_abbrev  0x00000877      0x1e9 build/lib/board/edu-ciaa-nxp.a(chip_18xx_43xx.o)
- .debug_abbrev  0x00000a60      0x30f build/lib/board/edu-ciaa-nxp.a(clock_18xx_43xx.o)
- .debug_abbrev  0x00000d6f      0x1e0 build/lib/board/edu-ciaa-nxp.a(sysinit_18xx_43xx.o)
- .debug_abbrev  0x00000f4f      0x1cf C:/msys64/ucrt64/bin/../lib/gcc/arm-none-eabi/13.3.0/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/softfp\libc_nano.a(libc_a-malloc.o)
- .debug_abbrev  0x0000111e      0x24a C:/msys64/ucrt64/bin/../lib/gcc/arm-none-eabi/13.3.0/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/softfp\libc_nano.a(libc_a-mallocr.o)
- .debug_abbrev  0x00001368      0x1bf C:/msys64/ucrt64/bin/../lib/gcc/arm-none-eabi/13.3.0/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/softfp\libc_nano.a(libc_a-mlock.o)
- .debug_abbrev  0x00001527      0x446 C:/msys64/ucrt64/bin/../lib/gcc/arm-none-eabi/13.3.0/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/softfp\libc_nano.a(libc_a-findfp.o)
- .debug_abbrev  0x0000196d       0xb7 C:/msys64/ucrt64/bin/../lib/gcc/arm-none-eabi/13.3.0/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/softfp\libc_nano.a(libc_a-memset.o)
- .debug_abbrev  0x00001a24      0x1ee C:/msys64/ucrt64/bin/../lib/gcc/arm-none-eabi/13.3.0/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/softfp\libc_nano.a(libc_a-reent.o)
- .debug_abbrev  0x00001c12      0x149 C:/msys64/ucrt64/bin/../lib/gcc/arm-none-eabi/13.3.0/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/softfp\libc_nano.a(libc_a-impure.o)
- .debug_abbrev  0x00001d5b      0x1da C:/msys64/ucrt64/bin/../lib/gcc/arm-none-eabi/13.3.0/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/softfp\libc_nano.a(libc_a-sbrkr.o)
- .debug_abbrev  0x00001f35      0x115 C:/msys64/ucrt64/bin/../lib/gcc/arm-none-eabi/13.3.0/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/softfp\libc_nano.a(libc_a-lock.o)
- .debug_abbrev  0x0000204a      0x249 C:/msys64/ucrt64/bin/../lib/gcc/arm-none-eabi/13.3.0/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/softfp\libc_nano.a(libc_a-freer.o)
+.debug_abbrev   0x00000000      0x744
+ .debug_abbrev  0x00000000      0x185 build/obj/src/main.o
+ .debug_abbrev  0x00000185      0x179 build/obj/external/base/soc/lpc43xx/startup/cr_startup_lpc43xx.o
+ .debug_abbrev  0x000002fe      0x20b build/lib/Hal.a(inoutput.o)
+ .debug_abbrev  0x00000509      0x184 build/lib/Hal.a(screen.o)
+ .debug_abbrev  0x0000068d       0xb7 C:/msys64/ucrt64/bin/../lib/gcc/arm-none-eabi/13.3.0/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/softfp\libc_nano.a(libc_a-memset.o)
 
-.debug_aranges  0x00000000      0x4e8
+.debug_aranges  0x00000000      0x190
  .debug_aranges
-                0x00000000       0x48 build/obj/src/main.o
+                0x00000000       0x20 build/obj/src/main.o
  .debug_aranges
-                0x00000048       0x38 build/obj/src/placa.o
+                0x00000020       0x80 build/obj/external/base/soc/lpc43xx/startup/cr_startup_lpc43xx.o
  .debug_aranges
-                0x00000080       0x80 build/obj/external/base/soc/lpc43xx/startup/cr_startup_lpc43xx.o
+                0x000000a0       0x90 build/lib/Hal.a(inoutput.o)
  .debug_aranges
-                0x00000100       0x90 build/lib/Hal.a(inoutput.o)
+                0x00000130       0x40 build/lib/Hal.a(screen.o)
  .debug_aranges
-                0x00000190       0x58 build/lib/board/edu-ciaa-nxp.a(board.o)
- .debug_aranges
-                0x000001e8       0x40 build/lib/board/edu-ciaa-nxp.a(chip_18xx_43xx.o)
- .debug_aranges
-                0x00000228      0x138 build/lib/board/edu-ciaa-nxp.a(clock_18xx_43xx.o)
- .debug_aranges
-                0x00000360       0x50 build/lib/board/edu-ciaa-nxp.a(sysinit_18xx_43xx.o)
- .debug_aranges
-                0x000003b0       0x20 C:/msys64/ucrt64/bin/../lib/gcc/arm-none-eabi/13.3.0/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/softfp\libc_nano.a(libc_a-malloc.o)
- .debug_aranges
-                0x000003d0       0x20 C:/msys64/ucrt64/bin/../lib/gcc/arm-none-eabi/13.3.0/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/softfp\libc_nano.a(libc_a-mallocr.o)
- .debug_aranges
-                0x000003f0       0x20 C:/msys64/ucrt64/bin/../lib/gcc/arm-none-eabi/13.3.0/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/softfp\libc_nano.a(libc_a-mlock.o)
- .debug_aranges
-                0x00000410       0x20 C:/msys64/ucrt64/bin/../lib/gcc/arm-none-eabi/13.3.0/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/softfp\libc_nano.a(libc_a-findfp.o)
- .debug_aranges
-                0x00000430       0x20 C:/msys64/ucrt64/bin/../lib/gcc/arm-none-eabi/13.3.0/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/softfp\libc_nano.a(libc_a-memset.o)
- .debug_aranges
-                0x00000450       0x20 C:/msys64/ucrt64/bin/../lib/gcc/arm-none-eabi/13.3.0/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/softfp\libc_nano.a(libc_a-reent.o)
- .debug_aranges
-                0x00000470       0x18 C:/msys64/ucrt64/bin/../lib/gcc/arm-none-eabi/13.3.0/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/softfp\libc_nano.a(libc_a-impure.o)
- .debug_aranges
-                0x00000488       0x20 C:/msys64/ucrt64/bin/../lib/gcc/arm-none-eabi/13.3.0/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/softfp\libc_nano.a(libc_a-sbrkr.o)
- .debug_aranges
-                0x000004a8       0x20 C:/msys64/ucrt64/bin/../lib/gcc/arm-none-eabi/13.3.0/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/softfp\libc_nano.a(libc_a-lock.o)
- .debug_aranges
-                0x000004c8       0x20 C:/msys64/ucrt64/bin/../lib/gcc/arm-none-eabi/13.3.0/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/softfp\libc_nano.a(libc_a-freer.o)
+                0x00000170       0x20 C:/msys64/ucrt64/bin/../lib/gcc/arm-none-eabi/13.3.0/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/softfp\libc_nano.a(libc_a-memset.o)
 
 .debug_rnglists
-                0x00000000      0x38c
+                0x00000000      0x10e
  .debug_rnglists
-                0x00000000       0x32 build/obj/src/main.o
+                0x00000000       0x14 build/obj/src/main.o
  .debug_rnglists
-                0x00000032       0x26 build/obj/src/placa.o
+                0x00000014       0x5c build/obj/external/base/soc/lpc43xx/startup/cr_startup_lpc43xx.o
  .debug_rnglists
-                0x00000058       0x5c build/obj/external/base/soc/lpc43xx/startup/cr_startup_lpc43xx.o
+                0x00000070       0x67 build/lib/Hal.a(inoutput.o)
  .debug_rnglists
-                0x000000b4       0x67 build/lib/Hal.a(inoutput.o)
- .debug_rnglists
-                0x0000011b       0x3e build/lib/board/edu-ciaa-nxp.a(board.o)
- .debug_rnglists
-                0x00000159       0x2b build/lib/board/edu-ciaa-nxp.a(chip_18xx_43xx.o)
- .debug_rnglists
-                0x00000184      0x100 build/lib/board/edu-ciaa-nxp.a(clock_18xx_43xx.o)
- .debug_rnglists
-                0x00000284       0x38 build/lib/board/edu-ciaa-nxp.a(sysinit_18xx_43xx.o)
- .debug_rnglists
-                0x000002bc       0x1e C:/msys64/ucrt64/bin/../lib/gcc/arm-none-eabi/13.3.0/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/softfp\libc_nano.a(libc_a-mallocr.o)
- .debug_rnglists
-                0x000002da       0x9f C:/msys64/ucrt64/bin/../lib/gcc/arm-none-eabi/13.3.0/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/softfp\libc_nano.a(libc_a-findfp.o)
- .debug_rnglists
-                0x00000379       0x13 C:/msys64/ucrt64/bin/../lib/gcc/arm-none-eabi/13.3.0/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/softfp\libc_nano.a(libc_a-freer.o)
+                0x000000d7       0x37 build/lib/Hal.a(screen.o)
 
-.debug_macro    0x00000000     0x7314
- .debug_macro   0x00000000      0x401 build/obj/src/main.o
- .debug_macro   0x00000401      0xb1a build/obj/src/main.o
- .debug_macro   0x00000f1b       0x10 build/obj/src/main.o
- .debug_macro   0x00000f2b       0x22 build/obj/src/main.o
- .debug_macro   0x00000f4d       0x8e build/obj/src/main.o
- .debug_macro   0x00000fdb       0x51 build/obj/src/main.o
- .debug_macro   0x0000102c      0x103 build/obj/src/main.o
- .debug_macro   0x0000112f       0x6a build/obj/src/main.o
- .debug_macro   0x00001199      0x1df build/obj/src/main.o
- .debug_macro   0x00001378       0x22 build/obj/src/main.o
- .debug_macro   0x0000139a       0x73 build/obj/src/main.o
- .debug_macro   0x0000140d       0x28 build/obj/src/main.o
- .debug_macro   0x00001435       0x1c build/obj/src/main.o
- .debug_macro   0x00001451       0x22 build/obj/src/main.o
- .debug_macro   0x00001473       0xfb build/obj/src/main.o
- .debug_macro   0x0000156e     0x1011 build/obj/src/main.o
- .debug_macro   0x0000257f      0x11f build/obj/src/main.o
- .debug_macro   0x0000269e      0x2c3 build/obj/src/main.o
- .debug_macro   0x00002961      0x112 build/obj/src/main.o
- .debug_macro   0x00002a73       0x11 build/obj/src/main.o
- .debug_macro   0x00002a84       0x2a build/obj/src/main.o
- .debug_macro   0x00002aae       0x16 build/obj/src/main.o
- .debug_macro   0x00002ac4      0x2e6 build/obj/src/main.o
- .debug_macro   0x00002daa       0x82 build/obj/src/main.o
- .debug_macro   0x00002e2c      0x13d build/obj/src/main.o
- .debug_macro   0x00002f69      0x198 build/obj/src/main.o
- .debug_macro   0x00003101       0x34 build/obj/src/main.o
- .debug_macro   0x00003135       0x58 build/obj/src/main.o
- .debug_macro   0x0000318d      0x236 build/obj/src/main.o
- .debug_macro   0x000033c3      0x572 build/obj/src/main.o
- .debug_macro   0x00003935       0x16 build/obj/src/main.o
- .debug_macro   0x0000394b      0x18a build/obj/src/main.o
- .debug_macro   0x00003ad5       0x88 build/obj/src/main.o
- .debug_macro   0x00003b5d      0x1b9 build/obj/src/main.o
- .debug_macro   0x00003d16      0x1da build/obj/src/main.o
- .debug_macro   0x00003ef0       0x40 build/obj/src/main.o
- .debug_macro   0x00003f30       0x1c build/obj/src/main.o
- .debug_macro   0x00003f4c       0x2e build/obj/src/main.o
- .debug_macro   0x00003f7a       0x2e build/obj/src/main.o
- .debug_macro   0x00003fa8       0x22 build/obj/src/main.o
- .debug_macro   0x00003fca      0x201 build/obj/src/main.o
- .debug_macro   0x000041cb       0xe0 build/obj/src/main.o
- .debug_macro   0x000042ab      0x34c build/obj/src/main.o
- .debug_macro   0x000045f7       0xdc build/obj/src/main.o
- .debug_macro   0x000046d3       0xc4 build/obj/src/main.o
- .debug_macro   0x00004797       0x8f build/obj/src/main.o
- .debug_macro   0x00004826       0x94 build/obj/src/main.o
- .debug_macro   0x000048ba       0xb8 build/obj/src/main.o
- .debug_macro   0x00004972       0x4c build/obj/src/main.o
- .debug_macro   0x000049be       0x16 build/obj/src/main.o
- .debug_macro   0x000049d4      0x328 build/obj/src/main.o
- .debug_macro   0x00004cfc       0x3a build/obj/src/main.o
- .debug_macro   0x00004d36       0xd0 build/obj/src/main.o
- .debug_macro   0x00004e06       0x18 build/obj/src/main.o
- .debug_macro   0x00004e1e       0x22 build/obj/src/main.o
- .debug_macro   0x00004e40       0x40 build/obj/src/main.o
- .debug_macro   0x00004e80       0x1c build/obj/src/main.o
- .debug_macro   0x00004e9c       0x74 build/obj/src/main.o
- .debug_macro   0x00004f10       0x2a build/obj/src/main.o
- .debug_macro   0x00004f3a       0x3c build/obj/src/main.o
- .debug_macro   0x00004f76       0x34 build/obj/src/main.o
- .debug_macro   0x00004faa       0x16 build/obj/src/main.o
- .debug_macro   0x00004fc0       0x9e build/obj/src/main.o
- .debug_macro   0x0000505e      0x370 build/obj/src/main.o
- .debug_macro   0x000053ce      0x112 build/obj/src/main.o
- .debug_macro   0x000054e0       0x10 build/obj/src/main.o
- .debug_macro   0x000054f0       0x16 build/obj/src/main.o
- .debug_macro   0x00005506       0x4a build/obj/src/main.o
- .debug_macro   0x00005550       0x34 build/obj/src/main.o
- .debug_macro   0x00005584       0x10 build/obj/src/main.o
- .debug_macro   0x00005594       0x58 build/obj/src/main.o
- .debug_macro   0x000055ec      0x1e5 build/obj/src/main.o
- .debug_macro   0x000057d1       0x16 build/obj/src/main.o
- .debug_macro   0x000057e7       0x16 build/obj/src/main.o
- .debug_macro   0x000057fd      0x170 build/obj/src/main.o
- .debug_macro   0x0000596d      0x46e build/obj/src/placa.o
- .debug_macro   0x00005ddb      0x13f build/obj/src/placa.o
- .debug_macro   0x00005f1a       0x1d build/obj/external/base/soc/lpc43xx/startup/cr_startup_lpc43xx.o
- .debug_macro   0x00005f37      0x3eb build/lib/Hal.a(inoutput.o)
- .debug_macro   0x00006322       0x16 build/lib/Hal.a(inoutput.o)
- .debug_macro   0x00006338       0x79 build/lib/Hal.a(inoutput.o)
- .debug_macro   0x000063b1       0x16 build/lib/Hal.a(inoutput.o)
- .debug_macro   0x000063c7      0x11c build/lib/Hal.a(inoutput.o)
- .debug_macro   0x000064e3       0x9b build/lib/Hal.a(inoutput.o)
- .debug_macro   0x0000657e       0x16 build/lib/Hal.a(inoutput.o)
- .debug_macro   0x00006594       0x29 build/lib/Hal.a(inoutput.o)
- .debug_macro   0x000065bd      0x3f1 build/lib/board/edu-ciaa-nxp.a(board.o)
- .debug_macro   0x000069ae      0x320 build/lib/board/edu-ciaa-nxp.a(chip_18xx_43xx.o)
- .debug_macro   0x00006cce      0x326 build/lib/board/edu-ciaa-nxp.a(clock_18xx_43xx.o)
- .debug_macro   0x00006ff4      0x320 build/lib/board/edu-ciaa-nxp.a(sysinit_18xx_43xx.o)
+.debug_macro    0x00000000     0x639a
+ .debug_macro   0x00000000      0x40a build/obj/src/main.o
+ .debug_macro   0x0000040a      0xb1a build/obj/src/main.o
+ .debug_macro   0x00000f24       0x10 build/obj/src/main.o
+ .debug_macro   0x00000f34       0x22 build/obj/src/main.o
+ .debug_macro   0x00000f56       0x8e build/obj/src/main.o
+ .debug_macro   0x00000fe4       0x51 build/obj/src/main.o
+ .debug_macro   0x00001035      0x103 build/obj/src/main.o
+ .debug_macro   0x00001138       0x6a build/obj/src/main.o
+ .debug_macro   0x000011a2      0x1df build/obj/src/main.o
+ .debug_macro   0x00001381       0x22 build/obj/src/main.o
+ .debug_macro   0x000013a3       0x73 build/obj/src/main.o
+ .debug_macro   0x00001416       0x28 build/obj/src/main.o
+ .debug_macro   0x0000143e       0x1c build/obj/src/main.o
+ .debug_macro   0x0000145a       0x22 build/obj/src/main.o
+ .debug_macro   0x0000147c       0xfb build/obj/src/main.o
+ .debug_macro   0x00001577     0x1011 build/obj/src/main.o
+ .debug_macro   0x00002588      0x11f build/obj/src/main.o
+ .debug_macro   0x000026a7      0x2c3 build/obj/src/main.o
+ .debug_macro   0x0000296a      0x112 build/obj/src/main.o
+ .debug_macro   0x00002a7c       0x11 build/obj/src/main.o
+ .debug_macro   0x00002a8d       0x2a build/obj/src/main.o
+ .debug_macro   0x00002ab7       0x16 build/obj/src/main.o
+ .debug_macro   0x00002acd      0x2e6 build/obj/src/main.o
+ .debug_macro   0x00002db3       0x82 build/obj/src/main.o
+ .debug_macro   0x00002e35      0x13d build/obj/src/main.o
+ .debug_macro   0x00002f72      0x198 build/obj/src/main.o
+ .debug_macro   0x0000310a       0x34 build/obj/src/main.o
+ .debug_macro   0x0000313e       0x58 build/obj/src/main.o
+ .debug_macro   0x00003196      0x236 build/obj/src/main.o
+ .debug_macro   0x000033cc      0x572 build/obj/src/main.o
+ .debug_macro   0x0000393e       0x16 build/obj/src/main.o
+ .debug_macro   0x00003954      0x18a build/obj/src/main.o
+ .debug_macro   0x00003ade       0x88 build/obj/src/main.o
+ .debug_macro   0x00003b66      0x1b9 build/obj/src/main.o
+ .debug_macro   0x00003d1f      0x1da build/obj/src/main.o
+ .debug_macro   0x00003ef9       0x40 build/obj/src/main.o
+ .debug_macro   0x00003f39       0x1c build/obj/src/main.o
+ .debug_macro   0x00003f55       0x2e build/obj/src/main.o
+ .debug_macro   0x00003f83       0x2e build/obj/src/main.o
+ .debug_macro   0x00003fb1       0x22 build/obj/src/main.o
+ .debug_macro   0x00003fd3      0x201 build/obj/src/main.o
+ .debug_macro   0x000041d4       0xe0 build/obj/src/main.o
+ .debug_macro   0x000042b4      0x34c build/obj/src/main.o
+ .debug_macro   0x00004600       0xdc build/obj/src/main.o
+ .debug_macro   0x000046dc       0xc4 build/obj/src/main.o
+ .debug_macro   0x000047a0       0x8f build/obj/src/main.o
+ .debug_macro   0x0000482f       0x94 build/obj/src/main.o
+ .debug_macro   0x000048c3       0xb8 build/obj/src/main.o
+ .debug_macro   0x0000497b       0x4c build/obj/src/main.o
+ .debug_macro   0x000049c7       0x16 build/obj/src/main.o
+ .debug_macro   0x000049dd      0x328 build/obj/src/main.o
+ .debug_macro   0x00004d05       0x3a build/obj/src/main.o
+ .debug_macro   0x00004d3f       0xd0 build/obj/src/main.o
+ .debug_macro   0x00004e0f       0x18 build/obj/src/main.o
+ .debug_macro   0x00004e27       0x22 build/obj/src/main.o
+ .debug_macro   0x00004e49       0x40 build/obj/src/main.o
+ .debug_macro   0x00004e89       0x1c build/obj/src/main.o
+ .debug_macro   0x00004ea5       0x3a build/obj/src/main.o
+ .debug_macro   0x00004edf       0x74 build/obj/src/main.o
+ .debug_macro   0x00004f53       0x2a build/obj/src/main.o
+ .debug_macro   0x00004f7d       0x3c build/obj/src/main.o
+ .debug_macro   0x00004fb9       0x34 build/obj/src/main.o
+ .debug_macro   0x00004fed       0x16 build/obj/src/main.o
+ .debug_macro   0x00005003       0x9e build/obj/src/main.o
+ .debug_macro   0x000050a1      0x370 build/obj/src/main.o
+ .debug_macro   0x00005411      0x112 build/obj/src/main.o
+ .debug_macro   0x00005523       0x10 build/obj/src/main.o
+ .debug_macro   0x00005533       0x16 build/obj/src/main.o
+ .debug_macro   0x00005549       0x4a build/obj/src/main.o
+ .debug_macro   0x00005593       0x34 build/obj/src/main.o
+ .debug_macro   0x000055c7       0x10 build/obj/src/main.o
+ .debug_macro   0x000055d7       0x58 build/obj/src/main.o
+ .debug_macro   0x0000562f      0x1e5 build/obj/src/main.o
+ .debug_macro   0x00005814       0x16 build/obj/src/main.o
+ .debug_macro   0x0000582a       0x16 build/obj/src/main.o
+ .debug_macro   0x00005840      0x170 build/obj/src/main.o
+ .debug_macro   0x000059b0       0x1d build/obj/external/base/soc/lpc43xx/startup/cr_startup_lpc43xx.o
+ .debug_macro   0x000059cd      0x3eb build/lib/Hal.a(inoutput.o)
+ .debug_macro   0x00005db8       0x16 build/lib/Hal.a(inoutput.o)
+ .debug_macro   0x00005dce       0x79 build/lib/Hal.a(inoutput.o)
+ .debug_macro   0x00005e47       0x16 build/lib/Hal.a(inoutput.o)
+ .debug_macro   0x00005e5d      0x11c build/lib/Hal.a(inoutput.o)
+ .debug_macro   0x00005f79       0x9b build/lib/Hal.a(inoutput.o)
+ .debug_macro   0x00006014       0x16 build/lib/Hal.a(inoutput.o)
+ .debug_macro   0x0000602a       0x29 build/lib/Hal.a(inoutput.o)
+ .debug_macro   0x00006053      0x137 build/lib/Hal.a(screen.o)
+ .debug_macro   0x0000618a       0x34 build/lib/Hal.a(screen.o)
+ .debug_macro   0x000061be      0x190 build/lib/Hal.a(screen.o)
+ .debug_macro   0x0000634e       0x10 build/lib/Hal.a(screen.o)
+ .debug_macro   0x0000635e       0x3c build/lib/Hal.a(screen.o)
 
-.debug_line     0x00000000     0x6328
- .debug_line    0x00000000      0x9a9 build/obj/src/main.o
- .debug_line    0x000009a9      0x8f3 build/obj/src/placa.o
- .debug_line    0x0000129c      0x1b7 build/obj/external/base/soc/lpc43xx/startup/cr_startup_lpc43xx.o
- .debug_line    0x00001453      0xa65 build/lib/Hal.a(inoutput.o)
- .debug_line    0x00001eb8      0x9a7 build/lib/board/edu-ciaa-nxp.a(board.o)
- .debug_line    0x0000285f      0x831 build/lib/board/edu-ciaa-nxp.a(chip_18xx_43xx.o)
- .debug_line    0x00003090     0x1179 build/lib/board/edu-ciaa-nxp.a(clock_18xx_43xx.o)
- .debug_line    0x00004209      0x913 build/lib/board/edu-ciaa-nxp.a(sysinit_18xx_43xx.o)
- .debug_line    0x00004b1c      0x174 C:/msys64/ucrt64/bin/../lib/gcc/arm-none-eabi/13.3.0/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/softfp\libc_nano.a(libc_a-malloc.o)
- .debug_line    0x00004c90      0x445 C:/msys64/ucrt64/bin/../lib/gcc/arm-none-eabi/13.3.0/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/softfp\libc_nano.a(libc_a-mallocr.o)
- .debug_line    0x000050d5      0x161 C:/msys64/ucrt64/bin/../lib/gcc/arm-none-eabi/13.3.0/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/softfp\libc_nano.a(libc_a-mlock.o)
- .debug_line    0x00005236      0x66c C:/msys64/ucrt64/bin/../lib/gcc/arm-none-eabi/13.3.0/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/softfp\libc_nano.a(libc_a-findfp.o)
- .debug_line    0x000058a2      0x1c9 C:/msys64/ucrt64/bin/../lib/gcc/arm-none-eabi/13.3.0/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/softfp\libc_nano.a(libc_a-memset.o)
- .debug_line    0x00005a6b      0x284 C:/msys64/ucrt64/bin/../lib/gcc/arm-none-eabi/13.3.0/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/softfp\libc_nano.a(libc_a-reent.o)
- .debug_line    0x00005cef       0xfa C:/msys64/ucrt64/bin/../lib/gcc/arm-none-eabi/13.3.0/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/softfp\libc_nano.a(libc_a-impure.o)
- .debug_line    0x00005de9      0x19c C:/msys64/ucrt64/bin/../lib/gcc/arm-none-eabi/13.3.0/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/softfp\libc_nano.a(libc_a-sbrkr.o)
- .debug_line    0x00005f85       0xd7 C:/msys64/ucrt64/bin/../lib/gcc/arm-none-eabi/13.3.0/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/softfp\libc_nano.a(libc_a-lock.o)
- .debug_line    0x0000605c      0x2cc C:/msys64/ucrt64/bin/../lib/gcc/arm-none-eabi/13.3.0/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/softfp\libc_nano.a(libc_a-freer.o)
+.debug_line     0x00000000     0x1a63
+ .debug_line    0x00000000      0x91e build/obj/src/main.o
+ .debug_line    0x0000091e      0x1b7 build/obj/external/base/soc/lpc43xx/startup/cr_startup_lpc43xx.o
+ .debug_line    0x00000ad5      0xa65 build/lib/Hal.a(inoutput.o)
+ .debug_line    0x0000153a      0x360 build/lib/Hal.a(screen.o)
+ .debug_line    0x0000189a      0x1c9 C:/msys64/ucrt64/bin/../lib/gcc/arm-none-eabi/13.3.0/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/softfp\libc_nano.a(libc_a-memset.o)
 
-.debug_str      0x00000000    0x1ca20
- .debug_str     0x00000000    0x1ca20 build/obj/src/main.o
-                              0x1a3e8 (size before relaxing)
- .debug_str     0x0001ca20    0x17149 build/obj/src/placa.o
- .debug_str     0x0001ca20     0x3113 build/obj/external/base/soc/lpc43xx/startup/cr_startup_lpc43xx.o
- .debug_str     0x0001ca20    0x19e4e build/lib/Hal.a(inoutput.o)
- .debug_str     0x0001ca20    0x1ad19 build/lib/board/edu-ciaa-nxp.a(board.o)
- .debug_str     0x0001ca20    0x17a90 build/lib/board/edu-ciaa-nxp.a(chip_18xx_43xx.o)
- .debug_str     0x0001ca20    0x17ef2 build/lib/board/edu-ciaa-nxp.a(clock_18xx_43xx.o)
- .debug_str     0x0001ca20    0x17984 build/lib/board/edu-ciaa-nxp.a(sysinit_18xx_43xx.o)
- .debug_str     0x0001ca20      0x4d1 C:/msys64/ucrt64/bin/../lib/gcc/arm-none-eabi/13.3.0/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/softfp\libc_nano.a(libc_a-malloc.o)
- .debug_str     0x0001ca20      0x58d C:/msys64/ucrt64/bin/../lib/gcc/arm-none-eabi/13.3.0/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/softfp\libc_nano.a(libc_a-mallocr.o)
- .debug_str     0x0001ca20      0x52e C:/msys64/ucrt64/bin/../lib/gcc/arm-none-eabi/13.3.0/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/softfp\libc_nano.a(libc_a-mlock.o)
- .debug_str     0x0001ca20      0x72f C:/msys64/ucrt64/bin/../lib/gcc/arm-none-eabi/13.3.0/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/softfp\libc_nano.a(libc_a-findfp.o)
- .debug_str     0x0001ca20      0x1a0 C:/msys64/ucrt64/bin/../lib/gcc/arm-none-eabi/13.3.0/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/softfp\libc_nano.a(libc_a-memset.o)
- .debug_str     0x0001ca20      0x4cb C:/msys64/ucrt64/bin/../lib/gcc/arm-none-eabi/13.3.0/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/softfp\libc_nano.a(libc_a-reent.o)
- .debug_str     0x0001ca20      0x4ac C:/msys64/ucrt64/bin/../lib/gcc/arm-none-eabi/13.3.0/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/softfp\libc_nano.a(libc_a-impure.o)
- .debug_str     0x0001ca20      0x4b5 C:/msys64/ucrt64/bin/../lib/gcc/arm-none-eabi/13.3.0/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/softfp\libc_nano.a(libc_a-sbrkr.o)
- .debug_str     0x0001ca20      0x323 C:/msys64/ucrt64/bin/../lib/gcc/arm-none-eabi/13.3.0/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/softfp\libc_nano.a(libc_a-lock.o)
- .debug_str     0x0001ca20      0x52c C:/msys64/ucrt64/bin/../lib/gcc/arm-none-eabi/13.3.0/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/softfp\libc_nano.a(libc_a-freer.o)
+.debug_str      0x00000000    0x1b2ca
+ .debug_str     0x00000000    0x1b2ca build/obj/src/main.o
+                              0x1adb1 (size before relaxing)
+ .debug_str     0x0001b2ca     0x3113 build/obj/external/base/soc/lpc43xx/startup/cr_startup_lpc43xx.o
+ .debug_str     0x0001b2ca    0x19e4e build/lib/Hal.a(inoutput.o)
+ .debug_str     0x0001b2ca     0x6ef9 build/lib/Hal.a(screen.o)
+ .debug_str     0x0001b2ca      0x1a0 C:/msys64/ucrt64/bin/../lib/gcc/arm-none-eabi/13.3.0/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/softfp\libc_nano.a(libc_a-memset.o)
 
-.debug_frame    0x00000000     0x1118
- .debug_frame   0x00000000       0xe8 build/obj/src/main.o
- .debug_frame   0x000000e8       0x9c build/obj/src/placa.o
- .debug_frame   0x00000184      0x170 build/obj/external/base/soc/lpc43xx/startup/cr_startup_lpc43xx.o
- .debug_frame   0x000002f4      0x240 build/lib/Hal.a(inoutput.o)
- .debug_frame   0x00000534      0x13c build/lib/board/edu-ciaa-nxp.a(board.o)
- .debug_frame   0x00000670       0xa0 build/lib/board/edu-ciaa-nxp.a(chip_18xx_43xx.o)
- .debug_frame   0x00000710      0x568 build/lib/board/edu-ciaa-nxp.a(clock_18xx_43xx.o)
- .debug_frame   0x00000c78       0xf4 build/lib/board/edu-ciaa-nxp.a(sysinit_18xx_43xx.o)
- .debug_frame   0x00000d6c       0x30 C:/msys64/ucrt64/bin/../lib/gcc/arm-none-eabi/13.3.0/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/softfp\libc_nano.a(libc_a-malloc.o)
- .debug_frame   0x00000d9c       0x50 C:/msys64/ucrt64/bin/../lib/gcc/arm-none-eabi/13.3.0/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/softfp\libc_nano.a(libc_a-mallocr.o)
- .debug_frame   0x00000dec       0x30 C:/msys64/ucrt64/bin/../lib/gcc/arm-none-eabi/13.3.0/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/softfp\libc_nano.a(libc_a-mlock.o)
- .debug_frame   0x00000e1c      0x13c C:/msys64/ucrt64/bin/../lib/gcc/arm-none-eabi/13.3.0/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/softfp\libc_nano.a(libc_a-findfp.o)
- .debug_frame   0x00000f58       0x2c C:/msys64/ucrt64/bin/../lib/gcc/arm-none-eabi/13.3.0/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/softfp\libc_nano.a(libc_a-memset.o)
- .debug_frame   0x00000f84       0x40 C:/msys64/ucrt64/bin/../lib/gcc/arm-none-eabi/13.3.0/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/softfp\libc_nano.a(libc_a-reent.o)
- .debug_frame   0x00000fc4       0x2c C:/msys64/ucrt64/bin/../lib/gcc/arm-none-eabi/13.3.0/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/softfp\libc_nano.a(libc_a-sbrkr.o)
- .debug_frame   0x00000ff0       0xb0 C:/msys64/ucrt64/bin/../lib/gcc/arm-none-eabi/13.3.0/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/softfp\libc_nano.a(libc_a-lock.o)
- .debug_frame   0x000010a0       0x58 C:/msys64/ucrt64/bin/../lib/gcc/arm-none-eabi/13.3.0/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/softfp\libc_nano.a(libc_a-freer.o)
- .debug_frame   0x000010f8       0x20 C:/msys64/ucrt64/bin/../lib/gcc/arm-none-eabi/13.3.0/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/softfp\libnosys.a(sbrk.o)
+.debug_frame    0x00000000      0x4d0
+ .debug_frame   0x00000000       0x30 build/obj/src/main.o
+ .debug_frame   0x00000030      0x170 build/obj/external/base/soc/lpc43xx/startup/cr_startup_lpc43xx.o
+ .debug_frame   0x000001a0      0x240 build/lib/Hal.a(inoutput.o)
+ .debug_frame   0x000003e0       0xc4 build/lib/Hal.a(screen.o)
+ .debug_frame   0x000004a4       0x2c C:/msys64/ucrt64/bin/../lib/gcc/arm-none-eabi/13.3.0/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/softfp\libc_nano.a(libc_a-memset.o)
 
 .debug_loclists
-                0x00000000      0x9e6
+                0x00000000      0x1c2
  .debug_loclists
-                0x00000000       0x4a C:/msys64/ucrt64/bin/../lib/gcc/arm-none-eabi/13.3.0/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/softfp\libc_nano.a(libc_a-malloc.o)
- .debug_loclists
-                0x0000004a      0x263 C:/msys64/ucrt64/bin/../lib/gcc/arm-none-eabi/13.3.0/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/softfp\libc_nano.a(libc_a-mallocr.o)
- .debug_loclists
-                0x000002ad       0x3c C:/msys64/ucrt64/bin/../lib/gcc/arm-none-eabi/13.3.0/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/softfp\libc_nano.a(libc_a-mlock.o)
- .debug_loclists
-                0x000002e9      0x2b8 C:/msys64/ucrt64/bin/../lib/gcc/arm-none-eabi/13.3.0/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/softfp\libc_nano.a(libc_a-findfp.o)
- .debug_loclists
-                0x000005a1      0x1c2 C:/msys64/ucrt64/bin/../lib/gcc/arm-none-eabi/13.3.0/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/softfp\libc_nano.a(libc_a-memset.o)
- .debug_loclists
-                0x00000763       0x80 C:/msys64/ucrt64/bin/../lib/gcc/arm-none-eabi/13.3.0/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/softfp\libc_nano.a(libc_a-reent.o)
- .debug_loclists
-                0x000007e3       0x4b C:/msys64/ucrt64/bin/../lib/gcc/arm-none-eabi/13.3.0/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/softfp\libc_nano.a(libc_a-sbrkr.o)
- .debug_loclists
-                0x0000082e       0x24 C:/msys64/ucrt64/bin/../lib/gcc/arm-none-eabi/13.3.0/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/softfp\libc_nano.a(libc_a-lock.o)
- .debug_loclists
-                0x00000852      0x164 C:/msys64/ucrt64/bin/../lib/gcc/arm-none-eabi/13.3.0/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/softfp\libc_nano.a(libc_a-freer.o)
- .debug_loclists
-                0x000009b6       0x30 C:/msys64/ucrt64/bin/../lib/gcc/arm-none-eabi/13.3.0/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/softfp\libnosys.a(sbrk.o)
+                0x00000000      0x1c2 C:/msys64/ucrt64/bin/../lib/gcc/arm-none-eabi/13.3.0/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/softfp\libc_nano.a(libc_a-memset.o)
 
 Cross Reference Table
 
@@ -2220,6 +2273,13 @@ Chip_USB1_Init                                    build/lib/board/edu-ciaa-nxp.a
 DAC_IRQHandler                                    build/obj/external/base/soc/lpc43xx/startup/cr_startup_lpc43xx.o
 DMA_IRQHandler                                    build/obj/external/base/soc/lpc43xx/startup/cr_startup_lpc43xx.o
 DebugMon_Handler                                  build/obj/external/base/soc/lpc43xx/startup/cr_startup_lpc43xx.o
+DisplayCreate                                     build/lib/Hal.a(screen.o)
+                                                  build/obj/src/placa.o
+DisplayRefresh                                    build/lib/Hal.a(screen.o)
+                                                  build/obj/src/main.o
+DisplayToggleDots                                 build/lib/Hal.a(screen.o)
+DisplayWriteBCD                                   build/lib/Hal.a(screen.o)
+                                                  build/obj/src/main.o
 ETH_IRQHandler                                    build/obj/external/base/soc/lpc43xx/startup/cr_startup_lpc43xx.o
 EVRT_IRQHandler                                   build/obj/external/base/soc/lpc43xx/startup/cr_startup_lpc43xx.o
 ExtRateIn                                         build/lib/board/edu-ciaa-nxp.a(board.o)
@@ -2243,19 +2303,15 @@ I2S1_IRQHandler                                   build/obj/external/base/soc/lp
 InoutputInputCreate                               build/lib/Hal.a(inoutput.o)
                                                   build/obj/src/placa.o
 InoutputInputGetState                             build/lib/Hal.a(inoutput.o)
-                                                  build/obj/src/main.o
 InoutputInputHasActivated                         build/lib/Hal.a(inoutput.o)
                                                   build/obj/src/main.o
 InoutputInputHasChanged                           build/lib/Hal.a(inoutput.o)
 InoutputInputHasDeactivated                       build/lib/Hal.a(inoutput.o)
 InoutputOutputActivate                            build/lib/Hal.a(inoutput.o)
-                                                  build/obj/src/main.o
 InoutputOutputCreate                              build/lib/Hal.a(inoutput.o)
                                                   build/obj/src/placa.o
 InoutputOutputDeactivate                          build/lib/Hal.a(inoutput.o)
-                                                  build/obj/src/main.o
 InoutputOutputToggle                              build/lib/Hal.a(inoutput.o)
-                                                  build/obj/src/main.o
 IntDefaultHandler                                 build/obj/external/base/soc/lpc43xx/startup/cr_startup_lpc43xx.o
 LCD_IRQHandler                                    build/obj/external/base/soc/lpc43xx/startup/cr_startup_lpc43xx.o
 M0CORE_IRQHandler                                 build/obj/external/base/soc/lpc43xx/startup/cr_startup_lpc43xx.o
@@ -2267,7 +2323,6 @@ OscRateIn                                         build/lib/board/edu-ciaa-nxp.a
                                                   build/lib/board/edu-ciaa-nxp.a(clock_18xx_43xx.o)
 PendSV_Handler                                    build/obj/external/base/soc/lpc43xx/startup/cr_startup_lpc43xx.o
 PlacaCreate                                       build/obj/src/placa.o
-                                                  build/obj/src/main.o
 QEI_IRQHandler                                    build/obj/external/base/soc/lpc43xx/startup/cr_startup_lpc43xx.o
 RIT_IRQHandler                                    build/obj/external/base/soc/lpc43xx/startup/cr_startup_lpc43xx.o
 RTC_IRQHandler                                    build/obj/external/base/soc/lpc43xx/startup/cr_startup_lpc43xx.o
@@ -2393,6 +2448,7 @@ __stdio_exit_handler                              C:/msys64/ucrt64/bin/../lib/gc
 __swrite                                          C:/msys64/ucrt64/bin/../lib/gcc/arm-none-eabi/13.3.0/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/softfp\libc_nano.a(libc_a-stdio.o)
                                                   C:/msys64/ucrt64/bin/../lib/gcc/arm-none-eabi/13.3.0/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/softfp\libc_nano.a(libc_a-findfp.o)
 __valid_user_code_checksum                        build/obj/external/base/soc/lpc43xx/startup/cr_startup_lpc43xx.o
+_asm                                              build/obj/src/main.o
 _close                                            C:/msys64/ucrt64/bin/../lib/gcc/arm-none-eabi/13.3.0/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/softfp\libnosys.a(close.o)
                                                   C:/msys64/ucrt64/bin/../lib/gcc/arm-none-eabi/13.3.0/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/softfp\libc_nano.a(libc_a-closer.o)
 _close_r                                          C:/msys64/ucrt64/bin/../lib/gcc/arm-none-eabi/13.3.0/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/softfp\libc_nano.a(libc_a-closer.o)
@@ -2470,8 +2526,11 @@ main                                              build/obj/src/main.o
 malloc                                            C:/msys64/ucrt64/bin/../lib/gcc/arm-none-eabi/13.3.0/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/softfp\libc_nano.a(libc_a-malloc.o)
                                                   C:/msys64/ucrt64/bin/../lib/gcc/arm-none-eabi/13.3.0/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/softfp\libc_nano.a(libc_a-__atexit.o)
                                                   build/lib/Hal.a(inoutput.o)
+memcpy                                            C:/msys64/ucrt64/bin/../lib/gcc/arm-none-eabi/13.3.0/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/softfp\libc_nano.a(libc_a-memcpy.o)
+                                                  build/lib/Hal.a(screen.o)
 memset                                            C:/msys64/ucrt64/bin/../lib/gcc/arm-none-eabi/13.3.0/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/softfp\libc_nano.a(libc_a-memset.o)
                                                   C:/msys64/ucrt64/bin/../lib/gcc/arm-none-eabi/13.3.0/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/softfp\libc_nano.a(libc_a-findfp.o)
                                                   build/lib/board/edu-ciaa-nxp.a(clock_18xx_43xx.o)
+                                                  build/lib/Hal.a(screen.o)
                                                   C:/msys64/ucrt64/bin/../lib/gcc/arm-none-eabi/13.3.0/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/softfp/crt0.o
 software_init_hook                                C:/msys64/ucrt64/bin/../lib/gcc/arm-none-eabi/13.3.0/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/softfp/crt0.o

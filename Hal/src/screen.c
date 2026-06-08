@@ -43,10 +43,11 @@ struct display_s{
     uint8_t active_digit;
     uint8_t display_memory[DISPLAY_MAX_DIGITS];
     struct display_driver_s driver[1];
-
 };
 
 /* === Private function declarations =============================================================================== */
+
+static display_t DisplayAllocate(void);
 
 /* === Private variable definitions ================================================================================ */
 
@@ -67,6 +68,12 @@ static const uint8_t IMAGES[] = {
 
 /* === Private function definitions ================================================================================ */
 
+static display_t DisplayAllocate(void){
+    static struct display_s instances[1] = {0};
+    
+    return &instances[0];
+}
+
 /* === Public function implementation ============================================================================== */
 
 /**
@@ -76,7 +83,7 @@ static const uint8_t IMAGES[] = {
  * @return         Descriptor de la pantalla, o @c NULL si no hay instancia disponible
  */
 display_t DisplayCreate(uint8_t digits, display_driver_t driver){
-    display_t display = malloc(sizeof(struct display_s) + digits);
+    display_t display = DisplayAllocate;
     if(display){
         display->digits = digits;
         display->active_digit = digits -1;

@@ -38,6 +38,7 @@ SPDX-License-Identifier: MIT
 #include "chip.h"
 #include "placa.h"
 #include "inoutput.h"
+#include "screen.h"
 #include <stdio.h>
 
 /* === Macros definitions ====================================================================== */
@@ -60,28 +61,24 @@ static placa_t placa;
 
 int main(void) {
     uint8_t entrada[4] = {4, 2, 3, 1};
-    uint16_t frecuencia = 0;
-
-    placa_t placa = PlacaCreate();
-
-    DisplayWriteBCD(placa -> display, entrada, sizeof(entrada));
+    
     while (true) {
-        if(DigitalInputHasActivated(placa -> f1)){
+        if(InoutputInputHasActivated(placa -> f1)){
             entrada[3] = (entrada[3] + 1) % 10;
             DisplayWriteBCD(placa -> display, entrada, sizeof(entrada));
         } 
         
-        if(DigitalInputHasActivated(placa -> f2)){
+        if(InoutputInputHasActivated(placa -> f2)){
             entrada[2] = (entrada[32] + 1) % 10;
             DisplayWriteBCD(placa -> display, entrada, sizeof(entrada));
         } 
 
-        if(DigitalInputHasActivated(placa -> f3)){
+        if(InoutputInputHasActivated(placa -> f3)){
             entrada[1] = (entrada[1] + 1) % 10;
             DisplayWriteBCD(placa -> display, entrada, sizeof(entrada));
         }
 
-        if(DigitalInputHasActivated(placa -> f4)){
+        if(InoutputInputHasActivated(placa -> f4)){
             entrada[0] = (entrada[0] + 1) % 10;
             DisplayWriteBCD(placa -> display, entrada, sizeof(entrada));
         } 

@@ -169,7 +169,7 @@ SPDX-License-Identifier: MIT
 
 /* === Private function declarations =============================================================================== */
 
-static void DigitInit(void);
+static void DigitsInit(void);
 static void SegmentsInit(void);
 static void BuzzerInit(void);
 static void KeysInit(void);
@@ -185,7 +185,7 @@ static void UpdateSegments(uint8_t segments);
  *        Los dígitos se numeran de derecha a izquierda comenzando en cero.
  * @param digit Índice del dígito a encender.
  */
-static void UpdateDigit(uint8_t digit);
+static void UpdateDigits(uint8_t digit);
 
 /* === Private variable definitions ================================================================================ */
 
@@ -252,7 +252,7 @@ static void BuzzerInit(void) {
     placa.buzzer = InoutputOutputCreate(BUZZER_GPIO, BUZZER_BIT, false);
 }
 
-static void KeysInits(void){
+static void KeysInit(void){
     Chip_SCU_PinMuxSet(KEY_ACCEPT_PORT, KEY_ACCEPT_PIN, SCU_MODE_INBUFF_EN | SCU_MODE_INACT | KEY_ACCEPT_FUNC);
     placa.accept = InoutputInputCreate(KEY_ACCEPT_GPIO, KEY_ACCEPT_BIT, false);
 
@@ -294,7 +294,6 @@ static void UpdateDigits(uint8_t digit){
  * @return board_t Puntero constante a la estructura estática de la placa ya inicializada
  */
 placa_t PlacaCreate() {
-    static struct placa_s self;
     BoardSetup();
     DigitsInit();
     SegmentsInit();

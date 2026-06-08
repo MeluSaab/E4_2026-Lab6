@@ -64,4 +64,5 @@ build/obj/src/main.o: \
  C:/Onedrive/Facultad/MelinaSaabAraoz/reloj/muju/external/base/soc/lpc43xx/lpc_open/inc/i2cm_18xx_43xx.h \
  C:/Onedrive/Facultad/MelinaSaabAraoz/reloj/muju/external/base/soc/lpc43xx/lpc_open/inc/fpu_init.h \
  C:/Onedrive/Facultad/MelinaSaabAraoz/reloj/inc/placa.h \
- C:/Onedrive/Facultad/MelinaSaabAraoz/reloj/Hal/inc/inoutput.h
+ C:/Onedrive/Facultad/MelinaSaabAraoz/reloj/Hal/inc/inoutput.h \
+ C:/Onedrive/Facultad/MelinaSaabAraoz/reloj/Hal/inc/screen.h

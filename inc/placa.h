@@ -27,6 +27,7 @@ SPDX-License-Identifier: MIT
 /* === Headers files inclusions ==================================================================================== */
 
 #include "inoutput.h"
+#include "screen.h"
 
 /* === Header for C++ compatibility ================================================================================ */
 
@@ -45,7 +46,7 @@ extern "C" {
  */
 typedef struct placa_s {
     inoutput_output_t buzzer;
-    inoutput_output_t display;
+    display_t display;
 
     inoutput_input_t accept;
     inoutput_input_t cancel;
