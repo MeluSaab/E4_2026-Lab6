@@ -97,7 +97,7 @@ inoutput_output_t InoutputOutputCreate(uint32_t port, uint8_t pin, bool state){
  */
 void InoutputOutputActivate(inoutput_output_t self){
     if(self != NULL){
-        Chip_GPIO_SetPinState(LPC_GPIO_PORT, self -> port, self -> pin, true);
+        Chip_GPIO_SetPinState(LPC_GPIO_PORT, self -> port, self -> pin, !self -> state);
     }
 }
 
@@ -107,7 +107,7 @@ void InoutputOutputActivate(inoutput_output_t self){
  */
 void InoutputOutputDeactivate(inoutput_output_t self){
     if(self != NULL){
-       Chip_GPIO_SetPinState(LPC_GPIO_PORT, self -> port, self -> pin, false);
+       Chip_GPIO_SetPinState(LPC_GPIO_PORT, self -> port, self -> pin, self -> state);
     }
 }
 

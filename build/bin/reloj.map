@@ -429,9 +429,9 @@ Discarded input sections
  .text.InoutputOutputCreate
                 0x00000000       0x58 build/lib/Hal.a(inoutput.o)
  .text.InoutputOutputActivate
-                0x00000000       0x2c build/lib/Hal.a(inoutput.o)
+                0x00000000       0x44 build/lib/Hal.a(inoutput.o)
  .text.InoutputOutputDeactivate
-                0x00000000       0x2c build/lib/Hal.a(inoutput.o)
+                0x00000000       0x30 build/lib/Hal.a(inoutput.o)
  .text.InoutputOutputToggle
                 0x00000000       0x2c build/lib/Hal.a(inoutput.o)
  .text.InoutputInputCreate
@@ -531,11 +531,11 @@ Discarded input sections
  .text.DisplayAllocate
                 0x00000000       0x14 build/lib/Hal.a(screen.o)
  .text.DisplayCreate
-                0x00000000       0x56 build/lib/Hal.a(screen.o)
+                0x00000000       0x6e build/lib/Hal.a(screen.o)
  .text.DisplayToggleDots
                 0x00000000       0x50 build/lib/Hal.a(screen.o)
  .bss.instances.0
-                0x00000000       0x14 build/lib/Hal.a(screen.o)
+                0x00000000       0x18 build/lib/Hal.a(screen.o)
  .debug_macro   0x00000000      0xb1a build/lib/Hal.a(screen.o)
  .debug_macro   0x00000000       0x22 build/lib/Hal.a(screen.o)
  .debug_macro   0x00000000       0x8e build/lib/Hal.a(screen.o)
@@ -1066,19 +1066,19 @@ LOAD C:/msys64/ucrt64/bin/../lib/gcc/arm-none-eabi/13.3.0/thumb/v7e-m+fp/softfp/
                 0x1a000114                        . = ALIGN (0x4)
                 0x1a000114                        __section_table_start = .
                 0x1a000114                        __data_section_table = .
-                0x1a000114        0x4 LONG 0x1a000700 LOADADDR (.data)
+                0x1a000114        0x4 LONG 0x1a0007e8 LOADADDR (.data)
                 0x1a000118        0x4 LONG 0x10000000 ADDR (.data)
                 0x1a00011c        0x4 LONG 0x0 SIZEOF (.data)
-                0x1a000120        0x4 LONG 0x1a000700 LOADADDR (.data_RAM2)
+                0x1a000120        0x4 LONG 0x1a0007e8 LOADADDR (.data_RAM2)
                 0x1a000124        0x4 LONG 0x10080000 ADDR (.data_RAM2)
                 0x1a000128        0x4 LONG 0x0 SIZEOF (.data_RAM2)
-                0x1a00012c        0x4 LONG 0x1a000700 LOADADDR (.data_RAM3)
+                0x1a00012c        0x4 LONG 0x1a0007e8 LOADADDR (.data_RAM3)
                 0x1a000130        0x4 LONG 0x20000000 ADDR (.data_RAM3)
                 0x1a000134        0x4 LONG 0x0 SIZEOF (.data_RAM3)
-                0x1a000138        0x4 LONG 0x1a000700 LOADADDR (.data_RAM4)
+                0x1a000138        0x4 LONG 0x1a0007e8 LOADADDR (.data_RAM4)
                 0x1a00013c        0x4 LONG 0x20008000 ADDR (.data_RAM4)
                 0x1a000140        0x4 LONG 0x0 SIZEOF (.data_RAM4)
-                0x1a000144        0x4 LONG 0x1a000700 LOADADDR (.data_RAM5)
+                0x1a000144        0x4 LONG 0x1a0007e8 LOADADDR (.data_RAM5)
                 0x1a000148        0x4 LONG 0x2000c000 ADDR (.data_RAM5)
                 0x1a00014c        0x4 LONG 0x0 SIZEOF (.data_RAM5)
                 0x1a000150                        __data_section_table_end = .
@@ -1184,52 +1184,55 @@ LOAD C:/msys64/ucrt64/bin/../lib/gcc/arm-none-eabi/13.3.0/thumb/v7e-m+fp/softfp/
 .iplt           0x1a000250        0x0
  .iplt          0x1a000250        0x0 build/obj/src/main.o
 
-.text           0x1a000250      0x4b0
+.text           0x1a000250      0x598
  *(.text*)
- .text.main     0x1a000250      0x150 build/obj/src/main.o
+ .text.main     0x1a000250      0x1a0 build/obj/src/main.o
                 0x1a000250                main
  .text.ResetISR
-                0x1a0003a0       0xe4 build/obj/external/base/soc/lpc43xx/startup/cr_startup_lpc43xx.o
-                0x1a0003a0                ResetISR
+                0x1a0003f0       0xe4 build/obj/external/base/soc/lpc43xx/startup/cr_startup_lpc43xx.o
+                0x1a0003f0                ResetISR
  .text.Chip_GPIO_ReadPortBit
-                0x1a000484       0x34 build/lib/Hal.a(inoutput.o)
+                0x1a0004d4       0x34 build/lib/Hal.a(inoutput.o)
  .text.InoutputInputGetState
-                0x1a0004b8       0x58 build/lib/Hal.a(inoutput.o)
-                0x1a0004b8                InoutputInputGetState
+                0x1a000508       0x58 build/lib/Hal.a(inoutput.o)
+                0x1a000508                InoutputInputGetState
  .text.InoutputInputHasChanged
-                0x1a000510       0x5e build/lib/Hal.a(inoutput.o)
-                0x1a000510                InoutputInputHasChanged
+                0x1a000560       0x5e build/lib/Hal.a(inoutput.o)
+                0x1a000560                InoutputInputHasChanged
  .text.InoutputInputHasActivated
-                0x1a00056e       0x22 build/lib/Hal.a(inoutput.o)
-                0x1a00056e                InoutputInputHasActivated
+                0x1a0005be       0x22 build/lib/Hal.a(inoutput.o)
+                0x1a0005be                InoutputInputHasActivated
  .text.DisplayWriteBCD
-                0x1a000590       0x68 build/lib/Hal.a(screen.o)
-                0x1a000590                DisplayWriteBCD
+                0x1a0005e0       0x68 build/lib/Hal.a(screen.o)
+                0x1a0005e0                DisplayWriteBCD
  .text.DisplayRefresh
-                0x1a0005f8       0x56 build/lib/Hal.a(screen.o)
-                0x1a0005f8                DisplayRefresh
- *fill*         0x1a00064e        0x2 
- .text          0x1a000650       0xa4 C:/msys64/ucrt64/bin/../lib/gcc/arm-none-eabi/13.3.0/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/softfp\libc_nano.a(libc_a-memset.o)
-                0x1a000650                memset
+                0x1a000648       0xb0 build/lib/Hal.a(screen.o)
+                0x1a000648                DisplayRefresh
+ .text.DisplayFlashDigits
+                0x1a0006f8       0x3e build/lib/Hal.a(screen.o)
+                0x1a0006f8                DisplayFlashDigits
+ *fill*         0x1a000736        0x2 
+ .text          0x1a000738       0xa4 C:/msys64/ucrt64/bin/../lib/gcc/arm-none-eabi/13.3.0/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/softfp\libc_nano.a(libc_a-memset.o)
+                0x1a000738                memset
  *(.rodata .rodata.* .constdata .constdata.*)
  .rodata.IMAGES
-                0x1a0006f4        0xa build/lib/Hal.a(screen.o)
-                0x1a000700                        . = ALIGN (0x4)
- *fill*         0x1a0006fe        0x2 
+                0x1a0007dc        0xa build/lib/Hal.a(screen.o)
+                0x1a0007e8                        . = ALIGN (0x4)
+ *fill*         0x1a0007e6        0x2 
 
-.rel.dyn        0x1a000700        0x0
- .rel.iplt      0x1a000700        0x0 build/obj/src/main.o
+.rel.dyn        0x1a0007e8        0x0
+ .rel.iplt      0x1a0007e8        0x0 build/obj/src/main.o
 
 .ARM.extab
  *(.ARM.extab* .gnu.linkonce.armextab.*)
-                0x1a000700                        __exidx_start = .
+                0x1a0007e8                        __exidx_start = .
 
 .ARM.exidx
  *(.ARM.exidx* .gnu.linkonce.armexidx.*)
-                0x1a000700                        __exidx_end = .
-                0x1a000700                        _etext = .
+                0x1a0007e8                        __exidx_end = .
+                0x1a0007e8                        _etext = .
 
-.data_RAM2      0x10080000        0x0 load address 0x1a000700
+.data_RAM2      0x10080000        0x0 load address 0x1a0007e8
  FILL mask 0xff
                 [!provide]                        PROVIDE (__start_data_RAM2 = .)
  *(.ramfunc.$RAM2)
@@ -1240,7 +1243,7 @@ LOAD C:/msys64/ucrt64/bin/../lib/gcc/arm-none-eabi/13.3.0/thumb/v7e-m+fp/softfp/
                 0x10080000                        . = ALIGN (0x4)
                 [!provide]                        PROVIDE (__end_data_RAM2 = .)
 
-.data_RAM3      0x20000000        0x0 load address 0x1a000700
+.data_RAM3      0x20000000        0x0 load address 0x1a0007e8
  FILL mask 0xff
                 [!provide]                        PROVIDE (__start_data_RAM3 = .)
  *(.ramfunc.$RAM3)
@@ -1250,7 +1253,7 @@ LOAD C:/msys64/ucrt64/bin/../lib/gcc/arm-none-eabi/13.3.0/thumb/v7e-m+fp/softfp/
                 0x20000000                        . = ALIGN (0x4)
                 [!provide]                        PROVIDE (__end_data_RAM3 = .)
 
-.data_RAM4      0x20008000        0x0 load address 0x1a000700
+.data_RAM4      0x20008000        0x0 load address 0x1a0007e8
  FILL mask 0xff
                 [!provide]                        PROVIDE (__start_data_RAM4 = .)
  *(.ramfunc.$RAM4)
@@ -1260,7 +1263,7 @@ LOAD C:/msys64/ucrt64/bin/../lib/gcc/arm-none-eabi/13.3.0/thumb/v7e-m+fp/softfp/
                 0x20008000                        . = ALIGN (0x4)
                 [!provide]                        PROVIDE (__end_data_RAM4 = .)
 
-.data_RAM5      0x2000c000        0x0 load address 0x1a000700
+.data_RAM5      0x2000c000        0x0 load address 0x1a0007e8
  FILL mask 0xff
                 [!provide]                        PROVIDE (__start_data_RAM5 = .)
  *(.ramfunc.$RAM5)
@@ -1276,7 +1279,7 @@ LOAD C:/msys64/ucrt64/bin/../lib/gcc/arm-none-eabi/13.3.0/thumb/v7e-m+fp/softfp/
                 0x10000000                        . = ALIGN (0x4)
                 0x10000000                        _end_uninit_RESERVED = .
 
-.data           0x10000000        0x0 load address 0x1a000700
+.data           0x10000000        0x0 load address 0x1a0007e8
  FILL mask 0xff
                 0x10000000                        _data = .
  *(vtable)
@@ -1285,7 +1288,7 @@ LOAD C:/msys64/ucrt64/bin/../lib/gcc/arm-none-eabi/13.3.0/thumb/v7e-m+fp/softfp/
                 0x10000000                        . = ALIGN (0x4)
                 0x10000000                        _edata = .
 
-.igot.plt       0x10000000        0x0 load address 0x1a000700
+.igot.plt       0x10000000        0x0 load address 0x1a0007e8
  .igot.plt      0x10000000        0x0 build/obj/src/main.o
 
 .bss_RAM2       0x10080000        0x0
@@ -1352,7 +1355,7 @@ LOAD C:/msys64/ucrt64/bin/../lib/gcc/arm-none-eabi/13.3.0/thumb/v7e-m+fp/softfp/
                 0x10000004                        _end_noinit = .
                 [!provide]                        PROVIDE (_pvHeapStart = DEFINED (__user_heap_base)?__user_heap_base:.)
                 0x10008000                        PROVIDE (_vStackTop = DEFINED (__user_stack_top)?__user_stack_top:(__top_RamLoc32 - 0x0))
-                0x53ff7232                        PROVIDE (__valid_user_code_checksum = (0x0 - ((((((_vStackTop + (ResetISR + 0x1)) + (NMI_Handler + 0x1)) + (HardFault_Handler + 0x1)) + (DEFINED (MemManage_Handler)?MemManage_Handler:0x0 + 0x1)) + (DEFINED (BusFault_Handler)?BusFault_Handler:0x0 + 0x1)) + (DEFINED (UsageFault_Handler)?UsageFault_Handler:0x0 + 0x1))))
+                0x53ff71e2                        PROVIDE (__valid_user_code_checksum = (0x0 - ((((((_vStackTop + (ResetISR + 0x1)) + (NMI_Handler + 0x1)) + (HardFault_Handler + 0x1)) + (DEFINED (MemManage_Handler)?MemManage_Handler:0x0 + 0x1)) + (DEFINED (BusFault_Handler)?BusFault_Handler:0x0 + 0x1)) + (DEFINED (UsageFault_Handler)?UsageFault_Handler:0x0 + 0x1))))
 OUTPUT(build/bin/reloj.elf elf32-littlearm)
 LOAD linker stubs
 
@@ -1379,21 +1382,21 @@ LOAD linker stubs
  .comment       0x00000012       0x13 build/lib/Hal.a(screen.o)
  .comment       0x00000012       0x13 C:/msys64/ucrt64/bin/../lib/gcc/arm-none-eabi/13.3.0/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/softfp\libc_nano.a(libc_a-memset.o)
 
-.debug_info     0x00000000     0x1402
- .debug_info    0x00000000      0x6d0 build/obj/src/main.o
- .debug_info    0x000006d0      0x2d4 build/obj/external/base/soc/lpc43xx/startup/cr_startup_lpc43xx.o
- .debug_info    0x000009a4      0x5e0 build/lib/Hal.a(inoutput.o)
- .debug_info    0x00000f84      0x349 build/lib/Hal.a(screen.o)
- .debug_info    0x000012cd      0x135 C:/msys64/ucrt64/bin/../lib/gcc/arm-none-eabi/13.3.0/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/softfp\libc_nano.a(libc_a-memset.o)
+.debug_info     0x00000000     0x14dc
+ .debug_info    0x00000000      0x715 build/obj/src/main.o
+ .debug_info    0x00000715      0x2d4 build/obj/external/base/soc/lpc43xx/startup/cr_startup_lpc43xx.o
+ .debug_info    0x000009e9      0x5e0 build/lib/Hal.a(inoutput.o)
+ .debug_info    0x00000fc9      0x3de build/lib/Hal.a(screen.o)
+ .debug_info    0x000013a7      0x135 C:/msys64/ucrt64/bin/../lib/gcc/arm-none-eabi/13.3.0/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/softfp\libc_nano.a(libc_a-memset.o)
 
-.debug_abbrev   0x00000000      0x717
+.debug_abbrev   0x00000000      0x71a
  .debug_abbrev  0x00000000      0x158 build/obj/src/main.o
  .debug_abbrev  0x00000158      0x179 build/obj/external/base/soc/lpc43xx/startup/cr_startup_lpc43xx.o
  .debug_abbrev  0x000002d1      0x20b build/lib/Hal.a(inoutput.o)
- .debug_abbrev  0x000004dc      0x184 build/lib/Hal.a(screen.o)
- .debug_abbrev  0x00000660       0xb7 C:/msys64/ucrt64/bin/../lib/gcc/arm-none-eabi/13.3.0/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/softfp\libc_nano.a(libc_a-memset.o)
+ .debug_abbrev  0x000004dc      0x187 build/lib/Hal.a(screen.o)
+ .debug_abbrev  0x00000663       0xb7 C:/msys64/ucrt64/bin/../lib/gcc/arm-none-eabi/13.3.0/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/softfp\libc_nano.a(libc_a-memset.o)
 
-.debug_aranges  0x00000000      0x190
+.debug_aranges  0x00000000      0x198
  .debug_aranges
                 0x00000000       0x20 build/obj/src/main.o
  .debug_aranges
@@ -1401,12 +1404,12 @@ LOAD linker stubs
  .debug_aranges
                 0x000000a0       0x90 build/lib/Hal.a(inoutput.o)
  .debug_aranges
-                0x00000130       0x40 build/lib/Hal.a(screen.o)
+                0x00000130       0x48 build/lib/Hal.a(screen.o)
  .debug_aranges
-                0x00000170       0x20 C:/msys64/ucrt64/bin/../lib/gcc/arm-none-eabi/13.3.0/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/softfp\libc_nano.a(libc_a-memset.o)
+                0x00000178       0x20 C:/msys64/ucrt64/bin/../lib/gcc/arm-none-eabi/13.3.0/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/softfp\libc_nano.a(libc_a-memset.o)
 
 .debug_rnglists
-                0x00000000      0x10e
+                0x00000000      0x115
  .debug_rnglists
                 0x00000000       0x14 build/obj/src/main.o
  .debug_rnglists
@@ -1414,7 +1417,7 @@ LOAD linker stubs
  .debug_rnglists
                 0x00000070       0x67 build/lib/Hal.a(inoutput.o)
  .debug_rnglists
-                0x000000d7       0x37 build/lib/Hal.a(screen.o)
+                0x000000d7       0x3e build/lib/Hal.a(screen.o)
 
 .debug_macro    0x00000000     0x639a
  .debug_macro   0x00000000      0x40a build/obj/src/main.o
@@ -1508,27 +1511,27 @@ LOAD linker stubs
  .debug_macro   0x0000634e       0x10 build/lib/Hal.a(screen.o)
  .debug_macro   0x0000635e       0x3c build/lib/Hal.a(screen.o)
 
-.debug_line     0x00000000     0x1a63
- .debug_line    0x00000000      0x91e build/obj/src/main.o
- .debug_line    0x0000091e      0x1b7 build/obj/external/base/soc/lpc43xx/startup/cr_startup_lpc43xx.o
- .debug_line    0x00000ad5      0xa65 build/lib/Hal.a(inoutput.o)
- .debug_line    0x0000153a      0x360 build/lib/Hal.a(screen.o)
- .debug_line    0x0000189a      0x1c9 C:/msys64/ucrt64/bin/../lib/gcc/arm-none-eabi/13.3.0/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/softfp\libc_nano.a(libc_a-memset.o)
+.debug_line     0x00000000     0x1b0a
+ .debug_line    0x00000000      0x947 build/obj/src/main.o
+ .debug_line    0x00000947      0x1b7 build/obj/external/base/soc/lpc43xx/startup/cr_startup_lpc43xx.o
+ .debug_line    0x00000afe      0xa6b build/lib/Hal.a(inoutput.o)
+ .debug_line    0x00001569      0x3d8 build/lib/Hal.a(screen.o)
+ .debug_line    0x00001941      0x1c9 C:/msys64/ucrt64/bin/../lib/gcc/arm-none-eabi/13.3.0/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/softfp\libc_nano.a(libc_a-memset.o)
 
-.debug_str      0x00000000    0x1b2ca
- .debug_str     0x00000000    0x1b2ca build/obj/src/main.o
-                              0x1adac (size before relaxing)
- .debug_str     0x0001b2ca     0x3113 build/obj/external/base/soc/lpc43xx/startup/cr_startup_lpc43xx.o
- .debug_str     0x0001b2ca    0x19e4e build/lib/Hal.a(inoutput.o)
- .debug_str     0x0001b2ca     0x6ef9 build/lib/Hal.a(screen.o)
- .debug_str     0x0001b2ca      0x1a0 C:/msys64/ucrt64/bin/../lib/gcc/arm-none-eabi/13.3.0/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/softfp\libc_nano.a(libc_a-memset.o)
+.debug_str      0x00000000    0x1b32f
+ .debug_str     0x00000000    0x1b32f build/obj/src/main.o
+                              0x1adde (size before relaxing)
+ .debug_str     0x0001b32f     0x3113 build/obj/external/base/soc/lpc43xx/startup/cr_startup_lpc43xx.o
+ .debug_str     0x0001b32f    0x19e4e build/lib/Hal.a(inoutput.o)
+ .debug_str     0x0001b32f     0x6f66 build/lib/Hal.a(screen.o)
+ .debug_str     0x0001b32f      0x1a0 C:/msys64/ucrt64/bin/../lib/gcc/arm-none-eabi/13.3.0/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/softfp\libc_nano.a(libc_a-memset.o)
 
-.debug_frame    0x00000000      0x4d0
+.debug_frame    0x00000000      0x4f8
  .debug_frame   0x00000000       0x30 build/obj/src/main.o
  .debug_frame   0x00000030      0x170 build/obj/external/base/soc/lpc43xx/startup/cr_startup_lpc43xx.o
  .debug_frame   0x000001a0      0x240 build/lib/Hal.a(inoutput.o)
- .debug_frame   0x000003e0       0xc4 build/lib/Hal.a(screen.o)
- .debug_frame   0x000004a4       0x2c C:/msys64/ucrt64/bin/../lib/gcc/arm-none-eabi/13.3.0/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/softfp\libc_nano.a(libc_a-memset.o)
+ .debug_frame   0x000003e0       0xec build/lib/Hal.a(screen.o)
+ .debug_frame   0x000004cc       0x2c C:/msys64/ucrt64/bin/../lib/gcc/arm-none-eabi/13.3.0/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/softfp\libc_nano.a(libc_a-memset.o)
 
 .debug_loclists
                 0x00000000      0x1c2
@@ -1549,6 +1552,8 @@ DMA_IRQHandler                                    build/obj/external/base/soc/lp
 DebugMon_Handler                                  build/obj/external/base/soc/lpc43xx/startup/cr_startup_lpc43xx.o
 DisplayCreate                                     build/lib/Hal.a(screen.o)
                                                   build/obj/src/placa.o
+DisplayFlashDigits                                build/lib/Hal.a(screen.o)
+                                                  build/obj/src/main.o
 DisplayRefresh                                    build/lib/Hal.a(screen.o)
                                                   build/obj/src/main.o
 DisplayToggleDots                                 build/lib/Hal.a(screen.o)

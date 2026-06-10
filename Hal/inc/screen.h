@@ -121,6 +121,15 @@ void DisplayWriteBCD(display_t display, uint8_t * number, uint8_t size);
 void DisplayRefresh(display_t display);
 
 /**
+ * @brief Configura el parpadeo de un rango de dígitos.
+ * @param  display    Descriptor creado con @ref DisplayCreate
+ * @param  from       Índice del primer dígito que parpadea
+ * @param  to         Índice del último dígito que parpadea
+ * @param  frecuency  Divisor respecto al ciclo de refresco; @c 0 desactiva el parpadeo
+ */
+void DisplayFlashDigits(display_t display, uint8_t from, uint8_t to, uint16_t frecuency);
+
+/**
  * @brief Conmuta el punto decimal de un rango de dígitos
  * @param  display  Descriptor creado con @ref DisplayCreate
  * @param  from     Índice del primer dígito

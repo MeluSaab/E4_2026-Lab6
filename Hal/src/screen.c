@@ -41,6 +41,10 @@ SPDX-License-Identifier: MIT
 struct display_s{
     uint8_t digits;
     uint8_t active_digit;
+    uint8_t flashing_fron;
+    uint8_t flashing_to;
+    uint16_t flashing_frecuency;
+    uint16_t flashing_count;
     uint8_t display_memory[DISPLAY_MAX_DIGITS];
     struct display_driver_s driver[1];
 };
@@ -86,7 +90,11 @@ display_t DisplayCreate(uint8_t digits, display_driver_t driver){
     display_t display = DisplayAllocate();
     if(display){
         display->digits = digits;
-        display->active_digit = digits -1;
+        display->active_digit = digits - 1;
+        display->flashing_count = 0;
+        display->flashing_fron = 0;
+        display->flashing_to = 0;
+        display->flashing_frecuency = 0;
         memcpy(display->driver, driver, sizeof(display -> driver));
         memset(display->display_memory, 0, sizeof(display->display_memory));
         display -> driver -> UpdateSegments(0x00);
@@ -115,9 +123,40 @@ void DisplayRefresh(display_t display){
 
     display -> driver -> UpdateSegments(0x00);
     display -> active_digit = (display -> active_digit + 1) % display -> digits;
+   
+    if (display->active_digit == 0){
+        display->flashing_count++;
+        if (display->flashing_count >= display->flashing_frecuency){
+            display->flashing_count = 0; 
+        }
+    } 
+
     segments = display -> display_memory[display -> active_digit];
+    
+    if (display->flashing_frecuency > 0){
+        if (display->flashing_count >= display->flashing_frecuency / 2){
+            if ((display->active_digit >= display->flashing_fron) && (display->active_digit <= display->flashing_to)){
+                segments=0;
+            }
+        }
+    }
+
     display -> driver -> UpdateDigits(display -> active_digit);
     display -> driver -> UpdateSegments(segments);
+}
+
+/**
+ * @brief Configura los parámetros de parapadeo 
+ * @param display Puntero al objeto del display
+ * @param from índice del primer dígito donde comienza el efecto de parpadeo
+ * @param to índice del último dígito donde termina el efecto de parpadeo 
+ * @param frecuency Cantidad de ciclos para conmutar el estado 
+ */
+void DisplayFlashDigits(display_t display, uint8_t from, uint8_t to, uint16_t frecuency){
+    display->flashing_count = 0;
+    display->flashing_fron = from;
+    display->flashing_to = to;
+    display->flashing_frecuency = frecuency;
 }
 
 /**

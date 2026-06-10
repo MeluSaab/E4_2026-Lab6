@@ -61,13 +61,26 @@ static placa_t placa;
 
 int main(void) {
     uint8_t entrada[4] = {4, 2, 3, 1};
-    
+     uint16_t frecuencia = 0;
+
+    DisplayWriteBCD(placa->display, entrada, sizeof(entrada));
     while (true) {
+
+        if(InoutputInputHasActivated(placa -> accept)){
+            if(frecuencia == 0){
+                frecuencia = 100;
+            } else if (frecuencia == 100){
+                frecuencia = 250;
+            } else {
+                frecuencia = 0;
+            }
+            DisplayFlashDigits(placa-> display,0,3,frecuencia);
+        }
         if(InoutputInputHasActivated(placa -> f1)){
             entrada[3] = (entrada[3] + 1) % 10;
             DisplayWriteBCD(placa -> display, entrada, sizeof(entrada));
         } 
-        
+
         if(InoutputInputHasActivated(placa -> f2)){
             entrada[2] = (entrada[32] + 1) % 10;
             DisplayWriteBCD(placa -> display, entrada, sizeof(entrada));
