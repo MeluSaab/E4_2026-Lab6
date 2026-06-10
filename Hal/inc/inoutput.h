@@ -43,8 +43,14 @@ extern "C" {
 
 /* === Public data type declarations =============================================================================== */
 
+/**
+ * @brief Estructura para representar a las salidas digitales.
+ */
 typedef struct inoutput_output_s * inoutput_output_t;
 
+/**
+ * @brief Estructura para representar las entradas digitales.
+ */
 typedef struct inoutput_input_s * inoutput_input_t;
 
 /* === Public variable declarations ================================================================================ */

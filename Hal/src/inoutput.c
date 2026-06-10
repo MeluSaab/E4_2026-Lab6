@@ -131,7 +131,7 @@ void InoutputOutputToggle(inoutput_output_t self){
  */
 inoutput_input_t InoutputInputCreate(uint32_t port, uint8_t pin, bool logic) {
     inoutput_input_t self = malloc(sizeof(struct inoutput_input_s));
-   if(self != NULL){
+   if(self){
     self->port = port;
     self->pin = pin;
     self->logic = logic;

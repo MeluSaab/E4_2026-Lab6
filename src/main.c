@@ -85,7 +85,7 @@ int main(void) {
 
         for(int i = 0; i < 50; i++){
             for(int delay = 0; delay < 1000; delay++){
-                _asm("NOP");
+                __asm__("NOP");
             }
             DisplayRefresh(placa -> display);
         }

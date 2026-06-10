@@ -54,7 +54,7 @@ typedef struct placa_s {
     inoutput_input_t f2;
     inoutput_input_t f3;
     inoutput_input_t f4;
-} const * const placa_t;
+} const * placa_t;
 
 /* === Public variable declarations ================================================================================ */
 

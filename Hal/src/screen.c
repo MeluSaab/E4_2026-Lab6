@@ -29,7 +29,7 @@ SPDX-License-Identifier: MIT
 /* === Macros definitions ========================================================================================== */
 
 #ifndef DISPLAY_MAX_DIGITS
-#define DISPLAY_MAX_DIGITS 4
+#define DISPLAY_MAX_DIGITS 8
 #endif
 
 /* === Private data type declarations ============================================================================== */
@@ -83,7 +83,7 @@ static display_t DisplayAllocate(void){
  * @return         Descriptor de la pantalla, o @c NULL si no hay instancia disponible
  */
 display_t DisplayCreate(uint8_t digits, display_driver_t driver){
-    display_t display = DisplayAllocate;
+    display_t display = DisplayAllocate();
     if(display){
         display->digits = digits;
         display->active_digit = digits -1;

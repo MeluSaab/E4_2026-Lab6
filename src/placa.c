@@ -169,9 +169,24 @@ SPDX-License-Identifier: MIT
 
 /* === Private function declarations =============================================================================== */
 
+/**
+ * @brief Inicializa los dígitos del display.
+ */
 static void DigitsInit(void);
+
+/**
+ * @brief Inicializa los segmentos del display.
+ */
 static void SegmentsInit(void);
+
+/**
+ * @brief Inicializa el buzzer de la placa.
+ */
 static void BuzzerInit(void);
+
+/**
+ * @brief Inicializa los botones de la placa.
+ */
 static void KeysInit(void);
 
 /**
@@ -269,7 +284,7 @@ static void KeysInit(void){
     placa.f3 = InoutputInputCreate(KEY_F3_GPIO, KEY_F3_BIT, false);
 
     Chip_SCU_PinMuxSet(KEY_F4_PORT, KEY_F4_PIN, SCU_MODE_INBUFF_EN | SCU_MODE_INACT | KEY_F4_FUNC);
-
+    placa.f4 = InoutputInputCreate(KEY_F4_GPIO, KEY_F4_BIT, false);
 }
 
 static void UpdateSegments(uint8_t segments){
@@ -284,7 +299,7 @@ static void UpdateSegments(uint8_t segments){
 }
 
 static void UpdateDigits(uint8_t digit){
-    Chip_GPIO_SetValue(LPC_GPIO_PORT, DIGITS_GPIO, (1<< (3 - digit)) & DIGITS_MASK);
+    Chip_GPIO_SetValue(LPC_GPIO_PORT, DIGITS_GPIO, (1 << (3 - digit) & DIGITS_MASK));
 }
 
 /* === Public function implementation ============================================================================== */
@@ -294,7 +309,6 @@ static void UpdateDigits(uint8_t digit){
  * @return board_t Puntero constante a la estructura estática de la placa ya inicializada
  */
 placa_t PlacaCreate() {
-    BoardSetup();
     DigitsInit();
     SegmentsInit();
     BuzzerInit();
